@@ -1,0 +1,283 @@
+{
+ "indicateur": {
+  "code": "parc_voitures",
+  "nom": "Parc voitures",
+  "unite": "vehicules",
+  "perimetre": "yaounde",
+  "groupe": "parc"
+ },
+ "points": [
+  {
+   "annee": 2018,
+   "valeur": 190000,
+   "scenario": "historique",
+   "statut": "estime",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2026,
+   "valeur": 260028.1,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2027,
+   "valeur": 270429.2,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2028,
+   "valeur": 281246.4,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2029,
+   "valeur": 292496.3,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2030,
+   "valeur": 304196.1,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2031,
+   "valeur": 316364.0,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2032,
+   "valeur": 329018.5,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2033,
+   "valeur": 342179.3,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2034,
+   "valeur": 355866.4,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2035,
+   "valeur": 370101.1,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2036,
+   "valeur": 384905.1,
+   "scenario": "tendanciel",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2026,
+   "valeur": 240686.3,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2027,
+   "valeur": 247906.9,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2028,
+   "valeur": 255344.1,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2029,
+   "valeur": 263004.4,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2030,
+   "valeur": 270894.6,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2031,
+   "valeur": 279021.4,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2032,
+   "valeur": 287392.0,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2033,
+   "valeur": 296013.8,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2034,
+   "valeur": 304894.2,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2035,
+   "valeur": 314041.1,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2036,
+   "valeur": 323462.3,
+   "scenario": "volontariste",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2026,
+   "valeur": 222615.3,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2027,
+   "valeur": 227067.6,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2028,
+   "valeur": 231608.9,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2029,
+   "valeur": 236241.1,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2030,
+   "valeur": 240965.9,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2031,
+   "valeur": 245785.3,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2032,
+   "valeur": 250701.0,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2033,
+   "valeur": 255715.0,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2034,
+   "valeur": 260829.3,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2035,
+   "valeur": 266045.9,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  },
+  {
+   "annee": 2036,
+   "valeur": 271366.8,
+   "scenario": "rupture",
+   "statut": "projete",
+   "source_id": "mock",
+   "note": "DONNEE FACTICE pour le developpement du front"
+  }
+ ]
+}

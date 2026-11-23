@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>À propos · Mobilité à Yaoundé</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<header class="entete">
+  <div class="entete-contenu">
+    <h1>Mobilité à Yaoundé, 2026-2036</h1>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html" >Tableau de bord</a>
+      <a href="carte.html" >Carte</a>
+      <a href="apropos.html" aria-current="page">À propos</a>
+    </nav>
+  </div>
+</header>
+<main class="texte">
+  <h2>Ce que montre cette plateforme</h2>
+  <p>Elle répond à trois questions : que s'est-il passé jusqu'ici, que peut-il se passer selon trois scénarios, et où cela se joue-t-il sur le territoire.</p>
+
+  <h2>Mesuré, estimé, projeté</h2>
+  <p>Chaque donnée porte une source, une unité et un statut. Une valeur <b>mesurée</b> a été observée. Une valeur <b>estimée</b> a été reconstituée. Une valeur <b>projetée</b> vient d'un scénario. Aucune estimation n'est présentée comme une mesure.</p>
+
+  <h2>Les scénarios</h2>
+  <p>Ce sont des hypothèses, pas des prévisions. <i>Contenu à compléter par la Data (hypothèses et sources des scénarios, voir HYPOTHESES.md).</i></p>
+
+  <h2>Limites</h2>
+  <ul>
+    <li>Peu de séries annuelles locales existent : le manque de données est lui-même un constat du projet.</li>
+    <li>Les accidents sont présentés à l'échelle nationale, pas à celle de Yaoundé.</li>
+    <li>Les projections 2025 du plan de mobilité de 2019 supposaient une mise en œuvre qui n'a pas eu lieu : les trois scénarios partent d'une base commune en 2026.</li>
+  </ul>
+
+  <h2>Sources et licences</h2>
+  <p><i>Liste à générer depuis l'API (table des sources). Mentions obligatoires : © contributeurs OpenStreetMap (ODbL), OpenFreeMap © OpenMapTiles.</i></p>
+  <div class="tableau-defile" id="sources"></div>
+</main>
+<footer class="pied"><p id="maj">Dernière mise à jour des données : chargement…</p></footer>
+<script type="module" src="js/apropos.js"></script>
+</body>
+</html>

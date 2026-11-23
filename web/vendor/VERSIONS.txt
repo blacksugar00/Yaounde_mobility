@@ -1,0 +1,3 @@
+echarts 5.5.1 (Apache-2.0)
+maplibre-gl 4.7.1 (BSD-3-Clause)
+Copies fixes : ne pas mettre a jour sans prevenir l'equipe (DEC-12).

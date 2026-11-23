@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carte · Mobilité à Yaoundé</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
+</head>
+<body>
+<header class="entete">
+  <div class="entete-contenu">
+    <h1>Mobilité à Yaoundé, 2026-2036</h1>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html" >Tableau de bord</a>
+      <a href="carte.html" aria-current="page">Carte</a>
+      <a href="apropos.html" >À propos</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="mise-en-page-carte">
+    <aside class="panneau" aria-label="Couches de la carte">
+      <h2>Couches</h2>
+      <div id="liste-couches"></div>
+      <button class="bouton" id="tout-masquer" type="button">Tout masquer</button>
+      <div class="legende" id="legende" aria-live="polite"></div>
+    </aside>
+    <div id="carte" role="application" aria-label="Carte interactive de Yaoundé"></div>
+  </div>
+</main>
+<footer class="pied"><p id="maj">Dernière mise à jour des données : chargement…</p></footer>
+<script src="vendor/maplibre-gl.js"></script>
+<script type="module" src="js/map.js"></script>
+</body>
+</html>
