@@ -1,0 +1,4928 @@
+[
+  {
+    "code": "part_modale__bus_articule",
+    "libelle": "Part modale : Bus articulé",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.002415,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.002415,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.004829,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.004829,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.007244,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.007244,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.009658,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.009658,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.012073,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.012073,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.014487,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.014487,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.016902,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.016902,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.021093,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.017779,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.025285,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.018657,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.029476,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.019534,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.033668,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.020411,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.037859,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.021288,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.042051,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.022166,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.046242,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.023043,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.050434,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.02392,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.054625,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.024797,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.058816,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.025675,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.059694,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.026552,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__bus_public",
+    "libelle": "Part modale : Bus public",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.0,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.0,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.0,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.0,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.002705,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.005409,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.008114,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.010819,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.013524,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.012159,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.010795,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.009431,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.008067,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.006702,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.005338,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.003974,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.00261,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.00261,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.00261,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.00261,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.007034,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.003013,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.007034,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.011459,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.003417,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.011459,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.015883,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.003821,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.015883,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.020308,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.004224,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.020308,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.024732,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.004628,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.024732,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.029157,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.005032,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.029157,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.033581,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.005435,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.033581,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.034149,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.005181,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.032078,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.034717,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.004927,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.030574,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.035284,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.004673,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.02907,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.035852,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.004419,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.027567,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.03642,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.004165,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.026063,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.036988,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.003911,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.02456,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.037556,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.003657,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.023056,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.038123,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.003403,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.021553,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.038691,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.003149,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.020049,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.039259,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.002895,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.018545,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.037755,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.00264,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.017042,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__marche",
+    "libelle": "Part modale : Marche à pied",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 0.363211,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.363088,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.362966,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.362844,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.362722,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 0.3626,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.361047,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.359494,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.357941,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.356388,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.354835,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.354924,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.355013,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.355102,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.355191,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.35528,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.355369,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.355458,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.355547,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.355547,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.355547,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.355547,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.350152,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.352324,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.350152,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.344758,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.349102,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.344758,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.339364,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.345879,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.339364,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.333969,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.342657,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.333969,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.328575,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.339434,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.328575,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.32318,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.336212,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.32318,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.317786,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.332989,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.317786,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.316508,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.330923,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.316508,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.315231,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.328857,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.315231,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.313953,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.326791,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.313953,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.312675,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.324725,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.312675,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.311397,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.322659,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.311397,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.31012,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.320593,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.31012,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.308842,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.318527,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.308842,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.307564,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.316461,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.307564,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.306286,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.314395,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.306286,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.305009,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.312329,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.305009,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.303731,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.310263,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.303731,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__minibus",
+    "libelle": "Part modale : Minibus",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 0.021609,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.020868,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.020127,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.019387,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.018646,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 0.017905,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.018221,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.018536,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.018852,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.019168,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.019483,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.019784,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.020085,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.020385,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.020686,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.020987,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.021287,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.021588,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.021889,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.021889,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.021889,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.021889,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.021055,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.021361,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.021055,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.020221,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.020833,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.020221,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.019387,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.020305,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.019387,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.018553,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.019777,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.018553,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.017719,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.019249,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.017719,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.016885,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.018722,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.016885,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.016051,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.018194,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.016051,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.015848,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.017767,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.015848,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.015646,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.01734,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.015646,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.015443,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.016913,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.015443,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.015241,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.016486,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.015241,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.015038,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.016059,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.015038,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.014836,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.015632,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.014836,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.014633,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.015205,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.014633,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.014431,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.014778,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.014431,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.014228,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.014351,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.014228,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.014026,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.013924,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.014026,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.013823,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.013497,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.013823,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__modes_actifs",
+    "libelle": "Part modale : marche et vélo",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 0.364046,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.363922,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.363797,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.363673,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.363548,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 0.363424,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.361867,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.360311,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.358755,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.357198,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.355642,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.355732,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.355821,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.355911,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.356001,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.35609,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.35618,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.35627,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.356359,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.356359,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.356359,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.356359,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.350968,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.353142,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.350968,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.345577,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.349924,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.345577,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.340187,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.346706,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.340187,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.334796,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.343488,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.334796,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.329405,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.340271,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.329405,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.324014,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.337053,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.324014,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.318623,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.333835,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.318623,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.317343,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.331768,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.317343,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.316063,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.3297,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.316063,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.314784,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.327632,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.314784,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.313504,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.325565,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.313504,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.312224,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.323497,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.312224,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.310945,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.32143,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.310945,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.309665,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.319362,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.309665,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.308385,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.317295,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.308385,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.307105,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.315227,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.307105,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.305826,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.31316,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.305826,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.304546,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.311092,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.304546,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__moto_particuliere",
+    "libelle": "Part modale : Moto particulière",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 0.013547,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.013699,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.013852,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.014004,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.014156,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 0.014308,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.014427,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.014546,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.014666,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.014785,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.014904,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.015103,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.015301,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.0155,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.015699,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.015897,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.016096,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.016294,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.016493,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.016493,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.016493,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.016493,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.016493,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.016582,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.016493,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.016494,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.016671,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.016494,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.016494,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.01676,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.016494,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.016495,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.016849,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.016495,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.016496,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.016938,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.016496,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.016496,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.017027,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.016496,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.016497,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.017116,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.016497,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.016548,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.017179,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.016548,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.0166,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.017241,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.0166,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.016652,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.017304,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.016652,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.016703,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.017367,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.016703,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.016755,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.017429,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.016755,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.016807,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.017492,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.016807,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.016858,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.017555,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.016858,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.01691,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.017617,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.01691,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.016962,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.01768,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.016962,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.017013,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.017743,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.017013,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.017065,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.017805,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.017065,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__motos_taxis",
+    "libelle": "Part modale : Motos-taxis",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 0.131009,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.130968,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.130928,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.130887,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.130846,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 0.130806,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.13025,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.129694,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.129138,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.128582,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.128026,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.127704,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.127381,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.127058,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.126736,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.126413,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.12609,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.125767,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.125445,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.125445,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.125445,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.125445,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.126026,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.126318,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.126026,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.126607,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.127191,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.126607,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.127188,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.128064,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.127188,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.12777,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.128937,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.12777,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.128351,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.129811,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.128351,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.128932,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.130684,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.128932,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.129513,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.131557,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.129513,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.127524,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.132001,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.13001,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.125535,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.132444,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.130507,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.123547,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.132888,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.131003,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.121558,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.133332,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.1315,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.119569,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.133775,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.131997,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.11758,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.134219,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.132493,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.115591,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.134663,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.13299,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.113602,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.135106,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.133487,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.111613,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.13555,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.133984,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.109624,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.135994,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.13448,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.110121,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.136437,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.134977,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__taxi_collectif",
+    "libelle": "Part modale : Taxi collectif",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 0.399396,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.399272,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.399148,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.399024,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.3989,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 0.398777,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.397082,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.395387,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.393693,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.391998,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.390303,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.390386,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.39047,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.390553,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.390636,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.390719,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.390802,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.390885,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.390969,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.390969,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.390969,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.390969,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.388716,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.392169,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.388716,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.386464,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.393369,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.386464,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.384211,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.39457,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.384211,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.381959,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.39577,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.381959,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.379707,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.396971,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.379707,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.377454,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.398171,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.377454,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.375202,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.399371,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.375202,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.371778,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.400288,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.375506,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.368354,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.401205,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.375811,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.36493,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.402122,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.376115,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.361505,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.403039,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.376419,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.358081,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.403956,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.376723,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.354657,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.404873,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.377028,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.351233,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.40579,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.377332,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.347809,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.406706,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.377636,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.344385,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.407623,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.377941,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.34096,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.40854,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.378245,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.341265,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.409457,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.378549,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__train_leger",
+    "libelle": "Part modale : Train léger",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.0029,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.0058,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.0087,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.0116,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.0145,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.017399,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.020299,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.023199,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.026099,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.028999,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.028999,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__transport_public",
+    "libelle": "Part modale : transport public (tous modes)",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 0.021609,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.020868,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.020127,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.019387,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.018646,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 0.017905,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.020926,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.023946,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.026966,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.029987,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.033007,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.031943,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.03088,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.029816,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.028753,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.027689,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.026625,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.025562,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.024498,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.024498,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.024498,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.024498,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.030503,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.024374,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.030503,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.036509,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.02425,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.036509,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.042514,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.024126,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.042514,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.048519,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.024002,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.048519,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.054524,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.023877,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.054524,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.060529,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.023753,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.060529,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.066534,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.023629,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.066534,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.073991,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.022948,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.065705,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.081447,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.022267,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.064876,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.088904,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.021586,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.064048,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.096361,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.020905,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.063219,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.103817,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.020224,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.06239,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.111274,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.019543,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.061561,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.118731,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.018862,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.060732,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.126187,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.018181,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.059904,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.133644,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.0175,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.059075,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.141101,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.016819,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.058246,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.140272,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.016138,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.057417,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__velo",
+    "libelle": "Part modale : Vélo",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 0.000835,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.000833,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.000831,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.000829,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.000826,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 0.000824,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.000821,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.000817,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.000814,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.00081,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.000807,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.000808,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.000808,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.000809,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.00081,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.00081,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.000811,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.000812,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.000812,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.000812,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.000812,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.000812,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.000816,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.000817,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.000816,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.000819,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.000822,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.000819,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.000823,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.000827,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.000823,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.000826,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.000832,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.000826,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.00083,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.000836,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.00083,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.000833,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.000841,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.000833,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.000837,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.000846,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.000837,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.000835,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.000844,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.000835,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.000833,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.000843,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.000833,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.000831,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.000841,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.000831,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.000829,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.00084,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.000829,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.000827,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.000838,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.000827,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.000825,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.000837,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.000825,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.000823,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.000835,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.000823,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.000821,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.000833,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.000821,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.000819,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.000832,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.000819,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.000817,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.00083,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.000817,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.000815,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.000829,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.000815,
+        "origine": "recalcule"
+      }
+    ]
+  },
+  {
+    "code": "part_modale__voiture_particuliere",
+    "libelle": "Part modale : Voiture particulière",
+    "unite": "part des déplacements (fraction)",
+    "source": "donnees_mobilite_yaounde_propres.xlsx",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 0.070394,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.071271,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.072148,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.073026,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.073903,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 0.074781,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 0.075448,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 0.076115,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 0.076782,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 0.07745,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 0.078117,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 0.079132,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 0.080147,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 0.081162,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 0.082177,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 0.083192,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 0.084207,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 0.085222,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 0.086236,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 0.086236,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 0.086236,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 0.086236,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 0.087293,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 0.087416,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 0.087293,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 0.088349,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 0.088595,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 0.088349,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 0.089406,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 0.089774,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 0.089406,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 0.090462,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 0.090954,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 0.090462,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 0.091518,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 0.092133,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 0.091518,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 0.092575,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 0.093312,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 0.092575,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 0.093631,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 0.094492,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 0.093631,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 0.092816,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 0.095817,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 0.094887,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 0.092,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 0.097142,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 0.096143,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 0.091185,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 0.098468,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 0.097399,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 0.090369,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 0.099793,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 0.098654,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 0.089553,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 0.101118,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 0.09991,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 0.088738,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 0.102444,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 0.101166,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 0.087922,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 0.103769,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 0.102422,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 0.087107,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 0.105094,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 0.103678,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 0.086291,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 0.10642,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 0.104934,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 0.085476,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 0.107745,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 0.10619,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 0.086732,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 0.10907,
+        "origine": "recalcule"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 0.107445,
+        "origine": "recalcule"
+      }
+    ]
+  }
+]
