@@ -19,6 +19,7 @@ def create_app() -> Flask:
         static_folder=str(Path(__file__).resolve().parent / "static"),
         static_url_path="/",
     )
+    app.config["MAX_CONTENT_LENGTH"] = 4 * 1024
     CORS(app)
 
     @app.get("/api/sante")
