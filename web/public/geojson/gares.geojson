@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "gares",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-06,
+"features": [
+{"type":"Feature","properties":{"Nom":"Gare de Soa","Carac":"Reamenagement","Horizon":null,"Cout":2},"geometry":{"type":"Point","coordinates":[11.522506,3.866191]}},
+{"type":"Feature","properties":{"Nom":"La Poste","Carac":"Taxis","Horizon":null,"Cout":1},"geometry":{"type":"Point","coordinates":[11.520415,3.861274]}},
+{"type":"Feature","properties":{"Nom":"Nlongkok","Carac":null,"Horizon":"MT","Cout":null},"geometry":{"type":"Point","coordinates":[11.522269,3.889238]}},
+{"type":"Feature","properties":{"Nom":"Coron","Carac":null,"Horizon":"MT","Cout":null},"geometry":{"type":"Point","coordinates":[11.52058,3.847052]}},
+{"type":"Feature","properties":{"Nom":"Douala","Carac":null,"Horizon":"LT","Cout":null},"geometry":{"type":"Point","coordinates":[11.416376,3.877584]}},
+{"type":"Feature","properties":{"Nom":"Nkolafamba","Carac":null,"Horizon":"LT","Cout":null},"geometry":{"type":"Point","coordinates":[11.647397,3.872063]}},
+{"type":"Feature","properties":{"Nom":"Nouveau stade","Carac":null,"Horizon":"MT","Cout":null},"geometry":{"type":"Point","coordinates":[11.540955,3.940277]}},
+{"type":"Feature","properties":{"Nom":"Odza","Carac":null,"Horizon":"MT","Cout":null},"geometry":{"type":"Point","coordinates":[11.525936,3.780645]}},
+{"type":"Feature","properties":{"Nom":"Ahala","Carac":null,"Horizon":"MT","Cout":null},"geometry":{"type":"Point","coordinates":[11.481264,3.794688]}},
+{"type":"Feature","properties":{"Nom":"Bastos","Carac":null,"Horizon":"LT","Cout":null},"geometry":{"type":"Point","coordinates":[11.505158,3.89884]}}
+]
+}
