@@ -171,13 +171,23 @@ Le consommateur ne bloque pas en silence : si un contrat/livrable est en retard
 de plus de 30 minutes, son proprietaire alerte les deux autres au sync et le
 trio choisit explicitement mock temporaire, livraison partielle ou report.
 
-### Priorites de livraison si le temps manque
+### Périmètre de livraison et intégration complète
 
-| Priorite du PDF | Fonctions | Decision |
-|---|---|---|
-| Indispensable | F1 accueil, F2 retrospectif, F3 carte population, F5 comparateur, F8 questionnaire, F9 resultats, F10 methodologie | Garder; terminer et verifier avant les souhaitables |
-| Souhaitable | F4 infrastructures, F6 parts modales, F7 GES/temps | Au sync du jeudi 17 h 30, terminer seulement si les indispensables passent; sinon marquer « en cours / non disponible » et ne pas les presenter comme terminees |
-| Optionnel | F12/export, corridors, couches `ZONAGE_` et finitions | Couper en premier |
+Toutes les fonctionnalités initiales sont désormais intégrées au périmètre cible pour garantir un observatoire complet et conforme aux exigences métier :
+
+| Fonctionnalité | Rôle & Intégration | Propriétaire | Statut |
+|---|---|---|---|
+| **F1 — Accueil** | Contexte métropolitain, chiffres clés, avertissements modèles | P2 | Actif |
+| **F2 — Rétrospectif** | Séries historiques réelles : population, parc, motorisation, déplacements | P2 / P1 / P3 | Actif (données réelles) |
+| **F3 — Carte population** | Choroplèthe des 105 zones pour 2018, 2025 et 2035 | P1 / P2 / P3 | Actif (GeoJSON livré) |
+| **F4 — Carte infrastructures** | Couches géographiques de voirie structurante, corridors et équipements | P1 / P3 / P2 | Intégré à M3 |
+| **F5 — Comparateur prospectif** | Comparaison dynamique des scénarios (tendanciel, volontariste, rupture) | P2 / P3 | Actif |
+| **F6 — Parts modales prospectives** | Évolution des parts modales (marche, taxi, moto, bus, VP) issue de `parts_modales.json` | P2 / P3 | Intégré à M3 (données prêtes) |
+| **F7 — GES et Temps de transport** | Émissions de CO2 et temps de parcours issus de `ges.json` et `temps.json` | P2 / P3 | Intégré à M3 (données prêtes) |
+| **F8 — Baromètre participatif** | Questionnaire de 17 questions validé, consentement et persistance CSV | P3 | Réalisé (M2 validé) |
+| **F9 — Résultats baromètre** | Agrégats anonymisés avec protection des petites cellules ($k \ge 5$) et ChartCard | P3 | Réalisé (M2/M3 validé) |
+| **F10 — Méthodologie** | Transparence complète : sources, hypothèses, limites, ruptures de séries | P3 | En cours (M3) |
+| **F11/F12 — Export de données** | Téléchargement ouvert des jeux de données d'indicateurs et des GeoJSON | P3 / P2 | Intégré à M4 |
 
 Le socle local, l'API, la provenance et le build Docker restent des conditions
 de fonctionnement de la demo, pas des fonctions numerotees a substituer aux
@@ -1497,11 +1507,11 @@ au plus tard mardi 17 h 30, avant que P1/P2/P3 partent sur leurs branches.
 | Jalon equipe | Echeance | Critere observable |
 |---|---|---|
 | M0 — Socle technique | PASS — vérifié le 25 nov. 2026, puis fusionné dans `main` | Structure, routes d'état, sept chemins frontend, build React, Compose et routes baromètre désactivées vérifiés. M0 n'est plus à refaire. |
-| M1 — Donnees/API/graphique connectes | Mer. 25, 12 h 30 | Sept JSON + GeoJSON livres par P1; routes de lecture disponibles par P3; P2 affiche le premier indicateur depuis l'API; premier build Docker avec les assets réussi |
-| M2 — Premier parcours bout en bout | Mer. 25, 17 h 30 | Une donnee source traverse JSON -> Flask -> React; carte 2018; POST de test fonctionne si le schema de questions est valide |
-| M3 — Noyau demonstrable | Jeu. 26, 12 h 30 | F1, F2, F3, F5, F9 et F10 accessibles; F8/F9 sont pleinement valides avec les questions et reponses de test approuvees, sinon marques bloques et M3 n'est pas declare complet |
-| M4 — Gel du perimetre et image | Jeu. 26, 17 h 30 | `docker compose up --build` fonctionne; decide explicitement quels souhaitables sont termines ou marques « non disponible / en cours » |
-| M5 — Pret pour la demo | Ven. 27, 13 h | Cinq valeurs verifiees, test mobile/navigateurs, collecte de test, presentation repete; URL active si les prerequis existent |
+| M1 — Donnees/API/graphique connectes | PASS — Mer. 25, 12 h 30 | Sept JSON + GeoJSON 105 zones livres par P1; routes de lecture disponibles par P3 (88 indicateurs); P2 affiche le premier indicateur depuis l'API; premier build Docker avec les assets réussi. |
+| M2 — Premier parcours bout en bout | EN COURS — Mer. 25, 17 h 30 | Boucle participative fonctionnelle (P3 : formulaire 17 questions, 105 quartiers, POST validé, persistance CSV, page Résultats avec protection $k \ge 5$, ChartCard entreprise); Carte Leaflet 2018 + couches infrastructures F4 en intégration par P1/P2. |
+| M3 — Noyau demonstrable complet | Jeu. 26, 12 h 30 | F1 à F10 entièrement connectés aux données réelles : F2 (déplacements, parc, motorisation), F3/F4 (carte multi-années + couches voirie/infrastructures), F5 (comparateur de scénarios), F6 (parts modales réelles), F7 (GES et temps réels), F8/F9 (baromètre citoyen complet), F10 (méthodologie et limites). |
+| M4 — Export Open Data, gel et image | Jeu. 26, 17 h 30 | Export de données F11/F12 (CSV/GeoJSON), `docker compose up --build` validé avec volume persistant `data/barometre`, gel du code sur `main`. |
+| M5 — Pret pour la demo | Ven. 27, 13 h | Cinq valeurs verifiees contre le CSV brut, test mobile/navigateurs, presentation et repetition de 10 min calées; URL active si disponible. |
 
 ### Mardi 24 novembre — M0 terminé
 
@@ -1564,37 +1574,32 @@ ce parcours avant d'ajouter des indicateurs. Si les questions organisationnelles
 ne sont toujours pas disponibles, ne pas inventer le schema : presenter F8 comme
 bloque et obtenir une decision explicite de l'organisation.
 
-### Jeudi 26 matin, 9 h–12 h 30 — noyau retrospectif/prospectif
+### Jeudi 26 matin, 9 h–12 h 30 — noyau retrospectif/prospectif et intégration complète
 
-- **P1 :** rendre `MapView` parametrable par `annee`, appliquer les trois
-  champs/legendes, controler les totaux de population et noter tout ecart.
-- **P2 :** ajouter le selecteur d'annee dans `Carte.jsx` et le relier au prop de
-  P1; la propriete du composant Leaflet reste a P1.
-- **P2 :** graphiques deplacements, parc, motorisation et comparateur F5; les
-  pages restent dans le layout commun et consomment seulement les routes P3.
-- **P3 :** page Resultats utilisant les agregats anonymes et ChartCard de P2,
-  page Methodologie complete, test manuel de chaque route.
-- **Ensemble :** comparer les series communes; signaler explicitement scenario
-  ou annee sans donnees plutot que dessiner un zero.
+- **P1 :** rendre `MapView` paramétrable par `annee` (2018, 2025, 2035) et préparer
+  la couche géographique d'infrastructures/voirie (F4); contrôler les totaux de population.
+- **P2 :** sélecteur d'année et de couches dans `Carte.jsx` (F3/F4); graphiques réels
+  de déplacements, parc, motorisation (F2), comparateur prospectif (F5), parts modales
+  réelles (F6 issu de `parts_modales.json`), et émissions GES / temps de parcours (F7
+  issu de `ges.json` et `temps.json`) avec `ChartCard`.
+- **P3 :** page Résultats (F9, déjà implémentée avec agrégats anonymisés et `ChartCard`),
+  page Méthodologie (F10) complète, routes de couches GeoJSON, et tests d'intégration.
+- **Ensemble :** validation des indicateurs réels (plus de données de test en Prospectif),
+  comparaison des scénarios et vérification du respect des règles d'anonymat.
 
-**Sortie M3 :** F1/F2/F3/F5/F9/F10 presentables. F8 et les graphiques F9 sont
-valides avec le schema et les reponses de test approuves. Sans l'intrant
-organisationnel, les deux sont explicitement bloques; ne pas presenter le jalon
-comme complet ni generer de fausses reponses.
+**Sortie M3 :** Ensemble complet des fonctionnalités F1 à F10 présentables et connectées
+aux données réelles. F8 et F9 sont validés avec le schéma de 17 questions, les 105 quartiers
+et les réponses de test conformes.
 
-### Jeudi 26 apres-midi, 14 h–17 h 30 — souhaitables et Docker de livraison
+### Jeudi 26 apres-midi, 14 h–17 h 30 — export de données (F11/F12) et Docker de livraison
 
-- **P1 :** couche infrastructure seulement si le shapefile est interpretable
-  sans correction risquee; sinon documenter son report. Executer
-  `docker compose up --build`, verifier port 5000, taille <500 Mo et ecriture
-  CSV via le bind mount.
-- **P2 :** parts modales, GES/temps uniquement si les fonctions obligatoires
-  passent leurs controles; garder les graphiques hors perimetre en « en cours ».
-- **P3 :** README reproductible (installation, sources, generation, Docker,
-  limites/stockage), support de presentation; assister au diagnostic Docker
-  sans modifier Dockerfile/Compose.
-- **17 h 30 :** le trio coupe ou garde explicitement F4/F6/F7/F9; integrations
-  necessaires sur `main`; plus aucun ajout non essentiel apres ce point.
+- **P1 :** finaliser le composant Leaflet et exécuter `docker compose up --build`,
+  vérifier port 5000, taille < 500 Mo et persistance CSV via le bind mount.
+- **P2 :** intégrer le bouton d'export de données (F11/F12) et harmoniser les finitions UI.
+- **P3 :** routes d'export de données (CSV/GeoJSON), README reproductible (installation,
+  sources, Docker, variables), et support de présentation.
+- **17 h 30 :** gel du code sur `main`; toutes les fonctionnalités F1 à F12 sont livrées
+  et validées.
 
 **Sortie M4 :** image de demo fiable et liste de fonctions non terminees
 visible dans la presentation.

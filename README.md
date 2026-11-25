@@ -35,16 +35,28 @@ L'application est ensuite disponible sur `http://localhost:5000`.
 **M0 est PASS et fusionné dans `main`**. Le bootstrap est terminé et n'est plus
 une tâche à refaire.
 
-**M1 est atteint sur `main`** : les sept jeux JSON et le GeoJSON P1 sont livrés,
-les routes P3 les servent, le graphique de population de la page Rétrospective
-lit les données réelles par l'API, et `docker compose build` réussit. Les autres
-graphiques de démonstration sont identifiés comme données de test; la page Carte
-reste à réaliser dans le périmètre M2.
+**M1 est validé et fusionné dans `main`** : les sept jeux JSON d'indicateurs et le
+GeoJSON 105 zones de P1 sont livrés, les routes P3 les servent (88 indicateurs catalogués),
+le graphique de population de la page Rétrospective lit les données réelles par l'API,
+et le premier build Docker réussit (~213 Mo).
 
-Le baromètre proposé de 17 questions est décrit dans
-[`docs/contrat_barometre.md`](docs/contrat_barometre.md). Il reste désactivé;
-ses routes retournent HTTP 503 et ne créent pas `data/barometre/reponses.csv`
-avant validation complète.
+**M2 est EN COURS** :
+- **Baromètre participatif validé et activé** (P3) : 17 questions à choix fermés, 105 quartiers
+  officiels issus du GeoJSON, texte de consentement validé. Formulaire citoyen opérationnel sur
+  `/participatif`, persistance CSV dans `data/barometre/reponses.csv` et page `/resultats`
+  avec agrégats anonymisés et masquage des petites cellules ($k \ge 5$).
+- **Visualisations graphiques** (P3/P2) : refonte entreprise de `ChartCard.jsx` (support `line`,
+  `bar`, `pie`, badges de statut mesuré/estimé/projeté, infobulles sombres haute précision).
+- **Cartographie et couches SIG** (P1/P2) : intégration du composant Leaflet `MapView.jsx`
+  dans `Carte.jsx` (population 2018) et préparation des couches géographiques d'infrastructures
+  et de voirie (F4).
+
+**Périmètre M3 / M4 confirmé** :
+Toutes les fonctionnalités cibles sont intégrées à la feuille de route :
+- **F4** (Couches SIG infrastructures & voirie sur la carte).
+- **F6** (Parts modales prospectives réelles via `parts_modales.json`).
+- **F7** (Émissions GES et temps de parcours réels via `ges.json` et `temps.json`).
+- **F11/F12** (Téléchargement et export des données ouvertes).
 
 ## Sources locales
 
