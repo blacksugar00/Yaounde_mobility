@@ -1,55 +1,156 @@
+import { useEffect, useState } from "react";
+import { getIndicateur } from "../api/client";
 import IndicatorChart from "../components/IndicatorChart";
-import MultiIndicatorChart from "../components/MultiIndicatorChart";
 import StackedBarChart from "../components/StackedBarChart";
-import EtatIndicateur from "../components/EtatIndicateur";
-import { useIndicateur } from "../hooks/useIndicateur";
-import { RETRO, SOURCE_TEST } from "../mocks/fixtures";
-
-const CODE_POPULATION = "1.1__population_urbaine_de_l_aire_metropolitaine";
+import ChartCard from "../components/ChartCard";
 
 const grille = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 26rem), 1fr))", gap: "1.5rem" };
 const carte = { background: "#fff", borderRadius: "16px", padding: "1rem", boxShadow: "0 4px 6px rgba(0,0,0,0.05)", minWidth: 0 };
 
-// Étiquette des graphiques qui utilisent encore des données fictives
-const NoteTest = () => (
-  <p role="note" style={{ display: "inline-block", background: "#fef3c7", color: "#92400e", padding: "4px 8px", borderRadius: "4px", fontSize: "0.8rem", fontWeight: 600, margin: "0 0 0.75rem" }}>
-    Données de test
-  </p>
-);
+const filtrerRetro = (ind) => {
+  if (!ind || !ind.series) return null;
+  return { ...ind, series: ind.series.filter(p => p.annee <= 2025) };
+};
 
 export default function Retrospectif() {
-  // Données réelles (API) : population, scénario "historique" uniquement.
-  const population = useIndicateur(CODE_POPULATION, "historique");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [data, setData] = useState({
+    population: null,
+    modes: [],
+    parcVoitures: null,
+    parcMotos: null,
+    motorisation: null,
+  });
+
+  useEffect(() => {
+    Promise.all([
+      getIndicateur("1.1__population_urbaine_de_l_aire_metropolitaine"),
+      getIndicateur("part_modale__marche"),
+      getIndicateur("part_modale__motos_taxis"),
+      getIndicateur("part_modale__voiture_particuliere"),
+      getIndicateur("part_modale__taxi_collectif"),
+      getIndicateur("part_modale__bus_public"),
+      getIndicateur("1.7__voiture_particuliere"),
+      getIndicateur("1.7__motos_taxis"),
+      getIndicateur("1.7__taux_de_motorisation_hors_motos_pour_mille"),
+    ])
+      .then(([pop, marche, moto, voiture, taxi, bus, parcV, parcM, motoRate]) => {
+        
+        const modesModifies = [marche, moto, voiture, taxi, bus].map(ind => {
+          if (!ind || !ind.series) return null;
+          return {
+            ...ind,
+            series: ind.series
+              .filter(p => p.annee <= 2025)
+              .map(p => ({ ...p, valeur: p.valeur <= 1 ? p.valeur * 100 : p.valeur }))
+          };
+        }).filter(Boolean);
+
+        setData({
+          population: filtrerRetro(pop),
+          modes: modesModifies,
+          parcVoitures: filtrerRetro(parcV),
+          parcMotos: filtrerRetro(parcM),
+          motorisation: filtrerRetro(motoRate),
+        });
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  // Préparation des données pour le graphique du Parc (Multi-lignes manuel)
+  let parcData = null;
+  if (data.parcVoitures && data.parcMotos) {
+    const annees = [...new Set([
+      ...data.parcVoitures.series.map(p => p.annee),
+      ...data.parcMotos.series.map(p => p.annee)
+    ])].sort();
+    
+    parcData = {
+      labels: annees,
+      datasets: [
+        {
+          label: "Voitures",
+          data: annees.map(a => data.parcVoitures.series.find(p => p.annee === a)?.valeur || null),
+          borderColor: "#2980B9", // Bleu
+          backgroundColor: "#2980B9",
+          tension: 0,
+          spanGaps: true,
+        },
+        {
+          label: "Moto-taxis",
+          data: annees.map(a => data.parcMotos.series.find(p => p.annee === a)?.valeur || null),
+          borderColor: "#9b59b6", // Violet
+          backgroundColor: "#9b59b6",
+          tension: 0,
+          spanGaps: true,
+        }
+      ]
+    };
+  }
+
+  const parcOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom' } },
+    scales: { y: { title: { display: true, text: 'véhicules' } } }
+  };
+
+  if (loading) return <p style={{ padding: "4rem", textAlign: "center" }}>Chargement des données réelles...</p>;
+  if (error) return <p style={{ padding: "4rem", textAlign: "center", color: "red" }}>Erreur : {error}</p>;
 
   return (
-    <section style={{ padding: "clamp(1.25rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem)", maxWidth: "1200px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "clamp(1.75rem, 6vw, 2.5rem)", fontWeight: 800, color: "#111827", letterSpacing: "-1px", marginBottom: "1rem" }}>
-        Rétrospective de la mobilité
-      </h1>
-      <p style={{ fontSize: "1.1rem", color: "#4b5563", maxWidth: "800px", lineHeight: 1.6, marginBottom: "1.5rem" }}>
-        Évolution observée des indicateurs. Trait plein : valeur de la source. Pointillé : valeur interpolée,
-        qui n'est pas une observation. Une année sans point est une donnée non disponible.
-      </p>
+    <section style={{ padding: "3rem 2rem", maxWidth: "1200px", margin: "0 auto" }}>
+      <div className="fade-in">
+        <h1 style={{ fontSize: "2.5rem", fontWeight: 800, color: "#111827", letterSpacing: "-1px", marginBottom: "1rem" }}>
+          Rétrospective de la mobilité
+        </h1>
+        <p style={{ fontSize: "1.1rem", color: "#4b5563", maxWidth: "800px", lineHeight: 1.6, marginBottom: "2rem" }}>
+          Évolution observée des indicateurs jusqu'en 2025.
+        </p>
+      </div>
 
-      <div style={grille}>
-        <div style={carte}>
-          <EtatIndicateur etat={population} titre="Population de l'aire métropolitaine">
-            {(indicator) => <IndicatorChart indicator={indicator} />}
-          </EtatIndicateur>
-        </div>
-        <div style={carte}>
-          <NoteTest />
-          <StackedBarChart indicators={RETRO.modes} titre="Parts modales des déplacements" source={SOURCE_TEST} />
-          <p style={{ fontSize: "0.85rem", color: "#6b7280" }}>Années d'enquête uniquement ; le total fait 100 % pour chaque année.</p>
-        </div>
-        <div style={carte}>
-          <NoteTest />
-          <MultiIndicatorChart indicators={[RETRO.parcVoitures, RETRO.parcMotos]} titre="Parc de véhicules" unite="véhicules" source={SOURCE_TEST} />
-        </div>
-        <div style={carte}>
-          <NoteTest />
-          <IndicatorChart indicator={RETRO.motorisation} />
-        </div>
+      <div style={grille} className="reveal">
+        
+        {data.population && (
+          <div style={carte}>
+            <IndicatorChart indicator={data.population} />
+          </div>
+        )}
+
+        {data.modes.length > 0 && (
+          <div style={carte}>
+            <StackedBarChart 
+              indicators={data.modes} 
+              titre="Parts modales des déplacements" 
+              source={data.modes[0]?.source} 
+            />
+          </div>
+        )}
+
+        {/* Le graphique du parc est maintenant construit avec ChartCard */}
+        {parcData && (
+          <div style={carte}>
+            <ChartCard 
+              type="line"
+              data={parcData}
+              options={parcOptions}
+              titre="Parc de véhicules"
+              unite="véhicules"
+              source={data.parcVoitures?.source}
+            />
+          </div>
+        )}
+
+        {data.motorisation && (
+          <div style={carte}>
+            <IndicatorChart indicator={data.motorisation} />
+          </div>
+        )}
       </div>
     </section>
   );
