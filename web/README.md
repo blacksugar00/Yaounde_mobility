@@ -1,11 +1,16 @@
-# web/ : front de la plateforme
+# React + Vite
 
-Lancer en local (les modules ES exigent un serveur, pas un double-clic) :
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-    cd web && python3 -m http.server 8080
-    # puis ouvrir http://localhost:8080
+Currently, two official plugins are available:
 
-- `js/api.js` : seul fichier qui connait les URL. `USE_MOCK = true` lit `mock/` ; mettre `false` pour la vraie API (`/api`).
-- `mock/` : donnees FACTICES (source_id "mock"), au format du contrat. A supprimer quand l'API est prete.
-- `vendor/` : ECharts 5.5.1 et MapLibre 4.7.1, copies fixes (DEC-12).
-- Fond de carte : OpenFreeMap (DEC-06). Les noms de fichiers/branches sont en francais sans accents (DEC-16).
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the Oxlint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.

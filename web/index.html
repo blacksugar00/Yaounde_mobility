@@ -1,67 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tableau de bord · Mobilité à Yaoundé</title>
-<link rel="stylesheet" href="css/style.css">
-
-</head>
-<body>
-<header class="entete">
-  <div class="entete-contenu">
-    <h1>Mobilité à Yaoundé, 2026-2036</h1>
-    <nav class="nav" aria-label="Navigation principale">
-      <a href="index.html" aria-current="page">Tableau de bord</a>
-      <a href="carte.html" >Carte</a>
-      <a href="apropos.html" >À propos</a>
-    </nav>
-  </div>
-</header>
-<main>
-  <p class="intro">Où en est la mobilité de Yaoundé, et où peut-elle aller d'ici 2036 ? Choisissez un scénario pour comparer les trajectoires. Chaque graphique indique sa source, son unité et si la donnée est mesurée, estimée ou projetée.</p>
-
-  <fieldset class="scenarios">
-    <legend>Scénario</legend>
-    <div class="scenarios-liste" id="scenarios"></div>
-    <p class="scenario-aide" id="scenario-aide"></p>
-  </fieldset>
-
-  <div class="grille">
-    <section class="carte-graphique" aria-labelledby="t-g1">
-      <h2 id="t-g1">La population de l'agglomération continue de croître</h2>
-      <div class="graphique" id="g1" role="img" aria-label="Courbe de la population"></div>
-      <p class="graphique-message" id="m-g1"></p>
-      <p class="source" id="s-g1"></p>
-    </section>
-    <section class="carte-graphique" aria-labelledby="t-g2">
-      <h2 id="t-g2">Comment les habitants se déplacent, selon le scénario</h2>
-      <div class="graphique" id="g2" role="img" aria-label="Barres empilées des parts modales"></div>
-      <p class="graphique-message" id="m-g2"></p>
-      <p class="source" id="s-g2"></p>
-    </section>
-    <section class="carte-graphique" aria-labelledby="t-g3">
-      <h2 id="t-g3">Le parc de véhicules évolue différemment selon le scénario</h2>
-      <div class="graphique" id="g3" role="img" aria-label="Courbes du parc de véhicules"></div>
-      <p class="graphique-message" id="m-g3"></p>
-      <p class="source" id="s-g3"></p>
-    </section>
-    <section class="carte-graphique" aria-labelledby="t-g4">
-      <h2 id="t-g4">Les accidents sont connus à l'échelle du pays, pas de Yaoundé</h2>
-      <div class="graphique" id="g4" role="img" aria-label="Barres annuelles des accidents"></div>
-      <p class="graphique-message" id="m-g4"></p>
-      <p class="source" id="s-g4"></p>
-    </section>
-    <section class="carte-graphique large" aria-labelledby="t-g5">
-      <h2 id="t-g5">Les émissions du transport dépendent fortement du scénario</h2>
-      <div class="graphique" id="g5" role="img" aria-label="Courbes des émissions de gaz à effet de serre du transport"></div>
-      <p class="graphique-message" id="m-g5"></p>
-      <p class="source" id="s-g5"></p>
-    </section>
-  </div>
-</main>
-<footer class="pied"><p id="maj">Dernière mise à jour des données : chargement…</p></footer>
-<script src="vendor/echarts.min.js"></script>
-<script type="module" src="js/app.js"></script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
