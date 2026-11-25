@@ -27,7 +27,7 @@ Chart.js, ni le questionnaire.
 | `scripts/preparer_donnees.py` | Validation des deux CSV et export des JSON utiles |
 | `scripts/preparer_zones.py` | Export des polygones population en GeoJSON WGS84 |
 | `data/indicateurs/*.json` | Sept themes de donnees, si la redistribution est autorisee |
-| `data/geojson/zones_population.geojson` | 105 zones et quatre proprietes convenues |
+| `data/geojson/zones_population.geojson` | 105 zones; quatre proprietes requises et `id_zone` facultatif |
 | `web/src/components/MapView.jsx` | Carte Leaflet; le selecteur d'annee appartient a P2 |
 | `Dockerfile`, `docker-compose.yml`, `.dockerignore` | Build multi-stage et test de l'application complete |
 | Deploiement/captures | Publication seulement si les acces et le stockage sont disponibles |
@@ -48,13 +48,12 @@ et applicatifs `observatoire-yaounde` / `observatoire` restent inchangés.
 
 ---
 
-## 2. M0 terminé — démarrage de P1 après fusion
+## 2. M0 terminé — synchroniser `main` avant le travail P1
 
-**M0 technique est PASS et le bootstrap n'est plus à réaliser.** La PR vers
-`main` doit d'abord être fusionnée par un mainteneur. Ne commencez pas votre
-branche de fonctionnalité avant cette fusion.
+**M0 technique est PASS et fusionné dans `main`; le bootstrap n'est plus à
+réaliser.** Synchronisez `main` avant de créer ou reprendre votre branche P1.
 
-Depuis le dossier parent du dépôt, après fusion :
+Depuis le dossier parent du dépôt :
 
 ```bash
 cd Yaounde_mobility
@@ -153,9 +152,10 @@ recomposez pas a partir des modes. Pour les parts modales, prenez les codes
 - Racine : `FeatureCollection`.
 - CRS de sortie : EPSG:4326.
 - Nombre attendu : 105 polygones; verifier la valeur reellement trouvee.
-- `properties` contient exactement `nom`, `pop_2018`, `pop_2025`, `pop_2035`.
+- `properties` contient `nom`, `pop_2018`, `pop_2025`, `pop_2035` et peut
+  conserver l'identifiant source `id_zone`.
 - Geometries simplifiees dans un CRS projete avant conversion en EPSG:4326.
-- Aucun `zone_id` supplementaire; ne jamais choisir silencieusement le premier
+- Aucun autre champ de propriété; ne jamais choisir silencieusement le premier
   champ qui ressemble a un nom.
 
 Totaux de controle a comparer, sans les forcer : 3 212 283 en 2018, 4 028 468
@@ -376,9 +376,10 @@ path = Path("data/geojson/zones_population.geojson")
 geojson = json.loads(path.read_text(encoding="utf-8"))
 assert geojson["type"] == "FeatureCollection"
 assert len(geojson["features"]) == 105
-expected = {"nom", "pop_2018", "pop_2025", "pop_2035"}
+required = {"nom", "pop_2018", "pop_2025", "pop_2035"}
 for feature in geojson["features"]:
-    assert set(feature["properties"]) == expected
+    properties = set(feature["properties"])
+    assert properties in (required, required | {"id_zone"})
 print("GeoJSON conforme:", len(geojson["features"]), "zones")
 PY
 ```
@@ -560,7 +561,7 @@ git push origin p1-data
 
 | Commit | Contenu | Porte de validation |
 |---|---|---|
-| M0 terminé | PASS documenté; ne pas refaire le bootstrap | Après fusion PR, fetch/pull `main`, puis travailler sur `p1-data` |
+| M0 terminé | PASS et fusionné dans `main`; ne pas refaire le bootstrap | Fetch/pull `main`, puis travailler sur `p1-data` |
 | P1-1 | Audit et documentation des sources | Totaux et colonnes traces; aucun brut suivi |
 | P1-2 | Script indicateurs et JSON autorises | Au moins huit indicateurs, structure valide, sources conformes |
 | P1-3 | Script GeoJSON et couche | 105 zones, champs exacts, EPSG:4326, sommes controlees |
@@ -635,8 +636,8 @@ Votre perimetre est livre quand :
 - les bruts et reponses ne sont pas suivis dans Git ni copies dans l'image;
 - les scripts valident leur schema et terminent avec des erreurs explicites;
 - les JSON couvrent au moins huit indicateurs dans les themes prioritaires;
-- le GeoJSON a les 105 zones attendues, les 4 proprietes convenues et CRS
-  EPSG:4326;
+- le GeoJSON a les 105 zones attendues, les 4 proprietes requises, un
+  `id_zone` facultatif et le CRS EPSG:4326;
 - les sommes population sont comparees aux controles et les ecarts documentes;
 - `MapView` affiche population 2018/2025/2035, legend, popup et valeurs absentes;
 - l'image multi-stage est sous 500 Mo ou l'ecart est explique;

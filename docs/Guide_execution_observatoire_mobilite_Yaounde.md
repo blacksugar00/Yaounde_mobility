@@ -74,7 +74,7 @@ clarifications necessaires pour que son architecture fonctionne en pratique.
 
 | Point du PDF | Risque ou ambiguite | Decision d'execution |
 |---|---|---|
-| `plan.pdf` place le cadrage au mardi matin; `partage_des_taches.pdf` reserve 14 h–17 h 30 au depot/contrats | Les calendriers ne donnent pas le meme horaire de kickoff | Le cadrage reste celui de `plan.pdf`; M0 a été vérifié PASS le 25 novembre 2026 et n'est plus à réaliser. La PR attend la revue humaine avant les branches personnelles. |
+| `plan.pdf` place le cadrage au mardi matin; `partage_des_taches.pdf` reserve 14 h–17 h 30 au depot/contrats | Les calendriers ne donnent pas le meme horaire de kickoff | Le cadrage reste celui de `plan.pdf`; M0 a été vérifié PASS, fusionné dans `main` et n'est plus à réaliser. Chaque personne synchronise `main` avant de créer ou reprendre sa branche. |
 | `partage_des_taches.pdf` place deux objectifs differents au mercredi matin | Donnees/API/premier graphique et premier parcours complet ne peuvent pas etre deux jalons separes sur la meme plage | Prevalence du decoupage de `plan.pdf` : mercredi matin = M1 (assets, API, premier graphique/build); mercredi apres-midi = M2 (parcours complet). |
 | La repartition demande Google Form/iframe, alors que le contrat de route prevoit POST Flask | Deux canaux de collecte ne partageraient ni stockage ni resultats | Decision deja validee : formulaire React -> `POST /api/barometre` -> CSV local. Pas de Google Form, iframe ni import manuel. C'est l'unique ecart fonctionnel assumé au PDF de repartition. |
 | Le contrat du PDF nomme `{total, par_mode}` | Les résultats nécessitent un décompte par question et une protection contre les petites cellules | Le contrat commun est [`contrat_barometre.md`](./contrat_barometre.md) : total des formulaires, réponse count par question, distributions anonymes masquées si une petite cellule apparaît. |
@@ -131,7 +131,7 @@ d'au moins un livrable hors de son perimetre.
 | Contrat | Producteur / consommateurs | Forme acceptee |
 |---|---|---|
 | Indicateur JSON | P1 / P3, P2 | `code`, `libelle`, `unite`, `source`, `series[]`; un point contient `scenario`, `annee`, `valeur`, `origine` et le `statut` source s'il existe. Les valeurs sont reprises des sources, pas recalculees. |
-| GeoJSON | P1 / P3 et P1 | `FeatureCollection` en EPSG:4326; `properties` contient exactement `nom`, `pop_2018`, `pop_2025`, `pop_2035`. Geometries simplifiees; aucun identifiant additionnel. |
+| GeoJSON | P1 / P3 et P1 | `FeatureCollection` en EPSG:4326; `properties` contient `nom`, `pop_2018`, `pop_2025`, `pop_2035` et peut conserver `id_zone`. Geometries simplifiees; aucun autre champ additionnel. |
 | API | P3 / P1, P2 | Routes stables ci-dessous; les erreurs HTTP et les donnees absentes restent explicites. |
 | ChartCard | P2 / P3 | Props exactes : `type`, `data`, `options`, `titre`, `unite`, `source`; `data/options` sont les objets Chart.js construits par le consommateur. Palette du PDF. |
 | Barometre | P3 / P2 | Formulaire React a choix fermes; POST valide consentement et valeurs; CSV local; GET ne renvoie que totaux agreges sans lignes brutes. |
@@ -269,35 +269,25 @@ Les routes et leurs schemas sont toutefois fixes avant les branches.
    est fait mercredi apres livraison des donnees selon le planning de `plan.pdf`.
 5. `git status --short` ne montre ni sources brutes, ni `.env`, ni reponses.
 
-### 4.3 Bootstrap, merge de base et creation des branches
+### 4.3 M0 terminé — synchroniser `main` et créer les branches
 
-Le socle est construit une seule fois avant le travail de fonctionnalite.
-Dans le depot réel `Yaounde_mobility`, la branche de base reste `main`.
-La proposition M0 est préparée sur `init/bootstrap`, sans commit ni transfert
-de fichiers M0 sur `main`. Après revue humaine, une PR `init/bootstrap` vers
-`main` doit être créée puis fusionnée par l'équipe. La branche bootstrap n'est
-ni renommée en `main`, ni supprimée automatiquement.
+Le socle a été construit une seule fois, vérifié PASS, puis fusionné dans
+`main`. Le bootstrap est terminé et ne doit pas être recommencé. La branche
+`init/bootstrap` est historique; ne l'utilisez pas pour démarrer du travail.
 
-Apres la promotion, chaque personne met a jour `main` et cree une branche depuis
-ce meme commit stable : `p1-data`, `p2-front`, `p3-back`. Aucun travail de
-fonctionnalite ne commence avant cette etape. Pas de push direct sur `main`;
-les integrations passent par une revue/test court, P3 coordonne le merge et les
-autres rebasent/mergent `main` dans leur branche au prochain sync. Les commits
-restent petits, limites au perimetre possede et n'embarquent pas de fichiers
+Chaque personne synchronise `main`, puis crée ou reprend sa branche personnelle
+(`p1-data`, `p2-front` ou `p3-back`). Gardez les intégrations de fonctionnalités
+dans leur branche et faites-les passer par une revue/test court. Les commits
+restent petits, limités au périmètre possédé et n'embarquent pas de fichiers
 locaux.
 
-Sequence locale correcte pour remettre le socle M0 sur la branche stable :
-
 ```bash
-git switch init/bootstrap
-git push -u origin init/bootstrap
-# P3 ou un mainteneur humain crée une PR init/bootstrap -> main.
-# Après revue et fusion humaine, synchroniser le dépôt local :
 git switch main
-git pull --ff-only
+git fetch origin
+git pull --ff-only origin main
 ```
 
-Apres la promotion, exemple de creation de branche pour chaque developpeur :
+Apres synchronisation de `main`, exemple de creation de branche pour chaque developpeur :
 
 ```bash
 git switch main
@@ -933,9 +923,10 @@ def get_zones():
     return jsonify(load_zones())
 ```
 
-La requete valide l'annee choisie mais renvoie les quatre proprietes GeoJSON
-contractuelles sans les enrichir. React choisit `pop_2018`, `pop_2025` ou
-`pop_2035`; une valeur manquante reste distincte de 0 et a son propre style.
+La requete valide l'annee choisie et renvoie les proprietes GeoJSON sans les
+enrichir. `id_zone` peut etre present mais n'est pas utilise par React, qui
+choisit `pop_2018`, `pop_2025` ou `pop_2035`; une valeur manquante reste
+distincte de 0 et a son propre style.
 
 ### 6.6 Questionnaire et stockage du baromètre
 
@@ -1505,8 +1496,8 @@ au plus tard mardi 17 h 30, avant que P1/P2/P3 partent sur leurs branches.
 
 | Jalon equipe | Echeance | Critere observable |
 |---|---|---|
-| M0 — Socle technique | PASS — vérifié le 25 nov. 2026 sur `init/bootstrap` | Structure, routes d'état, sept chemins frontend, build React, Compose et routes baromètre désactivées vérifiés. PR vers `main` à fusionner humainement; M0 n'est pas à refaire. |
-| M1 — Donnees/API/graphique connectes | Mer. 25, 12 h 30 | Sept JSON + GeoJSON livres par P1; routes lecture disponibles par P3; P2 affiche le premier indicateur depuis l'API |
+| M0 — Socle technique | PASS — vérifié le 25 nov. 2026, puis fusionné dans `main` | Structure, routes d'état, sept chemins frontend, build React, Compose et routes baromètre désactivées vérifiés. M0 n'est plus à refaire. |
+| M1 — Donnees/API/graphique connectes | Mer. 25, 12 h 30 | Sept JSON + GeoJSON livres par P1; routes de lecture disponibles par P3; P2 affiche le premier indicateur depuis l'API; premier build Docker avec les assets réussi |
 | M2 — Premier parcours bout en bout | Mer. 25, 17 h 30 | Une donnee source traverse JSON -> Flask -> React; carte 2018; POST de test fonctionne si le schema de questions est valide |
 | M3 — Noyau demonstrable | Jeu. 26, 12 h 30 | F1, F2, F3, F5, F9 et F10 accessibles; F8/F9 sont pleinement valides avec les questions et reponses de test approuvees, sinon marques bloques et M3 n'est pas declare complet |
 | M4 — Gel du perimetre et image | Jeu. 26, 17 h 30 | `docker compose up --build` fonctionne; decide explicitement quels souhaitables sont termines ou marques « non disponible / en cours » |
@@ -1530,15 +1521,13 @@ actualisé.
   17 questions, le consentement, la conservation et la politique des petites
   cellules; P1 doit fournir les quartiers officiels. Le questionnaire React
   remplace explicitement le Google Form et l'iframe du PDF.
-- **État présent :** toutes les vérifications M0 sont déjà exécutées et
-  documentées. Après fusion humaine de la PR, chacun récupère `main` avec
-  `git fetch origin` et `git pull --ff-only origin main`, puis crée sa branche
-  personnelle. Ne répétez pas les tâches M0.
+- **État présent :** M0 est fusionné dans `main`. Chacun synchronise `main`
+  avec `git fetch origin` et `git pull --ff-only origin main`, puis crée ou
+  reprend sa branche personnelle. Ne répétez pas les tâches M0.
 
-**Sortie M0 :** M0 technique PASS sur `init/bootstrap`, prêt pour revue/PR;
-`main` n'est pas encore fusionné. Aucune donnée métier n'est simulée et aucune
-réponse n'est collectée. Le questionnaire de 17 questions est seulement une
-proposition en attente d'approbation; détails et contrats sont dans
+**Sortie M0 :** M0 technique PASS et fusionné dans `main`. Les étapes de ce
+jalon sont terminées. Le questionnaire de 17 questions reste une proposition
+en attente d'approbation; détails et contrats sont dans
 [`contrat_barometre.md`](./contrat_barometre.md).
 
 ### Mercredi 25 matin, 9 h–12 h 30 — donnees, API et premier graphique
@@ -1779,11 +1768,12 @@ inconnue.
 
 ---
 
-## 12. Etat M0 vérifié — 25 novembre 2026
+## 12. Historique de vérification M0 — 25 novembre 2026
 
-M0 technique est **PASS et terminé** sur `init/bootstrap`; il n'est plus à
-réaliser. `main` reste à son état initial tant que la PR n'a pas été revue et
-fusionnée humainement.
+Cette vérification décrit l'état initial de M0 sur `init/bootstrap`. M0 a depuis
+été fusionné dans `main`; le bootstrap n'est plus à réaliser. Les critères
+ci-dessous sont les preuves historiques du jalon, et non l'état actuel des
+assets M1.
 
 | Critère | Statut | Preuve |
 |---|---|---|
@@ -1800,8 +1790,8 @@ fusionnée humainement.
 | Browser de validation | NOT RUN | Aucun navigateur automatisé n'a été utilisé |
 | Docker build complet | NOT RUN | Un build d'image complet n'est pas requis au socle M0 sans assets métier |
 
-Décision: **M0 technique passé et prêt pour PR**. Le bootstrap n'est plus une
-tâche à réaliser. M0 n'est pas accepté/fusionné sur `main` avant revue humaine.
+Décision au moment de cette vérification: **M0 technique passé et prêt pour
+PR**. Il a depuis été fusionné dans `main`.
 
 Blocages assignés:
 
@@ -1812,3 +1802,21 @@ Blocages assignés:
   autorisés au jalon P1. Aucun shapefile ni GeoJSON ne doit être inventé.
 - Deux CSV locaux sont présents sous `data/raw/`: `dictionnaire_indicateurs.csv`
   et `donnees_longues.csv`. Ils restent ignorés par Git.
+
+## 13. Etat M1 — donnees, API et premier graphique
+
+**M1 est atteint sur `main`.** Les livrables et vérifications observés sont :
+
+| Critère M1 | Statut | Preuve |
+|---|---|---|
+| Jeux JSON P1 | PASS | Sept thèmes présents dans `data/indicateurs/` |
+| GeoJSON P1 | PASS | 105 zones présentes; les propriétés incluent les quatre champs population requis et l'identifiant source facultatif `id_zone` |
+| Routes de lecture P3 | PASS | `/api/indicateurs` expose 88 indicateurs; `/api/zones?annee=2018` renvoie les 105 zones |
+| Graphique P2 | PASS | La population de la page Rétrospective vient de l'API et des données réelles |
+| Build Docker avec assets | PASS | `sudo -A docker compose build` terminé avec succès |
+| Build et lint frontend | PASS | `npm run build` réussi; `npm run lint` passe avec deux avertissements non bloquants |
+
+Ce jalon ne signifie pas que M2 est terminé : la page Carte reste en
+construction et le baromètre reste désactivé jusqu'aux validations prévues dans
+[`contrat_barometre.md`](./contrat_barometre.md). Les autres cartes de la page
+Rétrospective sont des exemples explicitement signalés comme données de test.

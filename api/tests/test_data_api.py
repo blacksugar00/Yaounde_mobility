@@ -78,6 +78,19 @@ class DataApiTests(unittest.TestCase):
 
         self.assertEqual(response.status_code, 503)
 
+    def test_p1_geojson_accepts_and_preserves_optional_zone_ids(self):
+        del self.app.config["ZONES_FILE"]
+        del self.app.config["ZONE_FEATURE_COUNT"]
+
+        response = self.client.get("/api/zones?annee=2018")
+        self.assertEqual(response.status_code, 200)
+        payload = response.get_json()
+        self.assertEqual(len(payload["features"]), 105)
+        self.assertEqual(
+            set(payload["features"][0]["properties"]),
+            {"id_zone", "nom", "pop_2018", "pop_2025", "pop_2035"},
+        )
+
     def test_missing_indicator_asset_returns_service_unavailable(self):
         with tempfile.TemporaryDirectory() as directory:
             self.app.config["INDICATORS_DIR"] = Path(directory)
@@ -85,14 +98,6 @@ class DataApiTests(unittest.TestCase):
 
         self.assertEqual(response.status_code, 503)
         self.assertIn("erreur", response.get_json())
-
-    def test_p1_assets_remain_required_outside_test_fixtures(self):
-        del self.app.config["INDICATORS_DIR"]
-        del self.app.config["ZONES_FILE"]
-        del self.app.config["ZONE_FEATURE_COUNT"]
-
-        self.assertEqual(self.client.get("/api/indicateurs").status_code, 503)
-        self.assertEqual(self.client.get("/api/zones").status_code, 503)
 
 
 if __name__ == "__main__":

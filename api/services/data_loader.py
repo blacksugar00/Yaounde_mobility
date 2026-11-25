@@ -9,6 +9,7 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 INDICATORS_DIR = ROOT_DIR / "data" / "indicateurs"
 ZONES_FILE = ROOT_DIR / "data" / "geojson" / "zones_population.geojson"
 ZONE_PROPERTIES = {"nom", "pop_2018", "pop_2025", "pop_2035"}
+OPTIONAL_ZONE_PROPERTIES = {"id_zone"}
 SERIES_FIELDS = {"scenario", "annee", "valeur", "origine"}
 
 
@@ -135,6 +136,7 @@ def load_zones(
             f"Expected {expected_feature_count} GeoJSON features in {path.name}"
         )
 
+    seen_zone_ids: set[int | str] = set()
     for feature in features:
         if not isinstance(feature, dict) or feature.get("type") != "Feature":
             raise DataAssetError(f"Invalid GeoJSON feature in {path.name}")
@@ -159,11 +161,27 @@ def load_zones(
             raise DataAssetError(f"Invalid geometry in {path.name}")
 
         properties = feature.get("properties")
-        if not isinstance(properties, dict) or set(properties) != ZONE_PROPERTIES:
+        if not isinstance(properties, dict):
+            raise DataAssetError(f"Invalid zone properties in {path.name}")
+        property_names = set(properties)
+        if property_names not in (
+            ZONE_PROPERTIES,
+            ZONE_PROPERTIES | OPTIONAL_ZONE_PROPERTIES,
+        ):
             raise DataAssetError(f"Invalid zone properties in {path.name}")
         if not isinstance(properties["nom"], str) or not properties["nom"].strip():
             raise DataAssetError(f"Invalid zone name in {path.name}")
         if any(not _is_number(properties[key]) for key in ZONE_PROPERTIES - {"nom"}):
             raise DataAssetError(f"Invalid population values in {path.name}")
+        if "id_zone" in properties:
+            zone_id = properties["id_zone"]
+            if (
+                isinstance(zone_id, bool)
+                or not isinstance(zone_id, (int, str))
+                or (isinstance(zone_id, str) and not zone_id.strip())
+                or zone_id in seen_zone_ids
+            ):
+                raise DataAssetError(f"Invalid or duplicate zone id in {path.name}")
+            seen_zone_ids.add(zone_id)
 
     return content

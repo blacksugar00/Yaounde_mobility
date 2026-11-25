@@ -6,10 +6,10 @@
 **Document socle :** [Plan technique d'execution](./Guide_execution_observatoire_mobilite_Yaounde.md)
 
 Le plan technique est la source de verite des contrats de l'equipe. M0 est
-terminé; ce guide précise vos tâches après fusion de la PR jusqu'au gel de la démonstration. Vous
-etes proprietaire du backend et coordonnez les integrites; vous n'etes pas
-proprietaire du frontend graphique, des scripts de donnees, de Leaflet ou de
-Docker.
+terminé et fusionné dans `main`; ce guide précise vos tâches jusqu'au gel de la
+démonstration. Vous etes proprietaire du backend et coordonnez les integrites;
+vous n'etes pas proprietaire du frontend graphique, des scripts de donnees, de
+Leaflet ou de Docker.
 
 ---
 
@@ -57,13 +57,12 @@ README, bilans et coordination d'integration.
 
 ---
 
-## 2. M0 terminé — démarrage de P3 après fusion
+## 2. M0 terminé — synchroniser `main` avant le travail P3
 
-**M0 technique est PASS et le bootstrap n'est plus à réaliser.** La PR vers
-`main` doit d'abord être fusionnée par un mainteneur. Ne commencez pas votre
-branche de fonctionnalité avant cette fusion.
+**M0 technique est PASS et fusionné dans `main`; le bootstrap n'est plus à
+réaliser.** Synchronisez `main` avant de créer ou reprendre votre branche P3.
 
-Depuis le dossier parent du dépôt, après fusion :
+Depuis le dossier parent du dépôt :
 
 ```bash
 cd Yaounde_mobility
@@ -144,7 +143,7 @@ logs serveur.
 ### Etape 1 — health, factory et fallback SPA
 
 **Etat :** le health check et les routes M0 ont été vérifiés; ne recréez pas
-l'application factory. Les changements P3 suivants partent après fusion de M0.
+l'application factory. Les changements P3 partent depuis `main` synchronisé.
 **Depend de :** structure Python, dependances Flask.
 **But :** React et Flask sont servables, meme quand les assets metier ne sont
 pas encore disponibles.
@@ -590,13 +589,13 @@ les trois jours.
 
 ---
 
-## Etat post-M0 pour P3
+## Etat courant pour P3
 
-- Etat commun: M0 technique est PASS sur `init/bootstrap`, mais pas encore
-  fusionné sur `main`; créez ou mettez à jour `p3-back` après fusion humaine.
-- Après fusion de M0, synchronisez `main` puis créez `p3-back`.
-- Flask démarre, `/api/sante` retourne `200 {"statut":"ok"}`; les routes
-  indicateurs/zones retournent des erreurs `503` en absence d'assets.
+- M0 technique est PASS et fusionné dans `main`; le bootstrap n'est plus à
+  réaliser. Synchronisez `main` avant de créer ou reprendre `p3-back`.
+- M1 expose les 88 indicateurs et les 105 zones GeoJSON via les routes de
+  lecture. Le GeoJSON peut contenir `id_zone`; l'API le valide et le conserve,
+  sans l'utiliser pour les calculs. Les tests de données/API passent.
 - Le contrat proposé de 17 questions est décrit dans
   [`contrat_barometre.md`](./contrat_barometre.md). L'activation est gardée par
   les approbations dans `api/services/barometre_schema.py`; POST/GET retournent

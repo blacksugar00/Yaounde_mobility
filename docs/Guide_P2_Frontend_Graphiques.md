@@ -52,13 +52,12 @@ responsive. Vous ne recalculez aucune donnee du modele.
 
 ---
 
-## 2. M0 terminé — démarrage de P2 après fusion
+## 2. M0 terminé — synchroniser `main` avant le travail P2
 
-**M0 technique est PASS et le bootstrap n'est plus à réaliser.** La PR vers
-`main` doit d'abord être fusionnée par un mainteneur. Ne commencez pas votre
-branche de fonctionnalité avant cette fusion.
+**M0 technique est PASS et fusionné dans `main`; le bootstrap n'est plus à
+réaliser.** Synchronisez `main` avant de créer ou reprendre votre branche P2.
 
-Depuis le dossier parent du dépôt, après fusion :
+Depuis le dossier parent du dépôt :
 
 ```bash
 cd Yaounde_mobility
@@ -792,7 +791,7 @@ Pendant le dev, Vite sert le frontend sur `http://localhost:5173` et transmet
 
 | Commit | Contenu | Validation |
 |---|---|---|
-| M0 terminé | PASS documenté; ne pas refaire le bootstrap | Après fusion PR, fetch/pull `main`, puis travailler sur `p2-front` |
+| M0 terminé | PASS et fusionné; ne pas refaire le bootstrap | Fetch/pull `main`, puis travailler sur `p2-front` |
 | P2-1 | Client Axios | Toutes les methodes utilisent `/api`; erreurs visibles |
 | P2-2 | ChartCard + palette | Props exactes; line/bar render |
 | P2-3 | Premier indicateur et provenance | La vraie reponse API s'affiche |
@@ -887,15 +886,15 @@ de correlation ou export doivent etre validees comme un prochain lot.
 
 ---
 
-## Etat post-M0 pour P2
+## Etat courant pour P2
 
-- Etat commun: M0 technique est PASS sur `init/bootstrap`, mais pas encore
-  fusionné sur `main`; créez ou mettez à jour `p2-front` après fusion humaine.
-- Après fusion de M0, synchronisez `main` puis créez `p2-front`.
-- React 18.3.1, Axios `/api`, les sept routes et le build vers `api/static`
-  sont les bases vérifiées du socle.
-- Les données métier restent absentes. P2 ne doit pas inventer de fixtures
-  présentées comme résultats réels et attend P1/P3 pour les contrats livrés.
+- M0 technique est PASS et fusionné dans `main`; le bootstrap n'est plus à
+  réaliser. Synchronisez `main` avant de créer ou reprendre `p2-front`.
+- M1 fournit les données P1, les routes de lecture P3 et un graphique de
+  population alimenté par l'API réelle. Les autres cartes explicitement
+  étiquetées « Données de test » ne sont pas des résultats métier.
+- La page Carte reste à réaliser dans le périmètre M2; n'annoncez pas une carte
+  fonctionnelle tant que `MapView` et son intégration ne sont pas vérifiés.
 - Le formulaire baromètre n'est pas à réaliser avant les validations. Son
   contrat unique est [`contrat_barometre.md`](./contrat_barometre.md); le
   questionnaire proposé et ses options ne sont pas encore approuvés.
