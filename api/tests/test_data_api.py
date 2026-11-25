@@ -99,6 +99,39 @@ class DataApiTests(unittest.TestCase):
         self.assertEqual(response.status_code, 503)
         self.assertIn("erreur", response.get_json())
 
+    def test_react_build_serves_root_and_client_routes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            build_dir = Path(directory)
+            (build_dir / "index.html").write_text(
+                "<main>Observatoire</main>", encoding="utf-8"
+            )
+            (build_dir / "assets").mkdir()
+            (build_dir / "assets" / "app.js").write_text(
+                "console.log('app');", encoding="utf-8"
+            )
+            self.app.config["REACT_BUILD_DIR"] = build_dir
+
+            root = self.client.get("/")
+            client_route = self.client.get("/carte")
+            asset = self.client.get("/assets/app.js")
+
+        self.assertEqual(root.status_code, 200)
+        self.assertIn("Observatoire", root.get_data(as_text=True))
+        self.assertEqual(client_route.status_code, 200)
+        self.assertIn("Observatoire", client_route.get_data(as_text=True))
+        self.assertEqual(asset.status_code, 200)
+        self.assertEqual(asset.get_data(as_text=True), "console.log('app');")
+        root.close()
+        client_route.close()
+        asset.close()
+
+    def test_unknown_api_route_remains_a_json_404(self):
+        response = self.client.get("/api/route-inconnue")
+
+        self.assertEqual(response.status_code, 404)
+        self.assertIn("erreur", response.get_json())
+        self.assertNotIn("<html", response.get_data(as_text=True))
+
 
 if __name__ == "__main__":
     unittest.main()
