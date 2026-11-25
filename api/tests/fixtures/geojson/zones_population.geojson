@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[11.5, 3.8], [11.6, 3.8], [11.6, 3.9], [11.5, 3.8]]]
+      },
+      "properties": {
+        "nom": "Zone fictive de test",
+        "pop_2018": 100,
+        "pop_2025": 120,
+        "pop_2035": 140
+      }
+    }
+  ]
+}

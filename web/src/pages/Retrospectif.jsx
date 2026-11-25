@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getIndicateur } from "../api/client";
 import IndicatorChart from "../components/IndicatorChart";
 import StackedBarChart from "../components/StackedBarChart";
-import ChartCard, { SCENARIO_COLORS } from "../components/ChartCard";
+import ChartCard from "../components/ChartCard";
 
 const grille = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 26rem), 1fr))", gap: "1.5rem" };
 const carte = { background: "#fff", borderRadius: "16px", padding: "1rem", boxShadow: "0 4px 6px rgba(0,0,0,0.05)", minWidth: 0 };

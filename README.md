@@ -30,18 +30,37 @@ docker compose up --build
 
 L'application est ensuite disponible sur `http://localhost:5000`.
 
-## Etat M0
+## Etat des jalons
 
-M0 technique est **PASS**; le bootstrap est terminé et n'est plus une tâche à refaire.
-La branche `init/bootstrap` attend revue/fusion dans `main` via PR humaine. Le PR
-n'implique pas que le questionnaire soit approuvé.
-Les routes indicateurs/zones retournent une erreur explicite sans succès vide.
-Le baromètre proposé de 17 questions est décrit dans
-[`docs/contrat_barometre.md`](docs/contrat_barometre.md). Il reste désactivé;
-ses routes retournent HTTP 503 et ne créent pas `data/barometre/reponses.csv`
-avant validation complète.
+**M0 est PASS et fusionné dans `main`**. Le bootstrap est terminé et n'est plus
+une tâche à refaire.
+
+**M1 est validé et fusionné dans `main`** : les sept jeux JSON d'indicateurs et le
+GeoJSON 105 zones de P1 sont livrés, les routes P3 les servent (88 indicateurs catalogués),
+le graphique de population de la page Rétrospective lit les données réelles par l'API,
+et le premier build Docker réussit (~213 Mo).
+
+**M2 est EN COURS** :
+- **Baromètre participatif validé et activé** (P3) : 17 questions à choix fermés, 105 quartiers
+  officiels issus du GeoJSON, texte de consentement validé. Formulaire citoyen opérationnel sur
+  `/participatif`, persistance CSV dans `data/barometre/reponses.csv` et page `/resultats`
+  avec agrégats anonymisés et masquage des petites cellules ($k \ge 5$).
+- **Visualisations graphiques** (P3/P2) : refonte entreprise de `ChartCard.jsx` (support `line`,
+  `bar`, `pie`, badges de statut mesuré/estimé/projeté, infobulles sombres haute précision).
+- **Cartographie et couches SIG** (P1/P2) : intégration du composant Leaflet `MapView.jsx`
+  dans `Carte.jsx` (population 2018) et préparation des couches géographiques d'infrastructures
+  et de voirie (F4).
+
+**Périmètre M3 / M4 confirmé** :
+Toutes les fonctionnalités cibles sont intégrées à la feuille de route :
+- **F4** (Couches SIG infrastructures & voirie sur la carte).
+- **F6** (Parts modales prospectives réelles via `parts_modales.json`).
+- **F7** (Émissions GES et temps de parcours réels via `ges.json` et `temps.json`).
+- **F11/F12** (Téléchargement et export des données ouvertes).
 
 ## Sources locales
 
-`dictionnaire_indicateurs.csv` et `donnees_longues.csv` sont présents sous `data/raw/`
-et ignorés par Git. Ne pas les committer. Les shapefiles/cartes ne sont pas livrés au dépôt.
+Les sept JSON d'indicateurs et `data/geojson/zones_population.geojson` sont
+livrés dans le dépôt. Les sources CSV brutes (`dictionnaire_indicateurs.csv` et
+`donnees_longues.csv`) restent locales sous `data/raw/` et ignorées par Git; ne
+pas les committer.

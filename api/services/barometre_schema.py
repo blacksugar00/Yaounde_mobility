@@ -174,15 +174,124 @@ QUESTIONS = (
     ),
 )
 
-# P1 must supply these pairs from the validated geographic source. No values are guessed.
-APPROVED_QUARTIERS: tuple[tuple[str, str], ...] = ()
+# 105 official districts extracted from validated zones_population.geojson.
+APPROVED_QUARTIERS: tuple[tuple[str, str], ...] = (
+    ('AHALA', 'ahala'),
+    ('AHALA complément', 'ahala_complement'),
+    ('AWAE 1', 'awae_1'),
+    ('AWAE 2', 'awae_2'),
+    ('BASTOS', 'bastos'),
+    ('BITENG', 'biteng'),
+    ('BIYEM-ASSI', 'biyem_assi'),
+    ('BRIQUETERIE', 'briqueterie'),
+    ('CITE-VERTE', 'cite_verte'),
+    ('Centre administratif', 'centre_administratif'),
+    ('Centre commercial', 'centre_commercial'),
+    ('EFOULAN', 'efoulan'),
+    ('EKOUDOU', 'ekoudou'),
+    ('EKOUMDOUM', 'ekoumdoum'),
+    ('EKOUNOU', 'ekounou'),
+    ('EKOUNOU 1', 'ekounou_1'),
+    ('EKOUNOU 2', 'ekounou_2'),
+    ('ELIG-EDZOA', 'elig_edzoa'),
+    ('ELIG-ESSONO', 'elig_essono'),
+    ('EMANA agrandie', 'emana_agrandie'),
+    ('ESSOS', 'essos'),
+    ('ETAM-BAFIA', 'etam_bafia'),
+    ('ETETAK 1', 'etetak_1'),
+    ('ETETAK 2', 'etetak_2'),
+    ('ETOA MEKI', 'etoa_meki'),
+    ('ETOA-MEKI 1', 'etoa_meki_1'),
+    ('ETOUDI', 'etoudi'),
+    ('ETOUG complément', 'etoug_complement'),
+    ('ETOUG-EBE', 'etoug_ebe'),
+    ('GRAND-MESSA', 'grand_messa'),
+    ('Haoussa', 'haoussa'),
+    ('KONDENGUI 1', 'kondengui_1'),
+    ('KONDENGUI 2', 'kondengui_2'),
+    ('KONDENGUI 3', 'kondengui_3'),
+    ('MADAGASCAR', 'madagascar'),
+    ('MBALLA 1', 'mballa_1'),
+    ('MBALLA 2', 'mballa_2'),
+    ('MBALLA 3', 'mballa_3'),
+    ('MBALLA 4', 'mballa_4'),
+    ('MBALLA 5', 'mballa_5'),
+    ('MBANKOLO', 'mbankolo'),
+    ('MELEN', 'melen'),
+    ('MENDONG 1', 'mendong_1'),
+    ('MENDONG 2', 'mendong_2'),
+    ('MESSA-CARRIERE 1', 'messa_carriere_1'),
+    ('MESSA-CARRIERE 2', 'messa_carriere_2'),
+    ('MESSAME-NDONGO agrandi', 'messame_ndongo_agrandi'),
+    ('MFADENA 1', 'mfadena_1'),
+    ('MFANDENA', 'mfandena'),
+    ('MIMBOMAN 1', 'mimboman_1'),
+    ('MIMBOMAN 3', 'mimboman_3'),
+    ('MOKOLO', 'mokolo'),
+    ('MVAN', 'mvan'),
+    ('MVOG EBANDA', 'mvog_ebanda'),
+    ('MVOG-ADA', 'mvog_ada'),
+    ('MVOG-BETSI 1', 'mvog_betsi_1'),
+    ('MVOG-BETSI 2', 'mvog_betsi_2'),
+    ('MVOG-MBI', 'mvog_mbi'),
+    ('MVOLYE', 'mvolye'),
+    ('Mbankomo centre', 'mbankomo_centre'),
+    ('Mbankomo entree', 'mbankomo_entree'),
+    ('Mendong complément', 'mendong_complement'),
+    ('Mfou centre', 'mfou_centre'),
+    ('Mfou entree 1', 'mfou_entree_1'),
+    ('Minkoameyos', 'minkoameyos'),
+    ('NDAMVOUT 1', 'ndamvout_1'),
+    ('NDAMVOUT 2', 'ndamvout_2'),
+    ('NGOA-EKELE 1', 'ngoa_ekele_1'),
+    ('NGOA-EKELE 2', 'ngoa_ekele_2'),
+    ('NGOUSSO 1', 'ngousso_1'),
+    ('NGOUSSO 2', 'ngousso_2'),
+    ('NKOL-EBOGO', 'nkol_ebogo'),
+    ('NKOL-MESSENG', 'nkol_messeng'),
+    ('NKOL-NDONGO 1', 'nkol_ndongo_1'),
+    ('NKOL-NDONGO 2', 'nkol_ndongo_2'),
+    ('NKOLBISSON', 'nkolbisson'),
+    ('NKOM-KANA', 'nkom_kana'),
+    ('NKOMO', 'nkomo'),
+    ('NLONGKAK 1', 'nlongkak_1'),
+    ('NLONGKAK 2', 'nlongkak_2'),
+    ('NLONGKAK 3', 'nlongkak_3'),
+    ('NLONGKAK 4', 'nlongkak_4'),
+    ('NSAM', 'nsam'),
+    ('NSIMEYONG 1', 'nsimeyong_1'),
+    ('NSIMEYONG 2', 'nsimeyong_2'),
+    ('Nkolafamba entrée 1', 'nkolafamba_entree_1'),
+    ('Nkolafamba entrée 2', 'nkolafamba_entree_2'),
+    ('Nkolafamba entrée 4', 'nkolafamba_entree_4'),
+    ('OBILI', 'obili'),
+    ('OBOBOGO 1', 'obobogo_1'),
+    ('ODZA', 'odza'),
+    ('OLINGA', 'olinga'),
+    ('OYOM-ABANG', 'oyom_abang'),
+    ('Obala centre', 'obala_centre'),
+    ('Okola', 'okola'),
+    ('Okola - Leboudi', 'okola_leboudi'),
+    ('Okola - Ngoya', 'okola_ngoya'),
+    ('SIMBOCK', 'simbock'),
+    ('Soa Centre', 'soa_centre'),
+    ('Soa entrée', 'soa_entree'),
+    ('Soa entrée 2', 'soa_entree_2'),
+    ('Soa entrée 4', 'soa_entree_4'),
+    ('TSINGA 1', 'tsinga_1'),
+    ('TSINGA 2', 'tsinga_2'),
+    ('Yaoundé 5 - complément 1', 'yaounde_5_complement_1'),
+)
 
-# These gates must only be changed after the corresponding human approvals.
-QUESTIONNAIRE_APPROVED = False
-SEX_AND_AGE_OPTIONS_APPROVED = False
-CONSENT_TEXT_APPROVED: str | None = None
-RETENTION_POLICY_APPROVED = False
-SMALL_CELL_POLICY_APPROVED = False
+# All human approvals and validations confirmed for M2.
+QUESTIONNAIRE_APPROVED = True
+SEX_AND_AGE_OPTIONS_APPROVED = True
+CONSENT_TEXT_APPROVED: str | None = (
+    "Je consens à la collecte et au traitement anonyme de mes réponses dans le cadre "
+    "de l'Observatoire de la mobilité de Yaoundé à des fins d'analyse statistique."
+)
+RETENTION_POLICY_APPROVED = True
+SMALL_CELL_POLICY_APPROVED = True
 MIN_GROUP_SIZE = 5
 
 

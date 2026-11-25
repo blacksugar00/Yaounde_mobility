@@ -52,13 +52,12 @@ responsive. Vous ne recalculez aucune donnee du modele.
 
 ---
 
-## 2. M0 terminé — démarrage de P2 après fusion
+## 2. M0 terminé — synchroniser `main` avant le travail P2
 
-**M0 technique est PASS et le bootstrap n'est plus à réaliser.** La PR vers
-`main` doit d'abord être fusionnée par un mainteneur. Ne commencez pas votre
-branche de fonctionnalité avant cette fusion.
+**M0 technique est PASS et fusionné dans `main`; le bootstrap n'est plus à
+réaliser.** Synchronisez `main` avant de créer ou reprendre votre branche P2.
 
-Depuis le dossier parent du dépôt, après fusion :
+Depuis le dossier parent du dépôt :
 
 ```bash
 cd Yaounde_mobility
@@ -792,7 +791,7 @@ Pendant le dev, Vite sert le frontend sur `http://localhost:5173` et transmet
 
 | Commit | Contenu | Validation |
 |---|---|---|
-| M0 terminé | PASS documenté; ne pas refaire le bootstrap | Après fusion PR, fetch/pull `main`, puis travailler sur `p2-front` |
+| M0 terminé | PASS et fusionné; ne pas refaire le bootstrap | Fetch/pull `main`, puis travailler sur `p2-front` |
 | P2-1 | Client Axios | Toutes les methodes utilisent `/api`; erreurs visibles |
 | P2-2 | ChartCard + palette | Props exactes; line/bar render |
 | P2-3 | Premier indicateur et provenance | La vraie reponse API s'affiche |
@@ -846,11 +845,11 @@ npm run build
 | Jalon | Votre livrable a montrer |
 |---|---|
 | M0 terminé — PASS (25 nov. 2026) | Sept routes, React build, proxy et sortie vérifiés; aucun travail M0 restant |
-| M1 — mercredi 12 h 30 | Client Axios, ChartCard et graphique population avec API reelle ou fixture identifiee comme test |
-| M2 — mercredi 17 h 30 | Graphique de population avec scenarios/origine; page Carte branchee a MapView P1 |
-| M3 — jeudi 12 h 30 | F2 et F5 parcourables, indicateurs reels, carte selectionnable par annee |
-| M4 — jeudi 17 h 30 | F6/F7 terminés seulement si prioritaires stables; sinon note de report; build Vite valide |
-| M5 — vendredi 13 h | Responsive, test navigateur/mobile, cinq valeurs selectionnees pretes a verifier avec P3 |
+| M1 — TERMINÉ (PASS) | Client Axios, ChartCard initial et premier graphique population connecté à l'API réelle |
+| M2 — EN COURS | Intégration de `MapView.jsx` dans `Carte.jsx`; adoption de `ChartCard.jsx` entreprise (modernisé par P3) |
+| M3 — jeudi 12 h 30 | Remplacement des fixtures par les indicateurs réels : F2 (déplacements, parc, motorisation), F5 (comparateur de scénarios), F6 (parts modales réelles via `parts_modales.json`), F7 (GES et temps réels via `ges.json` et `temps.json`); sélecteur d'année et calques F4 (infrastructures) dans `Carte.jsx` |
+| M4 — jeudi 17 h 30 | Intégration du bouton d'export de données F11/F12 (Open Data), finitions UI/UX, responsive et build Vite validés |
+| M5 — vendredi 13 h | Tests multi-navigateurs, contrôle croisé de 5 valeurs avec P3, répétition générale de la démo de 10 min |
 
 Rituels :
 
@@ -887,15 +886,13 @@ de correlation ou export doivent etre validees comme un prochain lot.
 
 ---
 
-## Etat post-M0 pour P2
+## Etat courant pour P2
 
-- Etat commun: M0 technique est PASS sur `init/bootstrap`, mais pas encore
-  fusionné sur `main`; créez ou mettez à jour `p2-front` après fusion humaine.
-- Après fusion de M0, synchronisez `main` puis créez `p2-front`.
-- React 18.3.1, Axios `/api`, les sept routes et le build vers `api/static`
-  sont les bases vérifiées du socle.
-- Les données métier restent absentes. P2 ne doit pas inventer de fixtures
-  présentées comme résultats réels et attend P1/P3 pour les contrats livrés.
-- Le formulaire baromètre n'est pas à réaliser avant les validations. Son
-  contrat unique est [`contrat_barometre.md`](./contrat_barometre.md); le
-  questionnaire proposé et ses options ne sont pas encore approuvés.
+- M0 technique est PASS et fusionné dans `main`; le bootstrap n'est plus à
+  réaliser. Synchronisez `main` avant de créer ou reprendre `p2-front`.
+- M1 est PASS et validé sur `main` : il fournit les données P1, les routes de lecture P3 et le graphique de
+  population alimenté par l'API réelle.
+- Le composant `ChartCard.jsx` a été repris et modernisé par P3 : support de `pie`/`line`/`bar`, badges de statut (mesuré/estimé/projeté), badge hypothèse, infobulles sombres entreprise et suppression des alertes lint. P2 réutilise ce composant standardisé.
+- M2 est en cours : brancher le composant Leaflet `MapView` de P1 dans la page `Carte.jsx` avec chargement et gestion d'erreurs.
+- F4 (couches voirie/infrastructures), F6 (parts modales) et F7 (GES/temps) sont confirmées et intégrées dans M3; les fichiers JSON correspondants sont déjà disponibles dans l'API Flask.
+- P3 a validé et livré le baromètre participatif F8 (`Participatif.jsx`) et la page F9 (`Resultats.jsx`) avec respect strict de l'anonymat ($k \ge 5$).
