@@ -1,0 +1,24 @@
+[
+  {
+    "code": "mock_population",
+    "libelle": "Indicateur fictif de test",
+    "unite": "personnes",
+    "source": "fixture de test, aucune donnée réelle",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 100,
+        "statut": "test",
+        "origine": "fixture"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 120,
+        "statut": "test",
+        "origine": "fixture"
+      }
+    ]
+  }
+]
