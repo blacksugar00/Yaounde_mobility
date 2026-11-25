@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.py[cod]
+web/node_modules/
+web/dist/
+api/static/
+data/raw/
+data/barometre/reponses.csv
+.env

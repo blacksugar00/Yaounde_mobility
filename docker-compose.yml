@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    image: observatoire-yaounde:dev
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data/indicateurs:/app/data/indicateurs:ro
+      - ./data/geojson:/app/data/geojson:ro
+      - ./data/barometre:/app/data/barometre:rw
+    environment:
+      BAROMETRE_CSV: /app/data/barometre/reponses.csv
+    restart: unless-stopped
