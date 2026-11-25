@@ -30,5 +30,8 @@ export const getZones = (annee) =>
 export const getResultats = () =>
   request(api.get("/barometre/resultats"));
 
+export const getQuestions = () =>
+  request(api.get("/barometre/questions"));
+
 export const postBarometre = (reponse) =>
   request(api.post("/barometre", reponse));
