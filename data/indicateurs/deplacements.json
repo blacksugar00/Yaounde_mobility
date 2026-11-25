@@ -1,0 +1,7893 @@
+[
+  {
+    "code": "1.2__bus_articule_public",
+    "libelle": "Bus articulé public",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 12340.681098,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 25416.011147,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 39258.790752,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 53903.12228,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 69384.458293,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 85739.651713,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 103007.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 133003.246875,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 164953.65822,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 198957.620812,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 235119.053323,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 273546.609338,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 314353.880682,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 357659.609145,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 403587.906956,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 452268.486345,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 503836.879571,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 529061.458785,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 12340.681098,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 25416.011147,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 39258.790752,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 53903.12228,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 69384.458293,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 85739.651713,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 103007.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 112105.978525,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 121711.648212,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 131848.200162,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 142540.885027,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 153816.065705,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 165701.264102,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 178225.209781,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 191417.890607,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 205310.605446,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 219936.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 235328.21887,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__bus_public",
+    "libelle": "Bus public",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 0.0,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 0.0,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 0.0,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 0.0,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 8545.476387,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 17799.876257,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 27807.308255,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 38614.320495,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 50270.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 46861.974468,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 43135.07165,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 39070.468748,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 34648.36045,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 29847.941182,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 24647.35832,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 19023.663297,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 12952.761032,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 12952.761032,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 35951.379961,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 60307.646658,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 86082.006082,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 113337.299191,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 142138.851514,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 172554.565382,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 204655.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 215323.031615,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 226484.506731,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 238160.825048,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 250374.260138,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 263148.010855,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 276506.238701,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 290474.10668,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 305077.819692,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 320344.666516,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 336303.049732,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 334624.27221,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 12952.761032,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 15377.16017,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 17927.800415,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 20609.867786,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 23428.740766,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 26389.996505,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 29499.41775,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 32763.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 32297.061555,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 31761.187502,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 31151.147932,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 30462.505708,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 29690.607246,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 28830.572911,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 27877.287007,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 26825.387355,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 25669.25442,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 24403.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 23020.455428,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 12952.761032,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 35951.379961,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 60307.646658,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 86082.006082,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 113337.299191,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 142138.851514,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 172554.565382,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 204655.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 202262.238896,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 199458.250477,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 196217.437141,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 192512.904953,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 188316.421085,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 183598.353338,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 178327.607077,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 172471.559474,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 165995.990954,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 158865.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 151040.997263,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__marche_a_pied",
+    "libelle": "Marche à pied",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 913006.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 947670.890593,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 983651.821802,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 1020998.752349,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 1059763.537292,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 1100000.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 1140720.80946,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 1182927.173137,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 1226672.268995,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 1272011.130621,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 1319000.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 1367875.401464,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 1418561.023175,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 1471124.671039,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 1525635.927136,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 1582166.951485,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 1640792.577547,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 1701590.411269,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 1764641.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 1764641.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 1789595.766595,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 1814472.749406,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 1839245.138407,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 1863884.666673,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 1888361.4772,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 1912644.053286,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 1936699.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 1995716.229721,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 2056498.225844,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 2119096.595215,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 2183564.246058,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 2249955.572696,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 2318326.495028,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 2388734.498957,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 2461238.677788,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 2535899.774612,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 2612780.0,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 2691944.204952,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 1764641.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 1797875.901351,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 1831583.568753,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 1865764.210396,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 1900417.741481,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 1935543.697565,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 1971141.213254,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 2007209.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 2062815.532754,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 2119879.929234,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 2178436.938881,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 2238521.985245,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 2300171.171539,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 2363421.285773,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 2428309.805462,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 2494874.901846,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 2563155.443602,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 2633191.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 2705021.843462,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 1764641.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 1789595.766595,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 1814472.749406,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 1839245.138407,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 1863884.666673,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 1888361.4772,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 1912644.053286,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 1936699.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 1995716.229721,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 2056498.225844,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 2119096.595215,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 2183564.246058,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 2249955.572696,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 2318326.495028,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 2388734.498957,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 2461238.677788,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 2535899.774612,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 2612780.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 2691944.204952,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__minibus_9_places_prive",
+    "libelle": "Minibus 9 places privé",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 54318.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 54466.048329,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 54545.69256,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 54551.473237,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 54477.612953,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 54318.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 57568.334725,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 60994.857112,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 64606.591148,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 68413.006306,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 72424.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 76247.528735,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 80254.334575,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 84452.770139,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 88851.512694,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 93459.618619,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 98286.539565,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 103342.13927,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 108636.715176,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 108636.715176,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 107607.981201,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 106421.760916,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 105069.586165,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 103542.628531,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 101831.681066,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 99927.143579,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 97819.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 99930.05877,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 102070.005559,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 104238.317124,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 106434.391425,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 108657.550699,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 110907.036935,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 113182.007134,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 115481.528325,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 117804.572349,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 120150.0,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 122516.607189,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 108636.715176,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 109001.751058,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 109301.242235,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 109531.204564,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 109687.485832,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 109765.75514,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 109761.496136,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 109670.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 110750.487561,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 111777.035742,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 112744.705949,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 113648.285382,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 114482.274064,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 115240.871316,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 115917.961642,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 116507.099998,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 117001.496422,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 117394.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 117677.082142,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 108636.715176,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 107607.981201,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 106421.760916,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 105069.586165,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 103542.628531,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 101831.681066,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 99927.143579,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 97819.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 99930.05877,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 102070.005559,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 104238.317124,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 106434.391425,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 108657.550699,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 110907.036935,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 113182.007134,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 115481.528325,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 117804.572349,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 120150.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 122516.607189,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__modes_actifs_map_velo",
+    "libelle": "Modes actifs (MàP, vélo)",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 915106.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 949845.443087,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 985903.556839,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 1023330.392075,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 1062177.89914,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 1102500.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 1143313.743098,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 1185616.448724,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 1229461.417695,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 1274903.810778,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 1322000.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 1370988.353264,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 1421791.175542,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 1474476.434221,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 1529113.877256,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 1585775.836778,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 1644537.324828,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 1705476.132648,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 1768672.68,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 1768672.68,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 1793765.637359,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 1818785.126381,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 1843704.810682,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 1868496.582177,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 1893130.747915,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 1917575.960629,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 1941799.17,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 2000980.449284,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 2061931.92222,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 2124705.193243,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 2189353.343055,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 2255930.943898,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 2324494.099201,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 2395100.484181,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 2467809.387422,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 2542681.753448,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 2619780.0,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 2699169.19421,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 1768672.68,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 1802045.97146,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 1835896.287561,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 1870224.304703,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 1905030.091169,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 1940313.340475,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 1976073.350213,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 2012309.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 2068079.70219,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 2125313.533751,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 2184045.412329,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 2244310.93503,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 2306146.384137,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 2369588.732425,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 2434675.648044,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 2501445.498927,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 2569937.356693,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 2640191.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 2712246.917307,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 1768672.68,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 1793765.637359,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 1818785.126381,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 1843704.810682,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 1868496.582177,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 1893130.747915,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 1917575.960629,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 1941799.17,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 2000980.449284,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 2061931.92222,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 2124705.193243,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 2189353.343055,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 2255930.943898,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 2324494.099201,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 2395100.484181,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 2467809.387422,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 2542681.753448,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 2619780.49,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 2699169.19421,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__moto_particuliere",
+    "libelle": "Moto particulière",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 34054.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 35755.861521,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 37538.145744,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 39404.517124,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 41358.802863,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 43405.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 45582.375884,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 47865.704237,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 50260.028488,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 52770.628165,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 55403.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 58206.671684,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 61141.623856,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 64213.753638,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 67429.182337,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 70794.296009,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 74315.756645,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 78000.513839,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 81855.82,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 81855.82,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 84295.29956,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 86807.484006,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 89394.536933,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 92058.689579,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 94802.239677,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 97627.553437,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 100537.06,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 104344.76531,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 108295.61842,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 112394.975598,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 116648.384299,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 121061.598104,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 125640.584349,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 130391.532023,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 135320.859967,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 140435.225372,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 145741.52,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 151246.942265,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 81855.82,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 84614.730505,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 87464.108948,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 90406.859272,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 93445.980473,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 96584.566402,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 99825.808729,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 103173.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 107083.797954,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 111141.356932,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 115351.139039,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 119718.80826,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 124250.237874,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 128951.518143,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 133828.964284,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 138889.124728,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 144138.78968,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 149585.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 155235.056397,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 81855.82,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 84295.29956,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 86807.484006,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 89394.536933,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 92058.689579,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 94802.239677,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 97627.553437,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 100537.06,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 104344.76531,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 108295.61842,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 112394.975598,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 116648.384299,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 121061.598104,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 125640.584349,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 130391.532023,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 135320.859967,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 140435.225372,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 145741.52,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 151246.942265,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__motos_taxis",
+    "libelle": "Motos-taxis",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 329318.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 341830.610341,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 354818.609829,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 368300.058516,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 382293.702502,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 396819.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 411522.399798,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 426762.83258,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 442559.552154,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 458932.485609,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 475902.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 492169.128223,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 508988.770547,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 526379.838183,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 544361.610744,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 562954.012997,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 582177.636235,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 602053.760352,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 622604.4,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 622604.4,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 644106.998506,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 666338.073825,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 689321.917131,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 713083.645026,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 737649.202384,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 763045.389412,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 789299.83,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 804094.585764,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 818967.327954,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 833905.776594,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 848896.643811,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 863925.642516,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 878977.433139,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 894035.567857,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 909082.432234,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 924099.184138,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 939065.590322,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 975990.450122,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 622604.4,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 644588.004694,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 667315.969046,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 690812.756178,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 715103.641351,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 740214.713607,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 766172.901562,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 793006.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 822828.571342,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 853763.034391,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 885850.545851,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 919133.776518,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 953656.966694,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 989465.983607,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 1026608.38093,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 1065133.460469,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 1105092.336095,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 1146538.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 1189525.391369,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 622604.4,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 644106.998506,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 666338.073825,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 689321.917131,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 713083.645026,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 737649.202384,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 763045.389412,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 789299.83,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 819767.537027,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 851398.835459,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 884237.842082,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 918330.270033,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 953723.550241,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 990466.895574,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 1028611.36738,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 1068209.944495,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 1109317.594813,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 1151991.25,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 1196290.380058,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__taxi_collectif",
+    "libelle": "Taxi collectif",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 1003965.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 1042110.866236,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 1081705.988854,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 1122805.42469,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 1165466.322021,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 1209748.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 1254573.238627,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 1301035.704044,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 1349194.09495,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 1399109.162702,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 1450843.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 1504547.158982,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 1560238.311707,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 1617990.811577,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 1677880.954416,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 1739987.859859,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 1804393.575858,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 1871183.187061,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 1940445.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 1940445.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 1986691.21755,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 2033971.394591,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 2082306.033224,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 2131716.017195,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 2182222.539244,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 2233847.100999,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 2286611.34,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 2344213.262531,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 2403062.188028,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 2463175.585722,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 2524570.454398,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 2587263.45361,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 2651270.859795,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 2716608.519754,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 2783291.801369,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 2851335.541424,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 2920753.710483,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 3024605.743477,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 1940445.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 2001199.114111,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 2063836.142193,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 2128413.873339,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 2194991.935085,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 2263631.774169,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 2334396.711702,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 2407352.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 2495204.846054,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 2586250.18598,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 2680603.599293,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 2778384.836028,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 2879717.966781,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 2984731.538131,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 3093558.733643,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 3206337.540645,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 3323210.922987,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 3444327.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 3569839.231864,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 1940445.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 1986691.21755,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 2033971.394591,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 2082306.033224,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 2131716.017195,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 2182222.539244,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 2233847.100999,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 2286611.34,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 2367722.689425,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 2451709.449287,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 2538673.683953,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 2628720.893731,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 2721960.315197,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 2818505.053448,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 2918472.219039,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 3021983.069761,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 3129163.157436,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 3240142.2,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 3355055.638381,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__taxis",
+    "libelle": "Taxis",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 1003965.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 1042110.866236,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 1081705.988854,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 1122805.42469,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 1165466.322021,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 1209748.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 1254573.238627,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 1301035.704044,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 1349194.09495,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 1399109.162702,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 1450843.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 1504547.158982,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 1560238.311707,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 1617990.811577,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 1677880.954416,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 1739987.859859,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 1804393.575858,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 1871183.187061,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 1940445.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 1940445.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 1986691.21755,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 2033971.394591,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 2082306.033224,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 2131716.017195,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 2182222.539244,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 2233847.100999,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 2286611.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 2344213.262531,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 2403062.188028,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 2463175.585722,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 2524570.454398,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 2587263.45361,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 2651270.859795,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 2716608.519754,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 2783291.801369,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 2851335.541424,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 2920753.710483,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 3024605.743477,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 1940445.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 2001199.114111,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 2063836.142193,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 2128413.873339,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 2194991.935085,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 2263631.774169,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 2334396.711702,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 2407352.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 2495204.846054,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 2586250.18598,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 2680603.599293,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 2778384.836028,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 2879717.966781,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 2984731.538131,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 3093558.733643,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 3206337.540645,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 3323210.922987,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 3444327.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 3569839.231864,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 1940445.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 1986691.21755,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 2033971.394591,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 2082306.033224,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 2131716.017195,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 2182222.539244,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 2233847.100999,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 2286611.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 2367722.689425,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 2451709.449287,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 2538673.683953,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 2628720.893731,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 2721960.315197,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 2818505.053448,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 2918472.219039,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 3021983.069761,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 3129163.157436,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 3240142.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 3355055.638381,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__total_deplacements_motorises_quotidiens",
+    "libelle": "Total déplacements motorisés quotidiens",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 1598604.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 1660182.613025,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 1724133.183155,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 1790547.073695,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 1859519.166998,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 1931148.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 2016167.996253,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 2104918.53137,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 2197562.806047,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 2294271.141368,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 2395222.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 2483006.444471,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 2574008.887238,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 2668346.52732,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 2766141.596243,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 2867520.805125,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 2972615.508838,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 3081561.876192,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 3194501.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 3194501.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 3317138.804226,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 3444247.000038,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 3575983.129157,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 3712510.080843,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 3853996.341029,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 4000616.18118,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 4152550.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 4304434.594331,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 4461859.031047,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 4625024.698847,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 4794140.447984,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 4969422.708643,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 5151095.765471,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 5339392.042027,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 5534552.395516,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 5736826.422173,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 5946473.0,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 6163759.485066,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 3194501.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 3300854.578,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 3410664.48538,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 3524041.109125,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 3641098.242061,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 3761953.257274,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 3886727.219507,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 4015545.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 4165441.103987,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 4320891.308144,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 4482100.118539,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 4649279.530775,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 4822649.302995,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 5002437.238794,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 5188879.480409,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 5382220.81254,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 5582714.977203,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 5790625.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 6006223.528235,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 3194501.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 3317138.804226,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 3444247.000038,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 3575983.129157,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 3712510.080843,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 3853996.341029,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 4000616.18118,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 4152550.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 4304434.594331,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 4461859.031047,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 4625024.698847,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 4794140.447984,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 4969422.708643,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 5151095.765471,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 5339392.042027,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 5534552.395516,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 5736826.422173,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 5946472.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 6163759.485066,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__total_deplacements_quotidiens",
+    "libelle": "Total déplacements quotidiens",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 2513710.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 2610028.056112,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 2710036.739995,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 2813877.46577,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 2921697.066138,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 3033648.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 3159481.739351,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 3290534.980095,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 3427024.223742,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 3569174.952146,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 3717222.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 3853994.797735,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 3995800.06278,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 4142822.96154,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 4295255.4735,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 4453296.641903,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 4617152.833666,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 4787038.00884,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 4963174.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 4963174.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 5110904.441585,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 5263032.12642,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 5419687.939839,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 5581006.663019,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 5747127.088943,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 5918192.141809,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 6094349.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 6305415.043615,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 6523790.953267,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 6749729.89209,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 6983493.791039,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 7225353.652542,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 7475589.864673,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 7734492.526208,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 8002361.782938,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 8279508.175621,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 8566253.0,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 8862928.679276,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 4963174.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 5102900.54946,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 5246560.77294,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 5394265.413828,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 5546128.333231,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 5702266.597749,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 5862800.56972,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 6027854.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 6233520.806176,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 6446204.841895,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 6666145.530868,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 6893590.465805,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 7128795.687131,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 7372025.971219,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 7623555.128453,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 7883666.311467,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 8152652.333896,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 8430816.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 8718470.445543,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 4963174.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 5110904.441585,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 5263032.12642,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 5419687.939839,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 5581006.663019,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 5747127.088943,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 5918192.141809,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 6094349.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 6305415.043615,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 6523790.953267,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 6749729.89209,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 6983493.791039,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 7225353.652542,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 7475589.864673,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 7734492.526208,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 8002361.782938,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 8279508.175621,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 8566253.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 8862928.679276,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__train_leger",
+    "libelle": "Train léger",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 18285.109806,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 37836.758757,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 58720.743069,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 81005.897259,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 104764.225678,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 130071.039507,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 157005.099444,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 185648.764305,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 216088.145787,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 248413.269624,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 257016.584925,
+        "statut": "projete",
+        "origine": "construit"
+      }
+    ]
+  },
+  {
+    "code": "1.2__transport_public",
+    "libelle": "Transport public",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 54318.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 54466.048329,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 54545.69256,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 54551.473237,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 54477.612953,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 54318.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 66113.811112,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 78794.733368,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 92413.899403,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 107027.326801,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 122694.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 123109.503203,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 123389.406225,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 123523.238887,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 123499.873143,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 123307.559802,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 122933.897885,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 122365.802568,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 121589.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 121589.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 155900.04226,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 192145.418721,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 230410.382999,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 270783.050003,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 313354.990874,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 358221.360673,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 405481.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 466541.447065,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 531344.929267,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 600077.506052,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 672933.602146,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 750116.396571,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 831838.195825,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 918320.822403,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 1009796.019279,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 1106505.870997,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 1208703.198927,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 1243218.92311,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 121589.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 124378.911229,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 127229.04265,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 130141.072351,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 133116.226598,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 136155.751645,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 139260.913886,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 142433.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 143047.549116,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 143538.223243,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 143895.853881,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 144110.79109,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 144172.88131,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 144071.444226,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 143795.24865,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 143332.487353,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 142670.750842,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 141797.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 140697.53757,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 121589.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 155900.04226,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 192145.418721,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 230410.382999,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 270783.050003,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 313354.990874,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 358221.360673,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 405481.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 414298.27619,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 423239.904248,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 432303.954428,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 441488.181405,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 450790.037489,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 460206.654376,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 469734.823992,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 479370.978407,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 489111.168749,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 498951.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 508885.823323,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__vehicules_particuliers_voiture_moto",
+    "libelle": "Véhicules particuliers (voiture, moto)",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 211003.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 221775.08812,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 233062.891912,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 244890.117252,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 257281.529522,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 270263.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 283958.546716,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 298325.261378,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 313395.25954,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 329202.166256,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 345782.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 363180.654063,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 381392.398759,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 400452.638673,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 420399.15794,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 441271.372467,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 463110.39886,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 485959.126211,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 509862.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 509862.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 530440.54591,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 551792.112902,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 573944.795802,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 596927.368619,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 620769.608527,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 645502.330095,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 671157.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 689585.298971,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 708484.585798,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 727865.830479,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 747739.74763,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 768117.215946,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 789009.276712,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 810427.132013,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 832382.142634,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 854885.825613,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 877949.760268,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 919944.368357,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 509862.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 530688.547966,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 552283.33149,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 574673.407257,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 597886.439028,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 621951.017853,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 646896.692357,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 672754.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 704360.137474,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 737339.864529,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 771750.119514,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 807650.127138,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 845101.488209,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 884168.27283,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 924917.117187,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 967417.324073,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 1011740.967278,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 1057963.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 1106161.367432,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 509862.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 530440.54591,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 551792.112902,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 573944.795802,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 596927.368619,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 620769.608527,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 645502.330095,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 671157.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 702646.09169,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 735510.842053,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 769809.218385,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 805601.102815,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 842948.805716,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 881917.162074,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 922573.631616,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 964988.402852,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 1009234.501175,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 1055388.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 1103527.643303,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__velo",
+    "libelle": "Vélo",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 2100.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 2174.552493,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 2251.735037,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 2331.639725,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 2414.361848,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 2500.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 2592.933639,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 2689.275588,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 2789.1487,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 2892.680157,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 3000.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 3112.951799,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 3230.152367,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 3351.763182,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 3477.95012,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 3608.885293,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 3744.747281,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 3885.721379,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 4032.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 4032.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 4169.870764,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 4312.376975,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 4459.672275,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 4611.915504,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 4769.270714,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 4931.907344,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 5100.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 5264.219563,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 5433.696376,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 5608.598028,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 5789.096997,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 5975.371203,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 6167.604174,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 6365.985224,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 6570.709634,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 6781.978836,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 7000.0,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 7224.989258,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 4032.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 4170.070109,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 4312.718808,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 4460.094306,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 4612.349688,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 4769.642911,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 4932.136959,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 5100.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 5264.169436,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 5433.604517,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 5608.473448,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 5788.949785,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 5975.212598,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 6167.446652,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 6365.842582,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 6570.597081,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 6781.913091,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 7000.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 7225.073846,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 4032.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 4169.870764,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 4312.376975,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 4459.672275,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 4611.915504,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 4769.270714,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 4931.907344,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 5100.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 5264.219563,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 5433.696376,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 5608.598028,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 5789.096997,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 5975.371203,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 6167.604174,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 6365.985224,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 6570.709634,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 6781.978836,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 7000.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 7224.989258,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  },
+  {
+    "code": "1.2__voiture_particuliere",
+    "libelle": "Voiture particulière",
+    "unite": "déplacements/jour",
+    "source": "donnees_longues.csv",
+    "series": [
+      {
+        "scenario": "historique",
+        "annee": 2000,
+        "valeur": 176949.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2001,
+        "valeur": 186019.226598,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2002,
+        "valeur": 195524.746168,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2003,
+        "valeur": 205485.600129,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2004,
+        "valeur": 215922.72666,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2005,
+        "valeur": 226858.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2006,
+        "valeur": 238376.170832,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2007,
+        "valeur": 250459.557141,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2008,
+        "valeur": 263135.231053,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2009,
+        "valeur": 276431.538091,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2010,
+        "valeur": 290378.0,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2011,
+        "valeur": 304973.982379,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2012,
+        "valeur": 320250.774903,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2013,
+        "valeur": 336238.885035,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2014,
+        "valeur": 352969.975603,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2015,
+        "valeur": 370477.076459,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2016,
+        "valeur": 388794.642215,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2017,
+        "valeur": 407958.612372,
+        "statut": "estime",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "historique",
+        "annee": 2018,
+        "valeur": 428006.49,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2018,
+        "valeur": 428006.49,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2019,
+        "valeur": 446145.246349,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2020,
+        "valeur": 464984.628895,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2021,
+        "valeur": 484550.258869,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2022,
+        "valeur": 504868.67904,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2023,
+        "valeur": 525967.368851,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2024,
+        "valeur": 547874.776658,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2025,
+        "valeur": 570620.31,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2026,
+        "valeur": 585240.533661,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2027,
+        "valeur": 600188.967378,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2028,
+        "valeur": 615470.854881,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2029,
+        "valeur": 631091.363331,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2030,
+        "valeur": 647055.617842,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2031,
+        "valeur": 663368.692362,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2032,
+        "valeur": 680035.59999,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2033,
+        "valeur": 697061.282667,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2034,
+        "valeur": 714450.600241,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2035,
+        "valeur": 732208.240268,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "rupture",
+        "annee": 2036,
+        "valeur": 768697.426091,
+        "statut": "projete",
+        "origine": "construit"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2018,
+        "valeur": 428006.49,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2019,
+        "valeur": 446073.817461,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2020,
+        "valeur": 464819.222542,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2021,
+        "valeur": 484266.547985,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2022,
+        "valeur": 504440.458555,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2023,
+        "valeur": 525366.45145,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2024,
+        "valeur": 547070.883628,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2025,
+        "valeur": 569581.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2026,
+        "valeur": 597276.33952,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2027,
+        "valeur": 626198.507598,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2028,
+        "valeur": 656398.980475,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2029,
+        "valeur": 687931.318878,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2030,
+        "valeur": 720851.250335,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2031,
+        "valeur": 755216.754687,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2032,
+        "valeur": 791088.152903,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2033,
+        "valeur": 828528.199346,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2034,
+        "valeur": 867602.177598,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2035,
+        "valeur": 908378.0,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "tendanciel",
+        "annee": 2036,
+        "valeur": 950926.311035,
+        "statut": "projete",
+        "origine": "extrapole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2018,
+        "valeur": 428006.49,
+        "statut": "estime",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2019,
+        "valeur": 446145.246349,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2020,
+        "valeur": 464984.628895,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2021,
+        "valeur": 484550.258869,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2022,
+        "valeur": 504868.67904,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2023,
+        "valeur": 525967.368851,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2024,
+        "valeur": 547874.776658,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2025,
+        "valeur": 570620.31,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2026,
+        "valeur": 598301.326379,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2027,
+        "valeur": 627215.223633,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2028,
+        "valeur": 657414.242787,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2029,
+        "valeur": 688952.718516,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2030,
+        "valeur": 721887.207612,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2031,
+        "valeur": 756276.577725,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2032,
+        "valeur": 792182.099593,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2033,
+        "valeur": 829667.542885,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2034,
+        "valeur": 868799.275803,
+        "statut": "projete",
+        "origine": "interpole"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2035,
+        "valeur": 909646.29,
+        "statut": "projete",
+        "origine": "fichier"
+      },
+      {
+        "scenario": "volontariste",
+        "annee": 2036,
+        "valeur": 952280.701038,
+        "statut": "projete",
+        "origine": "extrapole"
+      }
+    ]
+  }
+]

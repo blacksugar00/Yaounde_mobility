@@ -232,158 +232,47 @@ git commit -m "Create Flask app and health endpoint"
 ```
 
 ### Etape 2 — service de chargement des assets P1
-
+git status --short --branch
 **Quand :** mercredi matin, M1.
 **Depend de :** contrats JSON/GeoJSON signes; fichiers P1 disponibles ou un
 mock local explicitement identifié.
 
-`api/services/data_loader.py` :
+**Etat M1 (25 novembre) :** le service de chargement/validation/cache est
+implémenté. En attendant les assets de P1, les tests utilisent deux fixtures
+minimales sous `api/tests/fixtures/` : un indicateur fictif et une zone
+GeoJSON fictive. Elles ne doivent pas être copiées dans `data/` ni utilisées
+comme données de démonstration. Après le merge P1, les routes liront les assets
+depuis `data/indicateurs/` et `data/geojson/`; redémarrez Flask pour vider le
+cache après leur remplacement.
 
-```python
-import json
-from functools import lru_cache
-from pathlib import Path
-
-ROOT_DIR = Path(__file__).resolve().parents[2]
-DATA_DIR = ROOT_DIR / "data"
-INDICATOR_DIR = DATA_DIR / "indicateurs"
-ZONE_FILE = DATA_DIR / "geojson" / "zones_population.geojson"
-
-
-@lru_cache(maxsize=1)
-def load_indicators():
-    files = sorted(INDICATOR_DIR.glob("*.json"))
-    if not files:
-        raise FileNotFoundError(
-            f"Aucun fichier indicateur disponible dans {INDICATOR_DIR}"
-        )
-
-    indicators = []
-    seen_codes = set()
-    required = {"code", "libelle", "unite", "source", "series"}
-    for path in files:
-        try:
-            records = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as error:
-            raise RuntimeError(f"JSON invalide: {path.name}") from error
-        if not isinstance(records, list):
-            raise ValueError(f"{path.name} doit contenir une liste.")
-        for record in records:
-            if not isinstance(record, dict) or not required <= record.keys():
-                raise ValueError(f"Structure indicateur invalide dans {path.name}.")
-            if record["code"] in seen_codes:
-                raise ValueError(f"Code duplique: {record['code']}")
-            if not isinstance(record["series"], list):
-                raise ValueError(f"Series invalides pour {record['code']}.")
-            seen_codes.add(record["code"])
-            indicators.append(record)
-    return indicators
-
-
-@lru_cache(maxsize=1)
-def load_zones():
-    try:
-        content = json.loads(ZONE_FILE.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as error:
-        raise RuntimeError(f"GeoJSON absent ou invalide: {ZONE_FILE}") from error
-
-    if not isinstance(content, dict) or content.get("type") != "FeatureCollection":
-        raise ValueError("Le GeoJSON doit etre une FeatureCollection.")
-    if len(content.get("features", [])) != 105:
-        raise ValueError("Le GeoJSON doit contenir 105 zones.")
-    properties = {"nom", "pop_2018", "pop_2025", "pop_2035"}
-    for feature in content["features"]:
-        actual = set((feature.get("properties") or {}).keys())
-        if actual != properties:
-            raise ValueError("Proprietes GeoJSON non conformes au contrat.")
-    return content
-```
-
-Le cache est en memoire; apres regeneration, redemarrez Flask. Ne renvoyez pas
-un resultat vide en cas d'erreur. Le schema des series et des geometries est
-livre par P1; si sa structure change, faites valider le changement avant de
-modifier ce service.
-
-Commit :
-
-```bash
-git add api/services/data_loader.py
-git commit -m "Load and validate prepared datasets"
-```
+Le service [`data_loader.py`](../api/services/data_loader.py) lit tous les
+fichiers JSON d'indicateurs, rejette les schémas invalides ou les codes
+dupliqués, et met en cache les assets validés. Il vérifie également le
+GeoJSON, ses géométries, ses propriétés et les 105 features attendues. Les
+erreurs sont propagées comme erreurs d'assets; les routes les journalisent et
+répondent 503 plutôt que de retourner des listes vides. Le cache est en mémoire :
+redémarrez Flask après la livraison ou la régénération des fichiers par P1.
 
 ### Etape 3 — routes indicateurs et zones
 
 **Quand :** mercredi matin, disponible pour la premiere integration M1.
 **Depend de :** service de chargement et fichiers P1.
 
-`api/routes/indicateurs.py` :
+**Etat M1 (25 novembre) :** les routes de catalogue, détail/scénario et zones
+sont implémentées et testées avec les deux fixtures courtes. L’application
+accepte `INDICATORS_DIR` et `ZONES_FILE` pour les tests; le contrôle de
+production exige les 105 zones du contrat, tandis que le test configure une
+seule feature fictive. Les fichiers absents ou invalides retournent 503,
+l’année invalide retourne 400, et aucun asset manquant ne devient une réponse
+vide de succès. Rejouez les tests d'intégration mock avec
+`./.venv/bin/python -m unittest discover -s api/tests -v`.
 
-```python
-from flask import Blueprint, jsonify, request
-
-from services.data_loader import load_indicators
-
-bp = Blueprint("indicateurs", __name__)
-
-
-@bp.get("/indicateurs")
-def list_indicators():
-    return jsonify([
-        {
-            "code": item["code"],
-            "libelle": item["libelle"],
-            "unite": item["unite"],
-        }
-        for item in load_indicators()
-    ])
-
-
-@bp.get("/indicateurs/<path:code>")
-def get_indicator(code):
-    scenario = request.args.get("scenario")
-    for item in load_indicators():
-        if item["code"] != code:
-            continue
-        if not scenario:
-            return jsonify(item)
-        series = [
-            point for point in item["series"]
-            if point["scenario"] == scenario
-        ]
-        if not series:
-            return jsonify({
-                "erreur": "scenario indisponible pour cet indicateur",
-                "code": code,
-                "scenario": scenario,
-            }), 404
-        return jsonify({**item, "series": series})
-    return jsonify({"erreur": "indicateur inconnu", "code": code}), 404
-```
-
-`api/routes/zones.py` :
-
-```python
-from flask import Blueprint, jsonify, request
-
-from services.data_loader import load_zones
-
-bp = Blueprint("zones", __name__)
-VALID_YEARS = {"2018", "2025", "2035"}
-
-
-@bp.get("/zones")
-def get_zones():
-    year = request.args.get("annee", "2018")
-    if year not in VALID_YEARS:
-        return jsonify({
-            "erreur": "annee invalide",
-            "annees_valides": sorted(VALID_YEARS),
-        }), 400
-    return jsonify(load_zones())
-```
-
-La route verifie l'annee mais conserve les proprietes strictes du GeoJSON.
-React choisit le champ d'affichage; n'ajoutez pas de proprietes a la reponse.
+Les routes [`indicateurs.py`](../api/routes/indicateurs.py) et
+[`zones.py`](../api/routes/zones.py) consomment ce service. Le catalogue ne
+retourne que `code`, `libelle` et `unite`; le détail retourne la fiche complète
+et filtre `series` si `scenario` est fourni. Le code ou scénario absent retourne
+404. `/api/zones` accepte uniquement les années 2018, 2025 et 2035 et renvoie
+le GeoJSON sans modifier ses propriétés.
 
 Tests manuels avec des fichiers P1 :
 
@@ -395,8 +284,10 @@ curl -i 'http://localhost:5000/api/zones?annee=2018'
 curl -i 'http://localhost:5000/api/zones?annee=2020'
 ```
 
-Le catalogue doit contenir les indicateurs exportes; la derniere requete doit
-retourner 400. La requete 2018 retourne les 105 features et le contrat exact.
+Avec les assets P1, le catalogue doit contenir les indicateurs exportés; la
+dernière requête doit retourner 400. La requête 2018 retourne les 105 features
+et le contrat exact. Avant leur livraison, ces routes doivent retourner 503;
+les fixtures courtes ne remplacent pas les assets sous `data/`.
 
 Commit :
 
