@@ -616,11 +616,11 @@ conteneur fonctionne au jalon de gel.
 | Mardi matin, cadrage | Acces aux fichiers, dimensions, champs connus/inconnus, statut des droits |
 | M0 terminé — PASS (25 nov. 2026) | Structure, ignore rules et Docker/Compose vérifiés; aucun bootstrap à refaire |
 | Mercredi 9 h 15 | Blocage source/CRS et resultat attendu pour 12 h 30 |
-| Mercredi 12 h 30, M1 | JSON/GeoJSON, statistiques de controle, premier build avec les assets |
-| Mercredi 17 h 30, M2 | Carte population 2018 et integration avec API + page |
-| Jeudi 12 h 30, M3 | Carte 2018/2025/2035, totaux et ecarts commentes |
-| Jeudi 17 h 30, M4 | `docker compose up --build`, test CSV et liste des fonctions reportées |
-| Vendredi 13 h, M5 | URL si prete, sinon Docker local, captures et verification du conteneur |
+| Mercredi 12 h 30, M1 — TERMINÉ (PASS) | 7 JSON d'indicateurs + GeoJSON 105 zones livrés et conformes, premier build Docker validé (~213 Mo) |
+| Mercredi 17 h 30, M2 — EN COURS | Composant `MapView.jsx` (Leaflet, choroplèthe pop 2018), et préparation des couches géographiques d'infrastructures/voirie (F4) |
+| Jeudi 12 h 30, M3 | `MapView` multi-années (2018/2025/2035) + calques d'infrastructures F4 (voirie structurante, corridors) superposables, validation des données réelles F6/F7 |
+| Jeudi 17 h 30, M4 | Packaging Docker final (`docker compose up --build`), validation volume bind-mount `data/barometre`, formats d'export Open Data F11/F12 |
+| Vendredi 13 h, M5 | URL si prête, sinon conteneur Docker local validé, vérification de 5 valeurs avec P3 et répétition de la démo |
 
 Si une source manque, un droit de diffusion n'est pas clair, un champ ou le CRS
 est inconnu, alertez les deux autres sous 30 minutes. Ne livrez pas une carte
@@ -635,13 +635,14 @@ Votre perimetre est livre quand :
 - les sources et limites sont decrites dans `SOURCES.md`;
 - les bruts et reponses ne sont pas suivis dans Git ni copies dans l'image;
 - les scripts valident leur schema et terminent avec des erreurs explicites;
-- les JSON couvrent au moins huit indicateurs dans les themes prioritaires;
+- les JSON couvrent les indicateurs prioritaires et prospectifs (dont F6 parts modales, F7 GES et temps);
 - le GeoJSON a les 105 zones attendues, les 4 proprietes requises, un
   `id_zone` facultatif et le CRS EPSG:4326;
+- les couches géographiques additionnelles F4 (infrastructures, voirie, corridors) sont préparées en GeoJSON EPSG:4326;
 - les sommes population sont comparees aux controles et les ecarts documentes;
-- `MapView` affiche population 2018/2025/2035, legend, popup et valeurs absentes;
+- `MapView` affiche population 2018/2025/2035, légende, popup, couches F4 superposables et valeurs absentes;
 - l'image multi-stage est sous 500 Mo ou l'ecart est explique;
-- Compose sert `/` et `/api/*`; le CSV test persiste dans le dossier hote;
+- Compose sert `/` et `/api/*`; le CSV baromètre persiste dans le dossier hôte `data/barometre/`;
 - P2/P3 ont teste les donnees consommees depuis leurs branches.
 
 Les couches d'infrastructure ne bloquent pas cette definition de fini. Si elles

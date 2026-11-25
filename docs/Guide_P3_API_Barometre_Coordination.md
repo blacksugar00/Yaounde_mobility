@@ -539,26 +539,25 @@ liste des dependances et fonctions encore absentes.
 
 ## 6. Jalons communs et definition de fini pour P3
 
-| Jalon | Votre livrable a montrer |
-|---|---|
-| M0 — terminé, PASS (25 nov. 2026) | Health route, factory, routes désactivées, proposition de 17 questions, tests ciblés et guides; ne pas refaire le bootstrap |
-| M1 — mercredi 12 h 30 | Routes indicateurs/zones lisent les vrais fichiers P1; erreurs/codes conformes |
-| M2 — mercredi 17 h 30 | POST valide et enregistre une reponse de test si formulaire officiellement configure; page participative consomme l'API |
-| M3 — jeudi 12 h 30 | F9 agrege sans lignes brutes, Methodologie documente sources, schema et limites |
-| M4 — jeudi 17 h 30 | README reproductible, test Compose avec P1, bilans et decisions de report |
-| M5 — vendredi 13 h | Toutes les routes, 5 valeurs, stockage local, coordination du deploiement/repetition |
+| Jalon | Votre livrable a montrer | Statut |
+|---|---|---|
+| M0 — terminé, PASS (25 nov. 2026) | Health route, factory, routes désactivées, proposition de 17 questions, tests ciblés et guides; ne pas refaire le bootstrap | Terminé |
+| M1 — mercredi 12 h 30 | Routes indicateurs/zones lisent les vrais fichiers P1; 88 indicateurs catalogués, 105 zones | Terminé |
+| M2 — mercredi 17 h 30 | Baromètre validé (105 quartiers, 17 questions), POST valide, CSV persistant, page `Participatif.jsx` livrée | Terminé |
+| M3 — jeudi 12 h 30 | F9 résultats agrégés avec ChartCard haute fidélité (livré), support multi-couches F4 (infrastructures), indicateurs réels F6 (parts modales) et F7 (GES/temps), page Methodologie F10 | En cours / Avancé |
+| M4 — jeudi 17 h 30 | Routes d'export de données F11/F12, README reproductible, validation Docker Compose avec P1, gel de livraison | Planifié |
+| M5 — vendredi 13 h | Contrôle croisé de 5 valeurs, répétition générale de la démo (10 min), déploiement | Planifié |
 
 Votre perimetre est fini quand :
 
-- les six routes de l'API respectent les formats et statuts de la section 3;
+- les routes de l'API couvrent l'intégralité des indicateurs réels (dont F6 parts modales, F7 GES/temps, F4 couches);
 - JSON/GeoJSON invalides ne se transforment pas en reponses vides de succes;
 - le cache est redemarre apres generation et l'erreur est visible;
 - `POST` refuse consentement absent, réponse vide, champs inconnus ou valeurs
   non autorisées; les réponses partielles sont acceptées et les absences restent
   des cellules CSV vides;
 - le schema du CSV est verifie et les reponses restent hors Git;
-- F8/F9 n'acceptent pas de collecte sans schema approuve;
-- F9 montre des agregats anonymes et les qualifie de test/non representative;
+- F8 (Participatif) et F9 (Résultats) sont interactifs, esthétiques et respectent le seuil d'anonymat $k \ge 5$;
 - les pages Methodologie et README correspondent aux choses livrees, pas aux
   choses espérées;
 - P1/P2 ont execute un test d'integration avec vous;

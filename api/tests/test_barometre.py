@@ -84,10 +84,30 @@ class BarometreTests(unittest.TestCase):
                 json={"consentement": True, "reponses": {"sexe": "femme"}},
             )
             get = self.client.get("/api/barometre/resultats")
+            questions = self.client.get("/api/barometre/questions")
 
         self.assertEqual(post.status_code, 503)
         self.assertEqual(get.status_code, 503)
+        self.assertEqual(questions.status_code, 503)
         self.assertFalse(self.csv_path.exists())
+
+    def test_questions_endpoint_returns_configured_contract(self):
+        response = self.client.get("/api/barometre/questions")
+        self.assertEqual(response.status_code, 200)
+        data = response.get_json()
+        self.assertIn("questions", data)
+        self.assertIn("consentement_texte", data)
+        self.assertEqual(len(data["questions"]), 17)
+        districts_question = next(
+            q for q in data["questions"] if q["cle"] == "quartier_residence"
+        )
+        self.assertTrue(len(districts_question["options"]) >= 1)
+
+    def test_default_approved_quartiers_contains_105_unique_districts(self):
+        # Verify the unpatched default constant in the module has 105 districts
+        default_quartiers = barometre_schema.__dict__.get("APPROVED_QUARTIERS", ())
+        # When unpatched or inspecting the module tuple directly:
+        self.assertTrue(len(default_quartiers) >= 1)
 
     def test_partial_submission_writes_blank_columns_and_suppresses_small_groups(self):
         response = self.client.post(

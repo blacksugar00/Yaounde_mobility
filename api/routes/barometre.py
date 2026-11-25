@@ -36,6 +36,31 @@ def _unavailable():
     ), 503
 
 
+@barometre_bp.get("/questions")
+def questions():
+    if not barometre_schema.questionnaire_configured():
+        return _unavailable()
+
+    return jsonify(
+        questions=[
+            {
+                "cle": q.key,
+                "libelle": q.label,
+                "options": [
+                    {"libelle": label, "valeur": value}
+                    for label, value in (
+                        barometre_schema.APPROVED_QUARTIERS
+                        if q.key == "quartier_residence"
+                        else q.options
+                    )
+                ],
+            }
+            for q in barometre_schema.QUESTIONS
+        ],
+        consentement_texte=barometre_schema.CONSENT_TEXT_APPROVED,
+    )
+
+
 @barometre_bp.post("")
 def enregistrer():
     if not barometre_schema.questionnaire_configured():
