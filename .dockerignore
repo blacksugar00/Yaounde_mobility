@@ -1,0 +1,28 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+web/node_modules/
+web/dist/
+api/static/
+
+#Reponses aux questions du barometre
+data/barometre/reponses.csv
+
+# Donnees brutes (trop lourdes, non necessaires dans l'image)
+data/raw/
+*.pbf
+*.shp
+*.shx
+*.dbf
+*.prj
+
+# Divers
+.git/
+.gitignore
+.DS_Store
+*.log
+README.md
+SOURCES.md
