@@ -24,7 +24,7 @@ L'equipe construit une application web de demonstration qui :
 3. compare historique, tendanciel, volontariste et rupture, uniquement quand la
    valeur correspondante existe;
 4. montre la population par zone pour 2018, 2025 et 2035;
-5. integre un questionnaire anonyme de six a huit questions et une vue de ses
+5. integre un questionnaire anonyme propose de 17 questions facultatives et une vue de ses
    reponses de test;
 6. explique les sources, les hypotheses et les limites;
 7. se lance avec un seul conteneur Docker : Flask sert l'API et le build React.
@@ -74,10 +74,10 @@ clarifications necessaires pour que son architecture fonctionne en pratique.
 
 | Point du PDF | Risque ou ambiguite | Decision d'execution |
 |---|---|---|
-| `plan.pdf` place le cadrage au mardi matin; `partage_des_taches.pdf` reserve 14 h–17 h 30 au depot/contrats | Les calendriers ne donnent pas le meme horaire de kickoff | Prevalence de `plan.pdf` : contrats et choix le mardi matin; l'apres-midi sert a terminer le bootstrap. M0 est valide au plus tard mardi 17 h 30, avant les branches. |
+| `plan.pdf` place le cadrage au mardi matin; `partage_des_taches.pdf` reserve 14 h–17 h 30 au depot/contrats | Les calendriers ne donnent pas le meme horaire de kickoff | Le cadrage reste celui de `plan.pdf`; M0 a été vérifié PASS le 25 novembre 2026 et n'est plus à réaliser. La PR attend la revue humaine avant les branches personnelles. |
 | `partage_des_taches.pdf` place deux objectifs differents au mercredi matin | Donnees/API/premier graphique et premier parcours complet ne peuvent pas etre deux jalons separes sur la meme plage | Prevalence du decoupage de `plan.pdf` : mercredi matin = M1 (assets, API, premier graphique/build); mercredi apres-midi = M2 (parcours complet). |
 | La repartition demande Google Form/iframe, alors que le contrat de route prevoit POST Flask | Deux canaux de collecte ne partageraient ni stockage ni resultats | Decision deja validee : formulaire React -> `POST /api/barometre` -> CSV local. Pas de Google Form, iframe ni import manuel. C'est l'unique ecart fonctionnel assumé au PDF de repartition. |
-| Le contrat de resultat du PDF nomme `{total, par_mode}`; les questions finales ne sont pas encore connues | Des cles `par_frequence`/`par_motif` fixes supposeraient un questionnaire non approuve | Contrat retenu : `{total, agregats: {<champ_approuve>: [...]}}`; les agregats suivent les champs confirmes par l'organisation. Si `mode_principal` existe, exposer aussi `par_mode` pour compatibilite avec le contrat PDF. |
+| Le contrat du PDF nomme `{total, par_mode}` | Les résultats nécessitent un décompte par question et une protection contre les petites cellules | Le contrat commun est [`contrat_barometre.md`](./contrat_barometre.md) : total des formulaires, réponse count par question, distributions anonymes masquées si une petite cellule apparaît. |
 | `plan.pdf` exige une page Resultats dans ses livrables/criteres; `partage_des_taches.pdf` classe F9 comme souhaitable | Le niveau de priorite se contredit | `plan.pdf` prevaut : F9 est obligatoire au minimum en 2–3 graphiques agreges de test; etat « aucune reponse » si le CSV est vide, jamais de chiffres inventes. |
 | Les contrats d'indicateur et GeoJSON sont fournis, mais les colonnes de la source doivent rester autoritaires | Un code, une unite ou une propriete recopiee du PDF peut ne pas exister dans les fichiers remis | P1 verifie code, unite, champs et CRS contre les fichiers sources; l'API et React consomment les noms stables definis ici, jamais des suppositions. |
 | Les proprietaires des contrats ne sont pas tous ceux des consommateurs | P2 peut commencer les graphiques avant les JSON ou l'API; carte et page Carte risquent d'etre modifiees simultanement | P1 produit JSON, GeoJSON et composant Leaflet; P3 produit les routes; P2 produit le shell, la mise en page, Axios et ChartCard. Les dependances et fichiers exclusifs sont en section 3. |
@@ -144,19 +144,17 @@ Routes minimales partagees :
 | `GET /api/indicateurs` | Liste `[{code, libelle, unite}]` |
 | `GET /api/indicateurs/<code>?scenario=` | Fiche avec series; scenario optionnel |
 | `GET /api/zones?annee=2018` | FeatureCollection, annee parmi 2018/2025/2035 |
-| `POST /api/barometre` | Validation puis `{"ok":true}`, HTTP 201 |
-| `GET /api/barometre/resultats` | `{total, agregats: {champ: [{reponse, nombre}]}}`; agregats anonymes et limites aux champs approuves; alias `par_mode` si le champ existe |
+| `POST /api/barometre` | `{consentement: true, reponses: {champ: valeur}}`; sous-ensemble des champs renseignés, HTTP 201 après activation/validation |
+| `GET /api/barometre/resultats` | `{total, agregats: {champ: {nombre_reponses, reponses, distribution_masquee}}}`; cellules vides exclues, petits groupes masqués, jamais de lignes brutes |
 
-Les quatre contrats d'interface du PDF (JSON, GeoJSON, routes API, ChartCard)
-sont relus par les trois personnes avant les branches. Le questionnaire a un
-contrat de transport fige (React -> POST -> CSV), mais ses six a huit libelles
-et listes de choix sont un intrant de l'organisation, pas un choix technique a
-inventer. P3 les recueille avant d'implementer F8 et fige `FIELDS`/`ALLOWED`
-avec P2. S'ils sont absents au kickoff, le socle conserve seulement des routes
-barometre desactivees (503 explicite), ne cree pas de CSV et affiche que le
-questionnaire n'est pas configure; cette dependance est attribuee a P3 et aucune
-collecte publique n'est ouverte. Les autres perimetres peuvent avancer sans
-simuler les reponses.
+Les contrats JSON, GeoJSON, routes API et ChartCard sont suivis par les trois
+personnes. Le contrat commun du baromètre est défini dans
+[`contrat_barometre.md`](./contrat_barometre.md) et ses valeurs exécutables dans
+`api/services/barometre_schema.py`. Il propose 17 questions facultatives; il
+reste désactivé jusqu'aux validations humaines et à la liste officielle des
+quartiers fournie par P1. Ne recopiez pas une autre version du schéma dans les
+guides ou le frontend. En attendant, POST/GET restent en 503 et aucun CSV n'est
+créé. P3 suit les approbations; P1 fournit les quartiers.
 
 ### Dependances entre livrables
 
@@ -420,48 +418,47 @@ data/barometre/reponses.csv
 *.log
 ```
 
-`data/barometre/reponses.csv` est exclu de Git et de l'image. En Flask local,
-l'application cree le fichier a son demarrage; avec Compose, le meme fichier
-de l'hote est monte sur `/app/data/barometre/reponses.csv`. Le formulaire React
-ecrit dans cette unique source de reponses via le POST Flask. Ne jamais ajouter
-de reponse de participant au depot.
+`data/barometre/reponses.csv` est exclu de Git et de l'image. En Flask local
+comme avec Compose, le fichier n'est créé qu'à la première soumission valide,
+après activation complète; le volume Compose monte le dossier hôte sur
+`/app/data/barometre/`. Le formulaire React écrit via le POST Flask. Ne jamais
+ajouter de réponse de participant au dépôt.
 
 Contenu a inscrire dans `data/barometre/README.md` :
 
 ```text
-Source de collecte: formulaire React du site.
-Stockage runtime: reponses.csv, cree par Flask apres validation du schema et ignore par Git.
-Schema: les noms de colonnes sont ceux de FIELDS dans api/routes/barometre.py.
-Vie privee: uniquement choix fermes; aucune donnee identifiante ou texte libre.
-Docker: ./data/barometre est monte en ecriture sur /app/data/barometre.
+Contrat: docs/contrat_barometre.md; propositions, validations en attente.
+Stockage runtime: reponses.csv, créé à la première soumission valide après approbation.
+Colonnes: 17 questions; les questions passées restent vides.
+Vie privée: aucune donnée directement identifiante ni texte libre.
+Docker: ./data/barometre est monté en écriture; fichier ignoré par Git.
 ```
 
-Le contrat des six a huit champs doit etre fige avant la page du questionnaire.
-`FIELDS` et `ALLOWED` cote Flask font autorite; les noms de champs du formulaire
-React doivent correspondre exactement. Aucun champ ni choix d'exemple n'est
-fourni dans le depot; les configurations restent vides jusqu'a la validation
-officielle du questionnaire.
+Le contrat commun du questionnaire est
+[`contrat_barometre.md`](./contrat_barometre.md); le schéma exécuté est
+`api/services/barometre_schema.py`. Le formulaire React devra envoyer les clés
+exactes, uniquement pour les réponses renseignées. Toutes les décisions encore
+en attente sont listées dans le contrat. Le formulaire ne doit pas être activé
+avant ces validations.
 
 Comportement exact de `data/barometre/` :
 
 | Contexte | Fichier utilise | Persistance |
 |---|---|---|
 | Depot neuf | Seul `.gitkeep` est versionne; `reponses.csv` n'existe pas encore | Aucun contenu utilisateur dans Git |
-| Flask lance directement sur le poste | `data/barometre/reponses.csv`; cree avec l'en-tete au demarrage si le schema est valide | Sur le poste, ignore par Git |
-| `docker compose up` | Le fichier hote `data/barometre/reponses.csv`, monte sur `/app/data/barometre/reponses.csv` apres activation du questionnaire | Persiste dans le depot local apres l'arret du conteneur; ignore par Git |
+| Flask lancé directement ou par Compose | `data/barometre/reponses.csv`; créé à la première soumission valide, après toutes les approbations | Persiste localement; ignoré par Git |
 | Hebergeur sans disque persistant | CSV dans le systeme de fichiers du conteneur | Temporaire; collecte de tests seulement |
 
 Il n'y a pas de copie entre un volume Docker et le depot : Compose monte le
-dossier `data/barometre/` lui-meme. Une fois le schema valide, l'API cree le
-CSV a son demarrage puis y ajoute les reponses validees. Sans schema, aucune
-initialisation ni ecriture n'a lieu. Le `.gitignore` empeche ces reponses de
-rejoindre un commit.
+dossier `data/barometre/` lui-meme. L'API ne crée aucun fichier au démarrage.
+Après activation complète, le premier POST valide crée l'en-tête complet puis
+écrit les réponses fournies et laisse vides les autres colonnes. Le `.gitignore`
+empêche ces réponses de rejoindre un commit.
 
-Le schema doit etre gele avant la premiere reponse. Au demarrage, l'API compare
-l'en-tete du CSV aux champs actifs et s'arrete explicitement en cas d'ecart;
-aucune migration ni suppression automatique n'est faite. Si le schema change,
-le proprietaire sauvegarde le CSV et ne le reinitialise que s'il ne contient
-que des reponses de test.
+Le schéma doit être gelé avant la première réponse. Chaque question a son propre
+compte de réponses non vides. Si une catégorie est sous le seuil de confidentialité
+approuvé, la distribution de cette question est masquée. Aucune migration ni
+suppression automatique du CSV n'est faite.
 
 ## 5. Preparation des donnees
 
@@ -757,8 +754,8 @@ sert pas a publier une densite tant que son unite n'est pas confirmee.
 | `GET /api/indicateurs` | Catalogue pour filtres/menus | Liste `{code, libelle, unite}` |
 | `GET /api/indicateurs/<code>` | Charger les series d'un indicateur | Indicateur complet; filtre scenario facultatif |
 | `GET /api/zones?annee=2018` | Charger le GeoJSON population | FeatureCollection, annee parmi 2018/2025/2035 |
-| `POST /api/barometre` | Enregistrer une reponse anonyme de test | HTTP 201 et `{"ok":true}` |
-| `GET /api/barometre/resultats` | Alimenter la page F9 sans exposer de reponses brutes | Nombre de reponses et comptes agregees par champ ferme |
+| `POST /api/barometre` | Consentement explicite et sous-ensemble des réponses renseignées | HTTP 201 après activation; HTTP 503 tant que le schéma reste en attente |
+| `GET /api/barometre/resultats` | Alimenter F9 sans exposer de réponses brutes | Total de formulaires, nombre de réponses par question et agrégats protégés |
 
 Les erreurs de fichiers ou de schema sont visibles dans les logs et renvoyees
 avec un statut HTTP d'erreur. L'API ne renvoie pas `[]` ou `{"ok": true}` quand
@@ -821,11 +818,7 @@ from flask_cors import CORS
 
 from routes.indicateurs import bp as indicateurs_bp
 from routes.zones import bp as zones_bp
-from routes.barometre import (
-    bp as barometre_bp,
-    initialize_responses,
-    questionnaire_configured,
-)
+from routes.barometre import barometre_bp
 
 API_DIR = Path(__file__).resolve().parent
 STATIC_DIR = API_DIR / "static"
@@ -838,12 +831,9 @@ def create_app():
         r"/api/.*": {"origins": ["http://localhost:5173"]}
     })
 
-    app.register_blueprint(indicateurs_bp, url_prefix="/api")
-    app.register_blueprint(zones_bp, url_prefix="/api")
-    app.register_blueprint(barometre_bp, url_prefix="/api")
-    if questionnaire_configured():
-        with app.app_context():
-            initialize_responses()
+    app.register_blueprint(indicateurs_bp)
+    app.register_blueprint(zones_bp)
+    app.register_blueprint(barometre_bp)
 
     @app.errorhandler(FileNotFoundError)
     @app.errorhandler(RuntimeError)
@@ -947,258 +937,32 @@ La requete valide l'annee choisie mais renvoie les quatre proprietes GeoJSON
 contractuelles sans les enrichir. React choisit `pop_2018`, `pop_2025` ou
 `pop_2035`; une valeur manquante reste distincte de 0 et a son propre style.
 
-### 6.6 Questionnaire et stockage de prototype
+### 6.6 Questionnaire et stockage du baromètre
 
-Le questionnaire React doit avoir six a huit questions approuvees par l'equipe
-encadrante. Le flux retenu est formulaire React -> POST Flask -> CSV local.
-Garder des reponses fermees (listes de choix) et ne demander ni nom, ni
-telephone, ni adresse e-mail, ni texte libre. Les tests sont etiquetes comme
-tests; ne pas presenter leur distribution comme un barometre representatif.
+Le contrat commun est [`contrat_barometre.md`](./contrat_barometre.md), avec
+17 questions facultatives et des choix à sélection unique. Le schéma exécuté
+est défini dans `api/services/barometre_schema.py`; les guides et le frontend
+se conforment à ces deux sources. La proposition reste en attente d'approbation:
+ne pas activer les routes, le formulaire ni la collecte.
 
-Le depot initial ne contient aucun champ de questionnaire suppose. Tant que
-l'organisation n'a pas confirme les 6–8 questions, leurs valeurs autorisees et
-le consentement, garder `ALLOWED` vide et `QUESTIONNAIRE_CONFIGURED = False`.
-Dans cet etat, Flask ne cree aucun CSV et les routes barometre retournent `503`.
-Le formulaire React affiche un etat « en attente de validation », sans accepter
-de reponse. P3 active les deux cotes seulement apres avoir reporte le meme schema
-approuve dans le backend et le frontend.
+Les questions de sexe et d'âge, le questionnaire proposé, le texte de
+consentement, la durée de conservation et la politique de suppression des
+petites cellules doivent être validés. P1 doit fournir la liste officielle des
+quartiers avec libellés et valeurs stables. Aucun quartier n'est inventé; aucune
+adresse précise ni option de texte libre n'est demandée.
 
-Implementation de validation, stockage et aggregation dans
-`api/routes/barometre.py` :
+Après approbation complète, le client envoie uniquement les réponses renseignées
+et exige un consentement explicite et au moins une réponse. Le serveur valide
+chaque clé/valeur et écrit une ligne avec les 17 colonnes; les réponses omises
+sont des cellules CSV vides. Les agrégats excluent les cellules vides, donnent
+un nombre de réponses par question et ne renvoient jamais de lignes individuelles.
+La distribution d'une question est masquée si une catégorie est sous le seuil
+approuvé (seuil technique proposé: 5, en attente d'approbation).
 
-```python
-import csv
-import os
-from collections import Counter
-from pathlib import Path
-
-from flask import Blueprint, jsonify, request
-
-bp = Blueprint("barometre", __name__)
-ALLOWED = {}
-QUESTIONNAIRE_CONFIGURED = False
-FIELDS = list(ALLOWED)
-
-
-def questionnaire_configured():
-    if set(FIELDS) != set(ALLOWED):
-        raise RuntimeError("FIELDS et ALLOWED ne correspondent pas.")
-    if not QUESTIONNAIRE_CONFIGURED:
-        return False
-    if not 6 <= len(FIELDS) <= 8:
-        raise RuntimeError("Le questionnaire approuve doit contenir 6 a 8 champs.")
-    if any(not choices for choices in ALLOWED.values()):
-        raise RuntimeError("Chaque champ doit avoir des choix autorises.")
-    return QUESTIONNAIRE_CONFIGURED
-
-
-def response_file():
-    configured = os.environ.get("BAROMETRE_CSV")
-    if configured:
-        return Path(configured)
-    repository = Path(__file__).resolve().parents[2]
-    return repository / "data" / "barometre" / "reponses.csv"
-
-
-def initialize_responses():
-    if not questionnaire_configured():
-        return
-    path = response_file()
-    path.parent.mkdir(parents=True, exist_ok=True)
-
-    if path.exists() and path.stat().st_size:
-        with path.open(newline="", encoding="utf-8") as file:
-            header = next(csv.reader(file), [])
-        if header != FIELDS:
-            raise RuntimeError(
-                "Schema CSV different du questionnaire actif; "
-                "sauvegarder puis traiter uniquement les reponses de test."
-            )
-        return
-
-    with path.open("w", newline="", encoding="utf-8") as file:
-        csv.DictWriter(file, fieldnames=FIELDS).writeheader()
-
-
-@bp.post("/barometre")
-def submit_response():
-    if not questionnaire_configured():
-        return jsonify({"erreur": "questionnaire non configure"}), 503
-
-    payload = request.get_json(silent=True)
-    if not isinstance(payload, dict):
-        return jsonify({"erreur": "objet JSON requis"}), 400
-    if payload.get("consentement") is not True:
-        return jsonify({"erreur": "consentement requis"}), 400
-
-    expected = set(FIELDS) | {"consentement"}
-    missing = expected - set(payload)
-    unexpected = set(payload) - expected
-    if missing or unexpected:
-        return jsonify({
-            "erreur": "champs invalides",
-            "manquants": sorted(missing),
-            "inattendus": sorted(unexpected),
-        }), 400
-
-    invalid = [
-        field for field in FIELDS
-        if payload[field] not in ALLOWED[field]
-    ]
-    if invalid:
-        return jsonify({
-            "erreur": "reponses non autorisees",
-            "champs": invalid,
-        }), 400
-
-    path = response_file()
-    path.parent.mkdir(parents=True, exist_ok=True)
-    if not path.exists() or path.stat().st_size == 0:
-        initialize_responses()
-
-    with path.open("a", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=FIELDS)
-        writer.writerow({field: payload[field] for field in FIELDS})
-    return jsonify({"ok": True}), 201
-
-
-@bp.get("/barometre/resultats")
-def get_results():
-    if not questionnaire_configured():
-        return jsonify({"erreur": "questionnaire non configure"}), 503
-
-    path = response_file()
-    if not path.is_file():
-        return jsonify({"erreur": "fichier de reponses absent"}), 503
-
-    with path.open(newline="", encoding="utf-8") as file:
-        rows = list(csv.DictReader(file))
-
-    aggregates = {}
-    for field in FIELDS:
-        counts = Counter(row[field] for row in rows if row.get(field))
-        aggregates[field] = [
-            {"reponse": answer, "nombre": count}
-            for answer, count in sorted(counts.items())
-        ]
-    result = {"total": len(rows), "agregats": aggregates}
-    if "mode_principal" in FIELDS:
-        result["par_mode"] = aggregates["mode_principal"]
-    return jsonify(result)
-```
-
-Le formulaire React utilise la meme liste de champs et de valeurs que
-`ALLOWED`. Conservez `QUESTIONS` vide tant que l'organisation n'a pas fourni le
-schema; la page ne rend alors pas de controles de collecte :
-
-```jsx
-import { useState } from "react";
-import { postBarometre } from "../api/client";
-
-const QUESTIONS = [];
-const CONSENT_TEXT = "";
-
-function isConfigured() {
-  return (
-    QUESTIONS.length >= 6 &&
-    QUESTIONS.length <= 8 &&
-    QUESTIONS.every(
-      (question) =>
-        question.name &&
-        question.label &&
-        Array.isArray(question.options) &&
-        question.options.length > 0 &&
-        question.options.every((option) => option.value && option.label),
-    ) &&
-    CONSENT_TEXT.trim().length > 0
-  );
-}
-
-export default function Participatif() {
-  const [answers, setAnswers] = useState({});
-  const [consent, setConsent] = useState(false);
-  const [message, setMessage] = useState("");
-
-  if (!isConfigured()) {
-    return <p>Questionnaire en attente de validation par l'organisation.</p>;
-  }
-
-  async function submit(event) {
-    event.preventDefault();
-    setMessage("");
-    try {
-      await postBarometre({ ...answers, consentement: consent });
-      setMessage("Reponse de test enregistree; elle n'est pas representative.");
-    } catch (error) {
-      setMessage(`Envoi impossible : ${error.message}`);
-    }
-  }
-
-  return (
-    <section>
-      <h1>Questionnaire de mobilite</h1>
-      <p>Prototype de test; ne saisissez aucune donnee personnelle.</p>
-      <form onSubmit={submit}>
-        {QUESTIONS.map((question) => (
-          <label key={question.name}>
-            {question.label}
-            <select
-              required
-              value={answers[question.name] || ""}
-              onChange={(event) =>
-                setAnswers((current) => ({
-                  ...current,
-                  [question.name]: event.target.value,
-                }))
-              }
-            >
-              <option value="">Choisir une reponse</option>
-              {question.options.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-        ))}
-        <label>
-          <input
-            type="checkbox"
-            required
-            checked={consent}
-            onChange={(event) => setConsent(event.target.checked)}
-          />
-          {CONSENT_TEXT}
-        </label>
-        <button
-          type="submit"
-          disabled={
-            !consent ||
-            QUESTIONS.some((question) => !answers[question.name])
-          }
-        >
-          Envoyer
-        </button>
-      </form>
-      <p role="status">{message}</p>
-    </section>
-  );
-}
-```
-
-Remplir chaque element de `QUESTIONS` avec un `name`, un libelle et les choix
-fournis; `name` et `value` doivent correspondre exactement a `FIELDS` et
-`ALLOWED` de Flask. Ajouter aussi le libelle de consentement approuve. Cote
-serveur, toute reponse manquante, inconnue ou hors liste est rejetee. La page
-`Resultats.jsx` appelle `GET /api/barometre/resultats`; elle affiche les
-agregats generiques et ne lit jamais le CSV directement.
-
-**Limite importante :** ce CSV est un stockage de demonstration, pas une base
-fiable pour une enquete publique. Le volume Docker local persiste entre les
-redemarrages tant qu'il n'est pas supprime; le disque d'un hebergeur peut etre
-ephemere. Ne lancer une collecte publique qu'apres configuration d'un stockage
-persistant et validation de la duree de conservation, de l'acces, du consentement
-et de la sauvegarde.
+À M0, `QUESTIONNAIRE_APPROVED`, les validations connexes et la liste des
+quartiers restent en attente; POST et GET résultats retournent HTTP 503. Le CSV
+n'est créé qu'après activation complète et première soumission valide, jamais
+au démarrage.
 
 ## 7. Frontend React, graphiques et carte
 
@@ -1496,13 +1260,21 @@ export default function Resultats() {
     <section>
       <p>{resultats.total} reponse(s) de test — non representatives.</p>
       <div className="chart-grid">
-        {Object.entries(resultats.agregats).map(([field, lignes]) => {
+        {Object.entries(resultats.agregats).map(([field, aggregation]) => {
           const titre = field.replaceAll("_", " ");
+          if (aggregation.distribution_masquee) {
+            return (
+              <p key={field}>
+                {titre} : distribution masquée pour protéger les petits groupes
+                ({aggregation.nombre_reponses} réponse(s)).
+              </p>
+            );
+          }
           const data = {
-            labels: lignes.map((ligne) => ligne.reponse),
+            labels: aggregation.reponses.map((ligne) => ligne.reponse),
             datasets: [{
               label: "Reponses",
-              data: lignes.map((ligne) => ligne.nombre),
+              data: aggregation.reponses.map((ligne) => ligne.nombre),
               backgroundColor: "#2980B9",
             }],
           };
@@ -1733,36 +1505,41 @@ au plus tard mardi 17 h 30, avant que P1/P2/P3 partent sur leurs branches.
 
 | Jalon equipe | Echeance | Critere observable |
 |---|---|---|
-| M0 — Socle stable sur `main` | Mar. 24, 17 h 30 | Quatre contrats d'interface signes, transport du questionnaire fixe (questions fournies ou blocker assigne), sept routes de page, health, build React et configuration Docker validee |
+| M0 — Socle technique | PASS — vérifié le 25 nov. 2026 sur `init/bootstrap` | Structure, routes d'état, sept chemins frontend, build React, Compose et routes baromètre désactivées vérifiés. PR vers `main` à fusionner humainement; M0 n'est pas à refaire. |
 | M1 — Donnees/API/graphique connectes | Mer. 25, 12 h 30 | Sept JSON + GeoJSON livres par P1; routes lecture disponibles par P3; P2 affiche le premier indicateur depuis l'API |
 | M2 — Premier parcours bout en bout | Mer. 25, 17 h 30 | Une donnee source traverse JSON -> Flask -> React; carte 2018; POST de test fonctionne si le schema de questions est valide |
 | M3 — Noyau demonstrable | Jeu. 26, 12 h 30 | F1, F2, F3, F5, F9 et F10 accessibles; F8/F9 sont pleinement valides avec les questions et reponses de test approuvees, sinon marques bloques et M3 n'est pas declare complet |
 | M4 — Gel du perimetre et image | Jeu. 26, 17 h 30 | `docker compose up --build` fonctionne; decide explicitement quels souhaitables sont termines ou marques « non disponible / en cours » |
 | M5 — Pret pour la demo | Ven. 27, 13 h | Cinq valeurs verifiees, test mobile/navigateurs, collecte de test, presentation repete; URL active si les prerequis existent |
 
-### Mardi 24 novembre — cadrage le matin, socle avant 17 h 30
+### Mardi 24 novembre — M0 terminé
 
-- **P1 :** verifier les totaux du CSV et les noms/CRS des fichiers fournis;
-  remplir `SOURCES.md`; creer les repertoires de donnees, ignore rules et
-  squelette Docker/Compose.
-- **P2 :** creer Vite/React, proxy `/api`, `outDir: ../api/static`, Router,
-  `Layout.jsx`, les sept routes et une premiere mise en page responsive.
-- **P3 :** creer Flask factory, `data_loader.py`, blueprints/squelettes de
-  routes, `/api/sante`, README de depart et definition du questionnaire ferme.
-- **Ensemble :** valider les quatre contrats d'interface de la section 3, le
-  transport du questionnaire, proprietaires de fichiers et ordre des priorites.
-  P3 confirme que l'organisation a fourni les questions/choix; sinon consigne
-  le nom de la personne qui les obtient et la date de livraison. Le questionnaire
-  React remplace explicitement le Google Form et l'iframe du PDF.
-- **Integration :** préparer la branche `init/bootstrap`, valider npm build,
-  health route, `docker compose config` et absence de donnees locales suivies;
-  après revue humaine, créer une PR vers `main`, puis les trois créent leurs branches
-  uniquement après fusion.
+M0 technique a été vérifié PASS le 25 novembre 2026 et n'est plus à réaliser.
+Le bootstrap ne doit pas être recommencé. Il reste à faire relire/fusionner la
+PR vers `main`; les branches personnelles démarrent ensuite depuis `main`
+actualisé.
 
-**Sortie M0 :** branche `main` reproductible, aucune donnee metier simulee ou
-reponse collectee; React et Flask sont testables en local, les routes metier
-signalent que les JSON/GeoJSON ne sont pas encore disponibles, et le conteneur
-est configure. Le premier build complet reste le jalon de mercredi.
+- **P1 — réalisé :** arborescence et ignore rules, README/SOURCES, configuration
+  Docker initiale; les sources brutes et données cartographiques restent sous
+  les statuts précisés plus haut.
+- **P2 — réalisé :** Vite/React 18, proxy `/api`, sortie `api/static`, Router,
+  navigation et sept routes vides.
+- **P3 — réalisé :** application Flask, health, erreurs d'assets, routes du
+  baromètre gardées désactivées et documentation.
+- **Décisions qui restent humaines :** faire approuver le contrat proposé de
+  17 questions, le consentement, la conservation et la politique des petites
+  cellules; P1 doit fournir les quartiers officiels. Le questionnaire React
+  remplace explicitement le Google Form et l'iframe du PDF.
+- **État présent :** toutes les vérifications M0 sont déjà exécutées et
+  documentées. Après fusion humaine de la PR, chacun récupère `main` avec
+  `git fetch origin` et `git pull --ff-only origin main`, puis crée sa branche
+  personnelle. Ne répétez pas les tâches M0.
+
+**Sortie M0 :** M0 technique PASS sur `init/bootstrap`, prêt pour revue/PR;
+`main` n'est pas encore fusionné. Aucune donnée métier n'est simulée et aucune
+réponse n'est collectée. Le questionnaire de 17 questions est seulement une
+proposition en attente d'approbation; détails et contrats sont dans
+[`contrat_barometre.md`](./contrat_barometre.md).
 
 ### Mercredi 25 matin, 9 h–12 h 30 — donnees, API et premier graphique
 
@@ -2004,8 +1781,8 @@ inconnue.
 
 ## 12. Etat M0 vérifié — 25 novembre 2026
 
-La proposition M0 est préparée sur `init/bootstrap`; `main` reste à son état
-initial. Elle n'est pas déclarée fusionnée tant qu'une PR n'a pas été revue et
+M0 technique est **PASS et terminé** sur `init/bootstrap`; il n'est plus à
+réaliser. `main` reste à son état initial tant que la PR n'a pas été revue et
 fusionnée humainement.
 
 | Critère | Statut | Preuve |
@@ -2018,18 +1795,19 @@ fusionnée humainement.
 | React/Vite | PASS | React 18.3.1, axios `/api`, sept routes, `npm ci && npm run build` réussi |
 | Docker Compose | PASS | `docker compose config` réussi |
 | Diff whitespace | PASS | `git diff --check` réussi |
-| Commit final / fichiers locaux | PASS | À vérifier avant PR via `git status --short` et `git diff`; `.env`, CSV bruts et réponses restent non suivis |
+| Commit final / fichiers locaux | PASS | `git status` propre après les commits M0; `.env`, CSV bruts et réponses non suivis |
+| Tests ciblés baromètre | PASS | `python -m unittest discover -s api/tests -v` vérifie schéma 17 questions, état désactivé, soumission partielle, agrégats et suppression petites cellules |
 | Browser de validation | NOT RUN | Aucun navigateur automatisé n'a été utilisé |
 | Docker build complet | NOT RUN | Un build d'image complet n'est pas requis au socle M0 sans assets métier |
 
-Décision: **M0 technique prêt pour PR**, sous réserve humaine de la création/revue
-de la PR. M0 n'est pas accepté/fusionné sur `main`.
+Décision: **M0 technique passé et prêt pour PR**. Le bootstrap n'est plus une
+tâche à réaliser. M0 n'est pas accepté/fusionné sur `main` avant revue humaine.
 
 Blocages assignés:
 
-- P3 doit obtenir de l'organisation les 6 à 8 questions, les choix fermés,
-  l'autorisation de collecte, le consentement et les règles de conservation.
-  Responsable: P3; tant que ces informations manquent, F8/F9 restent bloqués.
+- P3 doit obtenir l'approbation de la proposition de 17 questions, choix de
+  sexe/âge, consentement et règles de conservation. Responsable: P3; F8/F9
+  restent bloqués jusque-là. Voir le [contrat commun](./contrat_barometre.md).
 - P1 doit confirmer/livrer les sources cartographiques et produire les GeoJSON
   autorisés au jalon P1. Aucun shapefile ni GeoJSON ne doit être inventé.
 - Deux CSV locaux sont présents sous `data/raw/`: `dictionnaire_indicateurs.csv`

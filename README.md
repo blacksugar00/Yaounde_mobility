@@ -32,9 +32,14 @@ L'application est ensuite disponible sur `http://localhost:5000`.
 
 ## Etat M0
 
-M0 fournit le socle reproductible, mais pas de données métier, GeoJSON ni questionnaire approuvé.
+M0 technique est **PASS**; le bootstrap est terminé et n'est plus une tâche à refaire.
+La branche `init/bootstrap` attend revue/fusion dans `main` via PR humaine. Le PR
+n'implique pas que le questionnaire soit approuvé.
 Les routes indicateurs/zones retournent une erreur explicite sans succès vide.
-Les routes baromètre retournent HTTP 503 et ne créent jamais `data/barometre/reponses.csv`.
+Le baromètre proposé de 17 questions est décrit dans
+[`docs/contrat_barometre.md`](docs/contrat_barometre.md). Il reste désactivé;
+ses routes retournent HTTP 503 et ne créent pas `data/barometre/reponses.csv`
+avant validation complète.
 
 ## Sources locales
 

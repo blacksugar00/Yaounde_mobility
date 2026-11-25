@@ -14,5 +14,8 @@ La source shapefile attendue, notamment `Noms_zones.shp`, reste à fournir et v�
 
 ## Questionnaire
 
-Statut M0: **6 à 8 questions non approuvées**. Aucun libellé ni choix fictif n'est utilisé.
-P3 reste responsable de faire approuver le schéma, de le documenter puis de l'activer.
+Statut: **proposition de 17 questions en attente d'approbation**. Voir le
+[contrat commun](docs/contrat_barometre.md) et son schéma exécutable
+`api/services/barometre_schema.py`. Le sexe et l'âge doivent être confirmés,
+P1 doit fournir les quartiers officiels, et l'organisation doit approuver le
+questionnaire, le consentement et la conservation. Le baromètre reste désactivé.

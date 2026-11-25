@@ -52,61 +52,59 @@ responsive. Vous ne recalculez aucune donnee du modele.
 
 ---
 
-## 2. Avant votre branche : participer a la stabilisation de `main`
+## 2. M0 terminé — démarrage de P2 après fusion
 
-Le travail de fonctionnalite commence seulement quand M0 est valide. Le socle
-initial est cree sur `init/bootstrap` pour respecter l'interdiction de commit
-direct sur `main`; P2 y contribue seulement au frontend de base.
+**M0 technique est PASS et le bootstrap n'est plus à réaliser.** La PR vers
+`main` doit d'abord être fusionnée par un mainteneur. Ne commencez pas votre
+branche de fonctionnalité avant cette fusion.
 
-### 2.1 Au cadrage commun
-
-Validez avec P1 et P3 :
-
-1. contrat JSON : `code`, `libelle`, `unite`, `source`, `series[]`;
-2. point de serie : `scenario`, `annee`, `valeur`, `origine`, `statut` source;
-3. contrat de route et erreurs de l'API;
-4. props ChartCard : `type`, `data`, `options`, `titre`, `unite`, `source`;
-5. nom et chemin de `MapView` et props `geojson`, `year`;
-6. questionnaire : formulaire React -> POST Flask -> CSV; aucun Google Form.
-
-Demandez a P1 une fixture conforme au contrat et a P3 les routes de l'API. Une
-fixture peut depanner le developpement de la mise en page, mais doit etre
-remplacee par des reponses API avant M1/M2 et ne doit pas servir de valeur de
-demonstration.
-
-### 2.2 Pendant le bootstrap partage
-
-Sur `init/bootstrap`, votre contribution M0 comprend :
-
-- installation des dependances et `package-lock.json`;
-- configuration Vite avec proxy `/api` et `outDir: ../api/static`;
-- `App.jsx`, `Layout.jsx`, les sept chemins et etats vides explicites;
-- feuille CSS de base mobile-first;
-- client Axios `baseURL: "/api"` (les methodes peuvent etre initialisees).
-
-Pour eviter les conflits apres M0 :
-
-- P2 cree les chemins React/les placeholders des sept pages dans le socle.
-- Apres la promotion du socle, P2 possede les pages principales et la page Carte.
-- P3 prend la propriete du contenu `Participatif.jsx`, `Resultats.jsx` et
-  `Methodologie.jsx`; P2 n'edite plus ces trois fichiers sans accord.
-- P1 cree `MapView.jsx`; P2 garde la page Carte, le selecteur et l'appel API.
-
-### 2.3 Porte M0 puis branche `p2-front`
-
-Verifiez que le commit du socle est sur `main`, branche par defaut, que le build
-frontend passe et que les sept routes s'ouvrent. Ensuite :
+Depuis le dossier parent du dépôt, après fusion :
 
 ```bash
+cd Yaounde_mobility
 git status --short
+git fetch origin
 git switch main
-git pull --ff-only
+git pull --ff-only origin main
+# Première création :
 git switch -c p2-front
-git status --short
+# Si p2-front existe déjà : utilisez plutôt `git switch p2-front`.
+git status --short --branch
 ```
 
-Commencez sur un arbre propre et depuis le commit stable commun. N'utilisez pas
-la branche de P1 ou P3 comme base.
+Si une branche P2 déjà existante n'est pas à jour avec `main`, inspectez les
+divergences avant intégration; ne forcez ni ne réécrivez son historique.
+
+### Configuration locale P2
+
+Utilisez Node.js 20 et le lockfile commité :
+
+```bash
+cd web
+npm ci
+npm run dev
+```
+
+Le serveur Vite utilise le proxy `/api` vers `http://localhost:5000`; lancez
+Flask dans un second terminal quand vous travaillez sur des appels API. Vérifiez
+le frontend avec `npm run lint` et `npm run build`. Le build écrit dans
+`api/static/`, qui est ignoré par Git.
+
+Vérifiez votre identité Git avant tout commit :
+
+```bash
+git config user.name "Votre nom GitHub"
+git config user.email "Votre adresse e-mail GitHub (ou noreply)"
+git var GIT_AUTHOR_IDENT
+```
+
+### Suite des tâches P2
+
+Le socle React 18, Axios `/api`, Vite, Router et les sept routes M0 sont déjà
+présents. Ne recommencez pas le bootstrap. Travaillez sur les pages, le layout,
+les visualisations et le responsive selon le périmètre P2. Le contrat proposé
+du baromètre est [`contrat_barometre.md`](./contrat_barometre.md); le formulaire
+reste désactivé tant que les validations ne sont pas obtenues.
 
 ---
 
@@ -154,22 +152,21 @@ premier si l'equipe prend du retard.
 
 ### Etape 1 — etablir les routes et le layout du socle
 
-**Quand :** mardi, avant 17 h 30 (M0).
-**Objectif :** toutes les pages sont joignables meme si les donnees ne sont pas
-encore disponibles.
+**Etat :** terminé et vérifié dans M0; ne pas recommencer le bootstrap.
+Les routes vides et la navigation partagée existent déjà sur `init/bootstrap`.
 
-Lors du bootstrap initial uniquement, verrouillez les versions du socle
-technique dans `package-lock.json` :
+Pour vérifier l'installation existante, utilisez le lockfile, sans réinstaller
+les dépendances une par une :
 
 ```bash
 cd web
-npm install react@18 react-dom@18 react-router-dom@6 axios chart.js@4 react-chartjs-2@5 leaflet@1.9 react-leaflet@4
+npm ci
 npm run build
 ```
 
-Le commit M0 contient le `package-lock.json`. Sur les branches suivantes et les
-nouveaux clones, utilisez `npm ci` pour reproduire exactement cet arbre de
-dependances, sans modifier le lockfile.
+Le `package-lock.json` de M0 fixe React 18. Sur les branches et nouveaux clones,
+continuez à utiliser `npm ci`; ne modifiez le lockfile que pour une dépendance
+nécessaire à une tâche P2.
 
 `web/src/App.jsx` :
 
@@ -250,7 +247,8 @@ export default function Layout() {
 ```
 
 Chaque module de page a un composant React valide. Exemple de placeholder que
-vous pouvez dupliquer au bootstrap pour creer les chemins P3 :
+le bootstrap M0 a déjà remplacé par ses sept chemins. Ce fragment est un
+exemple historique uniquement; ne le recopiez pas pour recréer les routes P3 :
 
 ```jsx
 export default function Participatif() {
@@ -284,13 +282,6 @@ export default defineConfig({
     emptyOutDir: true,
   },
 });
-```
-
-Commit M0 :
-
-```bash
-git add web/
-git commit -m "Create React routes and shared layout"
 ```
 
 Base responsive a placer dans la feuille principale (`web/src/index.css`) :
@@ -384,7 +375,8 @@ footer {
 
 ### Etape 2 — client Axios partage par toutes les pages
 
-**Quand :** M0 pour le contrat de base; mercredi matin pour les appels concrets.
+**Etat :** le client `/api` est défini par M0; les appels métier viennent après
+les routes P1/P3.
 **Depend de :** routes convenues par P3.
 **Utilise :** `baseURL: "/api"` en dev et production.
 
@@ -800,7 +792,7 @@ Pendant le dev, Vite sert le frontend sur `http://localhost:5173` et transmet
 
 | Commit | Contenu | Validation |
 |---|---|---|
-| M0 | Routes, Layout, Vite et `package-lock.json` | `npm run build`; sept chemins |
+| M0 terminé | PASS documenté; ne pas refaire le bootstrap | Après fusion PR, fetch/pull `main`, puis travailler sur `p2-front` |
 | P2-1 | Client Axios | Toutes les methodes utilisent `/api`; erreurs visibles |
 | P2-2 | ChartCard + palette | Props exactes; line/bar render |
 | P2-3 | Premier indicateur et provenance | La vraie reponse API s'affiche |
@@ -853,7 +845,7 @@ npm run build
 
 | Jalon | Votre livrable a montrer |
 |---|---|
-| M0 — mardi 17 h 30 | Sept routes accessibles, layout commun, Vite build, proxy et sorties corrects |
+| M0 terminé — PASS (25 nov. 2026) | Sept routes, React build, proxy et sortie vérifiés; aucun travail M0 restant |
 | M1 — mercredi 12 h 30 | Client Axios, ChartCard et graphique population avec API reelle ou fixture identifiee comme test |
 | M2 — mercredi 17 h 30 | Graphique de population avec scenarios/origine; page Carte branchee a MapView P1 |
 | M3 — jeudi 12 h 30 | F2 et F5 parcourables, indicateurs reels, carte selectionnable par annee |
@@ -897,10 +889,13 @@ de correlation ou export doivent etre validees comme un prochain lot.
 
 ## Etat post-M0 pour P2
 
-- Etat commun: M0 est préparé sur `init/bootstrap` et n'est pas fusionné sur
-  `main`; ne créez pas de branche personnelle avant la PR humaine.
+- Etat commun: M0 technique est PASS sur `init/bootstrap`, mais pas encore
+  fusionné sur `main`; créez ou mettez à jour `p2-front` après fusion humaine.
 - Après fusion de M0, synchronisez `main` puis créez `p2-front`.
 - React 18.3.1, Axios `/api`, les sept routes et le build vers `api/static`
   sont les bases vérifiées du socle.
 - Les données métier restent absentes. P2 ne doit pas inventer de fixtures
   présentées comme résultats réels et attend P1/P3 pour les contrats livrés.
+- Le formulaire baromètre n'est pas à réaliser avant les validations. Son
+  contrat unique est [`contrat_barometre.md`](./contrat_barometre.md); le
+  questionnaire proposé et ses options ne sont pas encore approuvés.

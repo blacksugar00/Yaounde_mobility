@@ -48,79 +48,69 @@ et applicatifs `observatoire-yaounde` / `observatoire` restent inchangés.
 
 ---
 
-## 2. Avant votre branche : participer a la stabilisation de `main`
+## 2. M0 terminé — démarrage de P1 après fusion
 
-Le premier travail d'equipe est commun. Ne commencez pas vos fonctionnalites
-sur une branche personnelle tant que le socle n'a pas passe le jalon M0.
+**M0 technique est PASS et le bootstrap n'est plus à réaliser.** La PR vers
+`main` doit d'abord être fusionnée par un mainteneur. Ne commencez pas votre
+branche de fonctionnalité avant cette fusion.
 
-### 2.1 Au cadrage du mardi matin
-
-Avec l'equipe :
-
-1. Confirmez que `donnees_longues.csv`, le dictionnaire et les donnees SIG
-   attendues sont accessibles.
-2. Relevez les dimensions, colonnes, codes et CRS reels; n'inventez pas les
-   champs manquants.
-3. Faites valider les contrats JSON et GeoJSON de la section 3.
-4. Verifiez la permission de garder les fichiers bruts et sorties preparees
-   dans le depot. Les sources brutes ne sont jamais commitees.
-5. Inscrivez les sources et incertitudes dans `SOURCES.md`.
-
-### 2.2 Pendant le bootstrap partage
-
-Le depot de depart est cree sur `init/bootstrap` afin de respecter « pas de
-commit direct sur `main` ». Sur cette branche de bootstrap, vous ne livrez que
-les elements de socle qui vous appartiennent :
-
-- arborescence `data/`, `.gitignore`, `.dockerignore`;
-- squelette de `Dockerfile` et `docker-compose.yml`;
-- `SOURCES.md` initial;
-- dependances de preparation `scripts/requirements.txt`;
-- `.gitkeep` pour `data/indicateurs/` et `data/geojson/`.
-
-P2 et P3 construisent simultanement leurs propres parties de bootstrap sur
-`init/bootstrap`; coordonnez les commits et ne remplacez pas leurs fichiers.
-Les trois valident npm build, Flask health, `docker compose config` et le
-contenu propre du depot. Apres validation, P3 prépare une PR humaine
-`init/bootstrap -> main`. Le vrai build avec donnees est fait mercredi, après
-leur préparation et après fusion M0.
-
-### 2.3 Porte M0 — ce qui doit etre vrai avant `p1-data`
-
-- Le commit initial est publie sur `main`, branche par defaut.
-- `data/raw/` est local et ignore; aucun source de l'organisation n'est suivie.
-- Les noms de chemins, le JSON, GeoJSON, routes API et proprietaires de fichiers
-  sont signes par les trois.
-- Le Dockerfile/Compose est configure; `docker compose config` passe.
-- Pas de CSV de reponses, JSON metier vide ou chiffres fictifs.
-
-### 2.4 Creer votre branche
-
-Depuis le nouveau depot, apres le M0 :
+Depuis le dossier parent du dépôt, après fusion :
 
 ```bash
+cd Yaounde_mobility
 git status --short
+git fetch origin
 git switch main
-git pull --ff-only
+git pull --ff-only origin main
+# Première création :
 git switch -c p1-data
-git status --short
+# Si p1-data existe déjà : utilisez plutôt `git switch p1-data`.
+git status --short --branch
 ```
 
-Le dernier `git status` doit etre propre. Ne partez pas d'une branche de P2 ou
-P3. Toutes les branches personnelles doivent avoir le meme commit de base.
+Si une branche P1 déjà existante n'est pas à jour avec `main`, inspectez les
+divergences avant intégration; ne forcez ni ne réécrivez son historique.
+
+### Configuration locale P1
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r scripts/requirements.txt -r api/requirements.txt
+```
+
+Les sources brutes peuvent être copiées localement dans `data/raw/` depuis les
+remises autorisées si elles ne sont pas déjà présentes. Vérifiez seulement les
+noms; ne les ajoutez jamais à Git. Les sources cartographiques restent à
+confirmer/livrer par P1 avant préparation du GeoJSON. Pour tester Compose avec
+l'utilisateur courant :
+
+```bash
+export LOCAL_UID="$(id -u)"
+export LOCAL_GID="$(id -g)"
+docker compose config
+```
+
+Vérifiez votre identité Git avant tout commit :
+
+```bash
+git config user.name "Votre nom GitHub"
+git config user.email "Votre adresse e-mail GitHub (ou noreply)"
+git var GIT_AUTHOR_IDENT
+```
+
+### Suite des tâches P1
+
+Le bootstrap, les ignore rules et le Compose M0 sont déjà présents. Passez aux
+tâches P1 de validation des deux CSV locaux, vérification des sources/CRS SIG
+et préparation autorisée des indicateurs/GeoJSON. Ne générez pas ces sorties
+pendant une vérification M0 et ne fabriquez aucune donnée.
+P1 doit également fournir les libellés de quartiers et leurs valeurs stables
+depuis la source géographique approuvée; le contrat du baromètre est dans
+[`contrat_barometre.md`](./contrat_barometre.md).
 
 ---
-
-## Etat post-M0 pour P1
-
-- Etat commun: M0 est préparé sur `init/bootstrap` et n'est pas fusionné sur
-  `main`; ne créez pas de branche personnelle avant la PR humaine.
-- Après fusion de M0, synchronisez `main` puis créez `p1-data`.
-- Les deux CSV locaux sont présents sous `data/raw/`, ignorés par Git:
-  `dictionnaire_indicateurs.csv` et `donnees_longues.csv`.
-- Les sources cartographiques ne sont pas encore livrées dans le dépôt. P1 doit
-  confirmer le shapefile/la provenance, les champs et le CRS avant tout
-  GeoJSON; aucun fichier cartographique fictif n'est livré en M0.
 
 ## 3. Contrats dont vous etes le producteur
 
@@ -188,17 +178,19 @@ en anglais, comme dans le plan, mais restent descriptifs.
 
 ### Etape 1 — auditer les sources et leurs droits
 
-**Quand :** mardi, bootstrap; validation des donnees mercredi matin.
-**Entrees :** les fichiers fournis par l'organisation, `files/` et les references
-dans le plan d'analyse.
+**Etat :** le bootstrap M0 est terminé. Cette tâche P1 valide maintenant les
+sources locales avant la préparation des sorties métier.
+**Entrees :** les CSV déjà présents sous `data/raw/`, leurs métadonnées et les
+références dans le plan d'analyse; les sources cartographiques restent à livrer.
 **Sorties :** valeurs et noms controles, `SOURCES.md` renseigné.
 
-Commandes locales :
+Les CSV attendus sont déjà présents localement sous `data/raw/` dans cet
+environnement. Pour un autre clone, placer les sources autorisées à ces chemins
+sans les suivre dans Git; ne pas recopier une source cartographique non livrée.
+Vérifier uniquement les noms de fichiers :
 
 ```bash
-mkdir -p data/raw
-cp ../files/donnees_longues.csv data/raw/
-cp ../files/dictionnaire_indicateurs.csv data/raw/
+find data/raw -maxdepth 1 -type f -printf '%f\n' | sort
 python - <<'PY'
 import pandas as pd
 
@@ -225,12 +217,9 @@ Dans `SOURCES.md`, decrivez le nom du fichier, son organisme, sa date/version
 connue, son usage, son autorisation de diffusion et les limites. S'il n'y a pas
 d'autorisation, gardez depot et sorties dans un espace prive valide.
 
-Commit :
-
-```bash
-git add SOURCES.md .gitignore .dockerignore
-git commit -m "Document source data and exclude local files"
-```
+Le socle M0 a déjà ajouté `SOURCES.md` et les règles d'exclusion. Si l'audit P1
+modifie les sources autorisées, ne commitez que la mise à jour documentaire
+nécessaire; ne reprenez pas les fichiers d'infrastructure M0.
 
 Ne faites jamais `git add data/raw/`.
 
@@ -508,7 +497,7 @@ de props `geojson` et `year`.
 
 ### Etape 5 — image Docker complete et stockage de test
 
-**Quand :** Dockerfile squelette pendant M0; premier vrai build mercredi matin;
+**Etat :** Dockerfile/Compose M0 sont déjà présents; premier build complet mercredi matin;
 `docker compose up --build` complet jeudi apres-midi.
 **Depend de :** `api/`, `web/`, sorties de donnees autorisees et stockage CSV
 configuré par P3.
@@ -571,7 +560,7 @@ git push origin p1-data
 
 | Commit | Contenu | Porte de validation |
 |---|---|---|
-| M0 bootstrap | Sources, ignore rules, structure data, Docker squelette | `docker compose config`; `git status` propre |
+| M0 terminé | PASS documenté; ne pas refaire le bootstrap | Après fusion PR, fetch/pull `main`, puis travailler sur `p1-data` |
 | P1-1 | Audit et documentation des sources | Totaux et colonnes traces; aucun brut suivi |
 | P1-2 | Script indicateurs et JSON autorises | Au moins huit indicateurs, structure valide, sources conformes |
 | P1-3 | Script GeoJSON et couche | 105 zones, champs exacts, EPSG:4326, sommes controlees |
@@ -624,7 +613,7 @@ conteneur fonctionne au jalon de gel.
 | Moment | Ce que vous apportez |
 |---|---|
 | Mardi matin, cadrage | Acces aux fichiers, dimensions, champs connus/inconnus, statut des droits |
-| Mardi 17 h 30, M0 | `SOURCES.md`, structure, ignore rules, Docker/Compose de depart |
+| M0 terminé — PASS (25 nov. 2026) | Structure, ignore rules et Docker/Compose vérifiés; aucun bootstrap à refaire |
 | Mercredi 9 h 15 | Blocage source/CRS et resultat attendu pour 12 h 30 |
 | Mercredi 12 h 30, M1 | JSON/GeoJSON, statistiques de controle, premier build avec les assets |
 | Mercredi 17 h 30, M2 | Carte population 2018 et integration avec API + page |
