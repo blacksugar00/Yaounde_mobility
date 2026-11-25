@@ -1,53 +1,40 @@
-import { useState } from "react";
 import IndicatorChart from "../components/IndicatorChart";
+import MultiIndicatorChart from "../components/MultiIndicatorChart";
+import StackedBarChart from "../components/StackedBarChart";
+import TestBanner from "../components/TestBanner";
+import { RETRO, SOURCE_TEST } from "../mocks/fixtures";
 
-// MOCK (Fausses données basées sur le vrai format de P1)
-const MOCK_POPULATION = {
-  code: "1.1__population_urbaine_de_l_aire_metropolitaine",
-  libelle: "Évolution de la population de Yaoundé",
-  unite: "habitants",
-  source: "WUP 2025, ONU (Données de test)",
-  series: [
-    // Historique (Trait plein, gris)
-    { annee: 2018, scenario: "historique", valeur: 3212283, origine: "mesure" },
-    { annee: 2025, scenario: "historique", valeur: 4028467, origine: "mesure" },
-    // Tendanciel (Trait pointillé, orange)
-    { annee: 2026, scenario: "tendanciel", valeur: 4200000, origine: "interpole" },
-    { annee: 2030, scenario: "tendanciel", valeur: 4800000, origine: "interpole" },
-    { annee: 2035, scenario: "tendanciel", valeur: 5599668, origine: "extrapole" },
-    // Volontariste (Trait pointillé, vert)
-    { annee: 2026, scenario: "volontariste", valeur: 4200000, origine: "interpole" },
-    { annee: 2030, scenario: "volontariste", valeur: 5000000, origine: "interpole" },
-    { annee: 2035, scenario: "volontariste", valeur: 5800000, origine: "extrapole" },
-    // Rupture (Trait pointillé, bleu + Badge Hypothèse)
-    { annee: 2026, scenario: "rupture", valeur: 4200000, origine: "construit" },
-    { annee: 2030, scenario: "rupture", valeur: 5200000, origine: "construit" },
-    { annee: 2035, scenario: "rupture", valeur: 6200000, origine: "construit" }
-  ]
-};
+const grille = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 26rem), 1fr))", gap: "1.5rem" };
+const carte = { background: "#fff", borderRadius: "16px", padding: "1rem", boxShadow: "0 4px 6px rgba(0,0,0,0.05)", minWidth: 0 };
 
 export default function Retrospectif() {
-  // On utilise le mock directement pour l'affichage
-  const indicator = MOCK_POPULATION;
-
+  // TODO API : remplacer RETRO par getIndicateur(code) pour chaque indicateur (états chargement / erreur / non disponible).
   return (
-    <section style={{ padding: '3rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
-      
-      <div style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#111827', letterSpacing: '-1px', marginBottom: '1rem' }}>
-          Rétrospective de la mobilité
-        </h1>
-        <p style={{ fontSize: '1.1rem', color: '#4b5563', maxWidth: '800px', lineHeight: '1.6' }}>
-          Découvrez l'évolution historique des indicateurs. Les courbes en trait plein représentent les données observées. 
-          Les courbes en pointillé représentent les projections.
-        </p>
-      </div>
+    <section style={{ padding: "clamp(1.25rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem)", maxWidth: "1200px", margin: "0 auto" }}>
+      <h1 style={{ fontSize: "clamp(1.75rem, 6vw, 2.5rem)", fontWeight: 800, color: "#111827", letterSpacing: "-1px", marginBottom: "1rem" }}>
+        Rétrospective de la mobilité
+      </h1>
+      <p style={{ fontSize: "1.1rem", color: "#4b5563", maxWidth: "800px", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+        Évolution observée de 2008 à 2025. Trait plein : valeur de la source. Pointillé : valeur interpolée,
+        qui n'est pas une observation. Une année sans point est une donnée non disponible.
+      </p>
+      <TestBanner />
 
-      {/* Affichage du graphique */}
-      <div style={{ background: '#ffffff', borderRadius: '16px', padding: '1rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
-        <IndicatorChart indicator={indicator} />
+      <div style={grille}>
+        <div style={carte}>
+          <IndicatorChart indicator={RETRO.population} />
+        </div>
+        <div style={carte}>
+          <StackedBarChart indicators={RETRO.modes} titre="Parts modales des déplacements" source={SOURCE_TEST} />
+          <p style={{ fontSize: "0.85rem", color: "#6b7280" }}>Années d'enquête uniquement ; le total fait 100 % pour chaque année.</p>
+        </div>
+        <div style={carte}>
+          <MultiIndicatorChart indicators={[RETRO.parcVoitures, RETRO.parcMotos]} titre="Parc de véhicules" unite="véhicules" source={SOURCE_TEST} />
+        </div>
+        <div style={carte}>
+          <IndicatorChart indicator={RETRO.motorisation} />
+        </div>
       </div>
-
     </section>
   );
 }

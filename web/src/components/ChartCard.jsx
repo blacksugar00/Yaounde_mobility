@@ -41,7 +41,7 @@ export default function ChartCard({
   const Chart = type === "bar" ? Bar : Line;
   
   return (
-    <figure className="chart-card">
+    <figure className="chart-card" style={{ margin: 0, minWidth: 0 }}>
       <figcaption style={{ marginBottom: '1rem' }}>
         <h3 style={{ fontSize: '1.1rem', fontWeight: '700', margin: '0 0 0.5rem 0', color: '#111827' }}>{titre}</h3>
         <p style={{ fontSize: '0.85rem', color: '#6b7280', margin: 0 }}>
@@ -50,7 +50,7 @@ export default function ChartCard({
       </figcaption>
       
       {/* Le conteneur avec une hauteur fixe pour que Chart.js s'affiche bien */}
-      <div style={{ position: 'relative', height: '300px', width: '100%' }}>
+      <div style={{ position: 'relative', height: 'clamp(260px, 60vw, 340px)', width: '100%' }}>
         <Chart data={data} options={options} />
       </div>
     </figure>

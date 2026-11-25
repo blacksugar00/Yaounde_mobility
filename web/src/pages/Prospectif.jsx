@@ -1,88 +1,60 @@
 import { useState } from "react";
 import IndicatorChart from "../components/IndicatorChart";
+import TestBanner from "../components/TestBanner";
+import { PROSPECTIF } from "../mocks/fixtures";
 
-// 1. LES FAUSSES DONNÉES (MOCK) POUR LE PROSPECTIF
-const MOCK_INDICATEURS = {
-  population: {
-    code: "population",
-    libelle: "Projection de la population (2026-2036)",
-    unite: "habitants",
-    source: "WUP 2025, ONU (Simulé)",
-    series: [
-      { annee: 2025, scenario: "historique", valeur: 4028467, origine: "mesure" },
-      { annee: 2026, scenario: "tendanciel", valeur: 4200000, origine: "extrapole" },
-      { annee: 2030, scenario: "tendanciel", valeur: 4800000, origine: "extrapole" },
-      { annee: 2036, scenario: "tendanciel", valeur: 5700000, origine: "extrapole" },
-      { annee: 2026, scenario: "volontariste", valeur: 4200000, origine: "extrapole" },
-      { annee: 2030, scenario: "volontariste", valeur: 5100000, origine: "extrapole" },
-      { annee: 2036, scenario: "volontariste", valeur: 6000000, origine: "extrapole" },
-      { annee: 2026, scenario: "rupture", valeur: 4200000, origine: "construit" },
-      { annee: 2030, scenario: "rupture", valeur: 5300000, origine: "construit" },
-      { annee: 2036, scenario: "rupture", valeur: 6500000, origine: "construit" }
-    ]
-  },
-  emissions: {
-    code: "emissions",
-    libelle: "Projection des émissions de GES du transport",
-    unite: "kt CO2e",
-    source: "SUMP 2019 (Simulé)",
-    series: [
-      { annee: 2025, scenario: "historique", valeur: 1140, origine: "mesure" },
-      { annee: 2026, scenario: "tendanciel", valeur: 1226, origine: "extrapole" },
-      { annee: 2030, scenario: "tendanciel", valeur: 1600, origine: "extrapole" },
-      { annee: 2036, scenario: "tendanciel", valeur: 2000, origine: "extrapole" },
-      { annee: 2026, scenario: "volontariste", valeur: 1226, origine: "extrapole" },
-      { annee: 2030, scenario: "volontariste", valeur: 1338, origine: "extrapole" },
-      { annee: 2036, scenario: "volontariste", valeur: 1480, origine: "extrapole" },
-      { annee: 2026, scenario: "rupture", valeur: 1226, origine: "construit" },
-      { annee: 2030, scenario: "rupture", valeur: 1100, origine: "construit" },
-      { annee: 2036, scenario: "rupture", valeur: 800, origine: "construit" }
-    ]
-  }
-};
+const SCENARIOS = [["tendanciel", "Tendanciel"], ["volontariste", "Volontariste"], ["rupture", "Rupture"]];
 
 export default function Prospectif() {
-  const [selectedCode, setSelectedCode] = useState("population");
-  
-  // On récupère l'indicateur sélectionné dans le dictionnaire de mocks
-  const indicator = MOCK_INDICATEURS[selectedCode];
+  // TODO API : remplacer PROSPECTIF par getIndicateurs() (catalogue) puis getIndicateur(code).
+  const [code, setCode] = useState(PROSPECTIF[0].code);
+  const [choisis, setChoisis] = useState(SCENARIOS.map(([s]) => s));
+  const indicateur = PROSPECTIF.find((i) => i.code === code);
+
+  const presents = new Set(indicateur.series.map((p) => p.scenario));
+  const absents = SCENARIOS.filter(([s]) => !presents.has(s)).map(([, nom]) => nom);
+  const filtre = { ...indicateur, series: indicateur.series.filter((p) => p.scenario === "historique" || choisis.includes(p.scenario)) };
+
+  const basculer = (s) => setChoisis((cur) => (cur.includes(s) ? cur.filter((x) => x !== s) : [...cur, s]));
 
   return (
-    <section style={{ padding: '3rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
-      
-      <div style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#111827', letterSpacing: '-1px', marginBottom: '1rem' }}>
-          Prospective 2026-2036
-        </h1>
-        <p style={{ fontSize: '1.1rem', color: '#4b5563', maxWidth: '800px', lineHeight: '1.6' }}>
-          Comparez les trajectoires futures de Yaoundé selon trois scénarios : 
-          <strong> Tendanciel</strong> (statu quo), 
-          <strong> Volontariste</strong> (politiques durables), et 
-          <strong> Rupture</strong> (transformation majeure).
-        </p>
-      </div>
+    <section style={{ padding: "clamp(1.25rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem)", maxWidth: "1200px", margin: "0 auto" }}>
+      <h1 style={{ fontSize: "clamp(1.75rem, 6vw, 2.5rem)", fontWeight: 800, color: "#111827", letterSpacing: "-1px", marginBottom: "1rem" }}>
+        Prospective 2026-2036
+      </h1>
+      <p style={{ fontSize: "1.1rem", color: "#4b5563", maxWidth: "800px", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+        Trois scénarios sont comparés. Ce sont des trajectoires de modèle, pas des observations : le détail de leurs
+        hypothèses est présenté dans la page Méthodologie.
+      </p>
+      <TestBanner />
 
-      {/* Sélecteur d'indicateur (Le fameux F5) */}
-      <div style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <label htmlFor="indicator-select" style={{ fontWeight: '600', color: '#374151' }}>
-          Choisir un indicateur :
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem", alignItems: "center", marginBottom: "1.5rem" }}>
+        <label style={{ fontWeight: 600, maxWidth: "100%" }}>
+          Indicateur{" "}
+          <select value={code} onChange={(e) => setCode(e.target.value)}
+            style={{ padding: "0.6rem 1rem", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "1rem", marginLeft: "0.5rem", maxWidth: "100%" }}>
+            {PROSPECTIF.map((i) => <option key={i.code} value={i.code}>{i.libelle}</option>)}
+          </select>
         </label>
-        <select 
-          id="indicator-select"
-          value={selectedCode}
-          onChange={(e) => setSelectedCode(e.target.value)}
-          style={{ padding: '0.75rem 1rem', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '1rem', outline: 'none', cursor: 'pointer', minWidth: '300px' }}
-        >
-          <option value="population">Population de Yaoundé</option>
-          <option value="emissions">Émissions de GES du transport</option>
-        </select>
+        <fieldset style={{ border: 0, padding: 0, margin: 0, display: "flex", gap: "1rem" }}>
+          <legend style={{ position: "absolute", left: "-10000px" }}>Scénarios affichés</legend>
+          {SCENARIOS.map(([s, nom]) => (
+            <label key={s} style={{ opacity: presents.has(s) ? 1 : 0.5 }}>
+              <input type="checkbox" checked={choisis.includes(s)} disabled={!presents.has(s)} onChange={() => basculer(s)} /> {nom}
+            </label>
+          ))}
+        </fieldset>
       </div>
 
-      {/* Affichage du graphique */}
-      <div style={{ background: '#ffffff', borderRadius: '16px', padding: '1rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
-        <IndicatorChart indicator={indicator} />
-      </div>
+      {absents.length > 0 && (
+        <p role="note" style={{ color: "#4b5563", marginBottom: "1rem" }}>
+          Non disponible pour cet indicateur : scénario {absents.join(", ").toLowerCase()}.
+        </p>
+      )}
 
+      <div style={{ background: "#fff", borderRadius: "16px", padding: "1rem", boxShadow: "0 4px 6px rgba(0,0,0,0.05)" }}>
+        <IndicatorChart indicator={filtre} />
+      </div>
     </section>
   );
 }
