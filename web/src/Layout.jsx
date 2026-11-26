@@ -16,22 +16,34 @@ function ScrollToTop() {
 
 export default function Layout() {
   useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    // Chaque élément .reveal apparaît une seule fois, à sa première entrée à l'écran
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Quand ça rentre dans l'écran : on affiche
           entry.target.classList.add('active');
-        } else {
-          // Quand ça sort de l'écran : on cache (pour pouvoir rejouer l'animation)
-          entry.target.classList.remove('active');
+          obs.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15 }); // Se déclenche quand 15% de l'élément est visible
 
-    reveals.forEach(reveal => observer.observe(reveal));
-    return () => reveals.forEach(reveal => observer.unobserve(reveal));
+    const surveiller = (racine) => {
+      if (racine.nodeType !== 1) return;
+      if (racine.matches('.reveal:not(.active)')) observer.observe(racine);
+      racine.querySelectorAll('.reveal:not(.active)').forEach((el) => observer.observe(el));
+    };
+
+    surveiller(document.body);
+
+    // Éléments ajoutés plus tard (graphiques affichés après le chargement des données, changement de page)
+    const mutations = new MutationObserver((liste) => {
+      liste.forEach((m) => m.addedNodes.forEach(surveiller));
+    });
+    mutations.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutations.disconnect();
+    };
   }, []);
 
   return (
