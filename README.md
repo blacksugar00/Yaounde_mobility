@@ -30,33 +30,41 @@ docker compose up --build
 
 L'application est ensuite disponible sur `http://localhost:5000`.
 
+## Routes API
+
+| Route | Rôle |
+|---|---|
+| `GET /api/sante` | État du service |
+| `GET /api/indicateurs`, `GET /api/indicateurs/<code>?scenario=` | Catalogue (88 indicateurs) et séries |
+| `GET /api/zones?annee=2018\|2025\|2035` | 105 zones avec population |
+| `GET /api/geojson/<couche>` | Couches SIG : `zones_population`, `reseau_bus`, `projets_voirie`, `projets_tp`, `gares`, `carrefours` |
+| `GET /api/barometre/questions`, `POST /api/barometre`, `GET /api/barometre/resultats` | Baromètre (17 questions, agrégats masqués si k < 5) |
+| `GET /api/export/indicateurs.csv[?scenario=]` | Export de tous les indicateurs (CSV UTF-8) |
+| `GET /api/export/indicateurs/<code>.csv[?scenario=]` | Export d'un indicateur |
+| `GET /api/export/geojson/<couche>.geojson` | Téléchargement d'une couche SIG |
+
+Les réponses individuelles du baromètre ne sont jamais exportées.
+
+## Tests
+
+```bash
+python -m unittest discover -s api/tests -v
+cd web && npm run lint && npm run build
+```
+
 ## Etat des jalons
 
-**M0 est PASS et fusionné dans `main`**. Le bootstrap est terminé et n'est plus
-une tâche à refaire.
+| Jalon | Statut |
+|---|---|
+| M0 — Socle technique | PASS, fusionné dans `main` |
+| M1 — Données, API, premier graphique | PASS : 7 JSON, 88 indicateurs, GeoJSON 105 zones, premier build Docker |
+| M2 — Parcours bout en bout | PASS : baromètre 17 questions et CSV, page Résultats ($k \ge 5$), carte Leaflet |
+| M3 — Noyau F1 à F10 | PASS : Rétrospectif et Prospectif sur données réelles (F2, F5, F6, F7), carte 2018/2025/2035 et 5 couches d'infrastructures (F3, F4), Méthodologie (F10) |
+| M4 — Export et image | EN COURS : export CSV/GeoJSON (F11/F12) livré dans l'API et la page Méthodologie ; `docker compose up --build` à revalider avec les nouvelles couches |
+| M5 — Prêt pour la démo | À faire le ven. 27 : test mobile/navigateurs, répétition |
 
-**M1 est validé et fusionné dans `main`** : les sept jeux JSON d'indicateurs et le
-GeoJSON 105 zones de P1 sont livrés, les routes P3 les servent (88 indicateurs catalogués),
-le graphique de population de la page Rétrospective lit les données réelles par l'API,
-et le premier build Docker réussit (~213 Mo).
-
-**M2 est EN COURS** :
-- **Baromètre participatif validé et activé** (P3) : 17 questions à choix fermés, 105 quartiers
-  officiels issus du GeoJSON, texte de consentement validé. Formulaire citoyen opérationnel sur
-  `/participatif`, persistance CSV dans `data/barometre/reponses.csv` et page `/resultats`
-  avec agrégats anonymisés et masquage des petites cellules ($k \ge 5$).
-- **Visualisations graphiques** (P3/P2) : refonte entreprise de `ChartCard.jsx` (support `line`,
-  `bar`, `pie`, badges de statut mesuré/estimé/projeté, infobulles sombres haute précision).
-- **Cartographie et couches SIG** (P1/P2) : intégration du composant Leaflet `MapView.jsx`
-  dans `Carte.jsx` (population 2018) et préparation des couches géographiques d'infrastructures
-  et de voirie (F4).
-
-**Périmètre M3 / M4 confirmé** :
-Toutes les fonctionnalités cibles sont intégrées à la feuille de route :
-- **F4** (Couches SIG infrastructures & voirie sur la carte).
-- **F6** (Parts modales prospectives réelles via `parts_modales.json`).
-- **F7** (Émissions GES et temps de parcours réels via `ges.json` et `temps.json`).
-- **F11/F12** (Téléchargement et export des données ouvertes).
+Contrôle de fidélité : les 5 561 points exportés (88 indicateurs) ont été comparés à
+`data/raw/donnees_longues.csv` par code, année et scénario, avec 0 écart.
 
 ## Sources locales
 
