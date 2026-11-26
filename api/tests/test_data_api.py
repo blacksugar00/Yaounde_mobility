@@ -91,6 +91,31 @@ class DataApiTests(unittest.TestCase):
             {"id_zone", "nom", "pop_2018", "pop_2025", "pop_2035"},
         )
 
+    def test_geojson_layers_return_feature_collections_and_reject_unknown(self):
+        for layer in (
+            "reseau_bus",
+            "projets_voirie",
+            "projets_tp",
+            "gares",
+            "carrefours",
+        ):
+            response = self.client.get(f"/api/geojson/{layer}")
+            self.assertEqual(response.status_code, 200, layer)
+            payload = response.get_json()
+            self.assertEqual(payload["type"], "FeatureCollection")
+            self.assertGreater(len(payload["features"]), 0)
+
+        unknown = self.client.get("/api/geojson/inconnue")
+        self.assertEqual(unknown.status_code, 404)
+        self.assertIn("erreur", unknown.get_json())
+
+        with tempfile.TemporaryDirectory() as directory:
+            self.app.config["GEOJSON_DIR"] = Path(directory)
+            missing = self.client.get("/api/geojson/reseau_bus")
+
+        self.assertEqual(missing.status_code, 503)
+        self.assertIn("erreur", missing.get_json())
+
     def test_missing_indicator_asset_returns_service_unavailable(self):
         with tempfile.TemporaryDirectory() as directory:
             self.app.config["INDICATORS_DIR"] = Path(directory)

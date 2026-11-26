@@ -1,34 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { getZones } from "../api/client";
+import { getGeoJsonLayer, getZones } from "../api/client";
 import MapView from "../components/MapView";
 
-const LAYER_SOURCES = {
-  zones_population: "/geojson/zones_population.geojson",
-  reseau_bus: "/geojson/reseau_bus.geojson",
-  projets_voirie: "/geojson/projets_voirie.geojson",
-  projets_tp: "/geojson/projets_tp.geojson",
-  gares: "/geojson/gares.geojson",
-  carrefours: "/geojson/carrefours.geojson",
-};
-
-async function fetchJsonAsset(url) {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`Impossible de charger ${url} (${response.status})`);
-  }
-  return response.json();
-}
-
 async function fetchZonesLayer(year) {
-  try {
-    const data = await getZones(year);
-    if (Array.isArray(data?.features) && data.features.length > 0) {
-      return data;
-    }
-  } catch {
-    // Repli sur l'asset statique si le backend Flask n'est pas demarre
+  const data = await getZones(year);
+  if (!Array.isArray(data?.features) || data.features.length === 0) {
+    throw new Error("Couche des zones de population indisponible.");
   }
-  return fetchJsonAsset(LAYER_SOURCES.zones_population);
+  return data;
 }
 
 export default function Carte() {
@@ -55,11 +34,11 @@ export default function Carte() {
           carrefours,
         ] = await Promise.all([
           fetchZonesLayer(2018),
-          fetchJsonAsset(LAYER_SOURCES.reseau_bus),
-          fetchJsonAsset(LAYER_SOURCES.projets_voirie),
-          fetchJsonAsset(LAYER_SOURCES.projets_tp),
-          fetchJsonAsset(LAYER_SOURCES.gares),
-          fetchJsonAsset(LAYER_SOURCES.carrefours),
+          getGeoJsonLayer("reseau_bus"),
+          getGeoJsonLayer("projets_voirie"),
+          getGeoJsonLayer("projets_tp"),
+          getGeoJsonLayer("gares"),
+          getGeoJsonLayer("carrefours"),
         ]);
 
         if (active) {

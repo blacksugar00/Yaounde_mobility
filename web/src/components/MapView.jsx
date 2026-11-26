@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import L from "leaflet";
-import { GeoJSON, MapContainer, TileLayer } from "react-leaflet";
+import { GeoJSON, MapContainer, Pane, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 const DEFAULT_CENTER = [3.848, 11.502];
@@ -50,6 +50,18 @@ const HORIZON_OPTIONS_BY_LAYER = {
   gares: ["Tous", "MT", "LT", "Non renseigné"],
   carrefours: ["Tous", "MT", "LT"],
 };
+
+const ALL_HORIZON_OPTIONS = ["Tous", "Coup parti", "MT", "LT", "Non renseigné"];
+
+// Ordre d'empilement visuel : polygones en bas, lignes au milieu, points au-dessus.
+const LAYER_PANES = [
+  { id: "zones_population", pane: "pane-zones-population", zIndex: 410 },
+  { id: "projets_voirie", pane: "pane-projets-voirie", zIndex: 420 },
+  { id: "projets_tp", pane: "pane-projets-tp", zIndex: 430 },
+  { id: "reseau_bus", pane: "pane-reseau-bus", zIndex: 440 },
+  { id: "carrefours", pane: "pane-carrefours", zIndex: 450 },
+  { id: "gares", pane: "pane-gares", zIndex: 460 },
+];
 
 function colorForPopulation(value) {
   if (value == null || !Number.isFinite(Number(value))) return MISSING_COLOR;
@@ -172,8 +184,28 @@ function bindFeaturePopup(layerId, feature, layer, year) {
   layer.bindPopup(createPopupElement(title, rows));
 }
 
-function busColorForFeature(feature) {
+function buildBusLineLegend(reseauBusData) {
+  const seen = new Map();
+  for (const feature of reseauBusData?.features ?? []) {
+    const name = feature.properties?.NAME;
+    if (!name || seen.has(name)) continue;
+    seen.set(name, feature.properties?.LONGNAME ?? name);
+  }
+  const names = Array.from(seen.keys()).sort((a, b) =>
+    a.localeCompare(b, "fr", { numeric: true }),
+  );
+  return names.map((name, index) => ({
+    name,
+    longName: seen.get(name),
+    color: BUS_LINE_COLORS[index % BUS_LINE_COLORS.length],
+  }));
+}
+
+function busColorForFeature(feature, busColorMap) {
   const name = feature.properties?.NAME ?? "";
+  if (busColorMap?.has(name)) {
+    return busColorMap.get(name);
+  }
   let hash = 0;
   for (let i = 0; i < name.length; i += 1) {
     hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
@@ -181,7 +213,7 @@ function busColorForFeature(feature) {
   return BUS_LINE_COLORS[hash % BUS_LINE_COLORS.length];
 }
 
-function legendForLayer(layerId, year) {
+function legendForLayer(layerId, year, busLineLegend = []) {
   if (layerId === "zones_population") {
     return {
       ariaLabel: `Légende population ${year}`,
@@ -199,9 +231,16 @@ function legendForLayer(layerId, year) {
   if (layerId === "reseau_bus") {
     return {
       ariaLabel: "Légende réseau de bus",
-      items: [
-        { color: BUS_LINE_COLORS[0], label: "Lignes de bus (L10 – L17, réseau TC2)" },
-      ],
+      items:
+        busLineLegend.length > 0
+          ? busLineLegend.map((entry) => ({
+              color: entry.color,
+              label: entry.name,
+              title: entry.longName,
+            }))
+          : [
+              { color: BUS_LINE_COLORS[0], label: "Lignes de bus (réseau TC2)" },
+            ],
     };
   }
 
@@ -252,25 +291,30 @@ export default function MapView({
   onYearChange,
   layers = null,
   activeLayer: controlledLayer,
+  activeLayers: controlledLayers,
   onLayerChange,
+  onLayersChange,
   height = 500,
 }) {
   if (!POPULATION_FIELD[year]) {
     throw new RangeError(`Annee de carte invalide: ${year}`);
   }
 
-  const [internalLayer, setInternalLayer] = useState("zones_population");
+  const [internalLayers, setInternalLayers] = useState(["zones_population"]);
   const [internalYear, setInternalYear] = useState(year);
   const [prevPropYear, setPrevPropYear] = useState(year);
   const [horizonFilter, setHorizonFilter] = useState("Tous");
-  const [showPopulationBackdrop, setShowPopulationBackdrop] = useState(false);
 
   if (year !== prevPropYear) {
     setPrevPropYear(year);
     setInternalYear(year);
   }
 
-  const currentLayer = controlledLayer ?? internalLayer;
+  const currentLayers = useMemo(
+    () => controlledLayers ?? (controlledLayer ? [controlledLayer] : internalLayers),
+    [controlledLayers, controlledLayer, internalLayers],
+  );
+  const currentLayerSet = useMemo(() => new Set(currentLayers), [currentLayers]);
   const currentYear = onYearChange ? year : internalYear;
 
   const resolvedLayers = useMemo(
@@ -285,30 +329,73 @@ export default function MapView({
     [layers, geojson],
   );
 
-  const zonesData = resolvedLayers.zones_population;
-  const rawLayerData = resolvedLayers[currentLayer];
-  const horizonOptions = HORIZON_OPTIONS_BY_LAYER[currentLayer] ?? null;
+  const busLineLegend = useMemo(
+    () => buildBusLineLegend(resolvedLayers.reseau_bus),
+    [resolvedLayers.reseau_bus],
+  );
 
-  const activeData = useMemo(() => {
-    if (!rawLayerData) return null;
-    if (!horizonOptions || horizonFilter === "Tous") return rawLayerData;
+  const busColorMap = useMemo(
+    () => new Map(busLineLegend.map((entry) => [entry.name, entry.color])),
+    [busLineLegend],
+  );
 
-    const features = (rawLayerData.features ?? []).filter((feature) => {
-      const horizon = horizonForFeature(currentLayer, feature.properties);
-      if (horizonFilter === "Non renseigné") return horizon == null || horizon === "";
-      return horizon === horizonFilter;
-    });
-
-    return { ...rawLayerData, features };
-  }, [rawLayerData, horizonOptions, horizonFilter, currentLayer]);
-
-  const handleLayerChange = (event) => {
-    const nextLayer = event.target.value;
-    if (!controlledLayer) {
-      setInternalLayer(nextLayer);
+  const horizonOptions = useMemo(() => {
+    const allowed = new Set();
+    for (const layerId of currentLayers) {
+      for (const option of HORIZON_OPTIONS_BY_LAYER[layerId] ?? []) {
+        allowed.add(option);
+      }
     }
-    setHorizonFilter("Tous");
-    onLayerChange?.(nextLayer);
+    if (allowed.size === 0) return null;
+    return ALL_HORIZON_OPTIONS.filter((option) => allowed.has(option));
+  }, [currentLayers]);
+
+  const effectiveHorizonFilter =
+    horizonOptions && horizonOptions.includes(horizonFilter) ? horizonFilter : "Tous";
+
+  const filteredLayers = useMemo(() => {
+    const out = {};
+    for (const { id } of DATASETS) {
+      const raw = resolvedLayers[id];
+      if (!raw) {
+        out[id] = null;
+        continue;
+      }
+      const layerHorizonOptions = HORIZON_OPTIONS_BY_LAYER[id];
+      if (!layerHorizonOptions || effectiveHorizonFilter === "Tous") {
+        out[id] = raw;
+        continue;
+      }
+      const features = (raw.features ?? []).filter((feature) => {
+        const horizon = horizonForFeature(id, feature.properties);
+        if (effectiveHorizonFilter === "Non renseigné") {
+          return horizon == null || horizon === "";
+        }
+        return horizon === effectiveHorizonFilter;
+      });
+      out[id] = { ...raw, features };
+    }
+    return out;
+  }, [resolvedLayers, effectiveHorizonFilter]);
+
+  const updateLayers = (nextLayers) => {
+    if (!controlledLayers && !controlledLayer) {
+      setInternalLayers(nextLayers);
+    }
+    onLayersChange?.(nextLayers);
+    onLayerChange?.(nextLayers[0] ?? null);
+  };
+
+  const toggleLayer = (layerId) => {
+    const exists = currentLayerSet.has(layerId);
+    const nextSet = new Set(currentLayers);
+    if (exists) {
+      nextSet.delete(layerId);
+    } else {
+      nextSet.add(layerId);
+    }
+    const nextLayers = DATASETS.map((item) => item.id).filter((id) => nextSet.has(id));
+    updateLayers(nextLayers);
   };
 
   const handleYearChange = (event) => {
@@ -320,50 +407,55 @@ export default function MapView({
   };
 
   const populationField = POPULATION_FIELD[currentYear];
+  const hasOverlayOnPopulation =
+    currentLayerSet.has("zones_population") && currentLayers.length > 1;
 
-  const populationStyle = (feature) => ({
-    fillColor: colorForPopulation(feature.properties?.[populationField]),
-    color: "#333333",
-    weight: 1,
-    fillOpacity: currentLayer === "zones_population" ? 0.7 : 0.35,
-  });
-
-  const activeStyle = (feature) => {
-    if (currentLayer === "zones_population") {
-      return populationStyle(feature);
-    }
-    if (currentLayer === "reseau_bus") {
+  const styleForLayer = (layerId) => (feature) => {
+    if (layerId === "zones_population") {
       return {
-        color: busColorForFeature(feature),
-        weight: 4,
+        fillColor: colorForPopulation(feature.properties?.[populationField]),
+        color: "#333333",
+        weight: 1,
+        fillOpacity: hasOverlayOnPopulation ? 0.4 : 0.7,
+      };
+    }
+    if (layerId === "reseau_bus") {
+      return {
+        color: busColorForFeature(feature, busColorMap),
+        weight: 3,
         opacity: 0.9,
       };
     }
-    const horizon = horizonForFeature(currentLayer, feature.properties);
+    const horizon = horizonForFeature(layerId, feature.properties);
     const color = HORIZON_COLORS[horizon] ?? MISSING_COLOR;
     const isVariant = feature.properties?.Type === "Variante";
     return {
       color,
-      weight: currentLayer === "projets_tp" ? 5 : 4,
-      opacity: 0.9,
+      weight: layerId === "projets_tp" ? 6 : 3.5,
+      opacity: layerId === "projets_tp" ? 0.85 : 0.9,
       dashArray: isVariant ? "6 4" : undefined,
     };
   };
 
-  const pointToLayer = (feature, latlng) => {
-    const horizon = horizonForFeature(currentLayer, feature.properties);
+  const pointToLayerFor = (layerId) => (feature, latlng) => {
+    const horizon = horizonForFeature(layerId, feature.properties);
+    const isGare = layerId === "gares";
     return L.circleMarker(latlng, {
-      radius: currentLayer === "gares" ? 8 : 6,
+      radius: isGare ? 8 : 5,
       fillColor: HORIZON_COLORS[horizon] ?? MISSING_COLOR,
-      color: "#1f2937",
-      weight: 1.5,
-      fillOpacity: 0.9,
+      color: isGare ? "#ffffff" : "#1f2937",
+      weight: isGare ? 2.5 : 1.5,
+      fillOpacity: 0.95,
     });
   };
 
-  const legend = legendForLayer(currentLayer, currentYear);
-  const activeDatasetMeta = DATASETS.find((item) => item.id === currentLayer);
-  const featureCount = activeData?.features?.length ?? 0;
+  const activeDatasets = DATASETS.filter((item) => currentLayerSet.has(item.id));
+  const unavailableDatasets = activeDatasets.filter((item) => !filteredLayers[item.id]);
+  const availableDatasets = activeDatasets.filter((item) => filteredLayers[item.id]);
+  const totalVisibleFeatures = availableDatasets.reduce(
+    (sum, item) => sum + (filteredLayers[item.id]?.features?.length ?? 0),
+    0,
+  );
 
   return (
     <div className="map-view">
@@ -371,80 +463,143 @@ export default function MapView({
         className="map-controls"
         style={{
           display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          gap: "0.75rem 1.25rem",
+          flexDirection: "column",
+          gap: "0.75rem",
           marginBottom: "0.75rem",
         }}
       >
-        <label style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-          <span>Jeu de données</span>
-          <select
-            aria-label="Jeu de données affiché"
-            value={currentLayer}
-            onChange={handleLayerChange}
+        <div
+          role="group"
+          aria-label="Couches affichées sur la carte"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: "0.5rem",
+          }}
+        >
+          {DATASETS.map((dataset) => {
+            const checked = currentLayerSet.has(dataset.id);
+            return (
+              <label
+                key={dataset.id}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.4rem",
+                  padding: "0.35rem 0.65rem",
+                  borderRadius: "9999px",
+                  border: checked ? "1px solid #047857" : "1px solid #d1d5db",
+                  backgroundColor: checked ? "#ecfdf5" : "#f9fafb",
+                  color: checked ? "#065f46" : "#374151",
+                  fontSize: "0.9rem",
+                  fontWeight: checked ? 600 : 500,
+                  cursor: "pointer",
+                  userSelect: "none",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={() => toggleLayer(dataset.id)}
+                />
+                <span>{dataset.label}</span>
+              </label>
+            );
+          })}
+
+          <button
+            type="button"
+            onClick={() => updateLayers(DATASETS.map((item) => item.id))}
+            disabled={currentLayers.length === DATASETS.length}
+            style={{
+              padding: "0.35rem 0.65rem",
+              borderRadius: "8px",
+              border: "1px solid #d1d5db",
+              backgroundColor: "#ffffff",
+              fontSize: "0.85rem",
+              cursor: currentLayers.length === DATASETS.length ? "default" : "pointer",
+            }}
           >
-            {DATASETS.map((dataset) => (
-              <option key={dataset.id} value={dataset.id}>
-                {dataset.label}
-              </option>
-            ))}
-          </select>
-        </label>
+            Tout afficher
+          </button>
+          <button
+            type="button"
+            onClick={() => updateLayers([])}
+            disabled={currentLayers.length === 0}
+            style={{
+              padding: "0.35rem 0.65rem",
+              borderRadius: "8px",
+              border: "1px solid #d1d5db",
+              backgroundColor: "#ffffff",
+              fontSize: "0.85rem",
+              cursor: currentLayers.length === 0 ? "default" : "pointer",
+            }}
+          >
+            Tout masquer
+          </button>
+        </div>
 
-        {currentLayer === "zones_population" && (
-          <label style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-            <span>Année</span>
-            <select
-              aria-label="Année de population"
-              value={currentYear}
-              onChange={handleYearChange}
-            >
-              {POPULATION_YEARS.map((value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </label>
-        )}
+        {(currentLayerSet.has("zones_population") || horizonOptions) && (
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              gap: "0.75rem 1.25rem",
+            }}
+          >
+            {currentLayerSet.has("zones_population") && (
+              <label style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+                <span>Année (population)</span>
+                <select
+                  aria-label="Année de population"
+                  value={currentYear}
+                  onChange={handleYearChange}
+                >
+                  {POPULATION_YEARS.map((value) => (
+                    <option key={value} value={value}>
+                      {value}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
 
-        {horizonOptions && (
-          <label style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-            <span>Horizon</span>
-            <select
-              aria-label="Filtre par horizon"
-              value={horizonFilter}
-              onChange={(event) => setHorizonFilter(event.target.value)}
-            >
-              {horizonOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </label>
-        )}
-
-        {currentLayer !== "zones_population" && zonesData && (
-          <label style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
-            <input
-              type="checkbox"
-              checked={showPopulationBackdrop}
-              onChange={(event) => setShowPopulationBackdrop(event.target.checked)}
-            />
-            <span>Afficher la population {currentYear} en fond</span>
-          </label>
+            {horizonOptions && (
+              <label style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+                <span>Horizon</span>
+                <select
+                  aria-label="Filtre par horizon"
+                  value={effectiveHorizonFilter}
+                  onChange={(event) => setHorizonFilter(event.target.value)}
+                >
+                  {horizonOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+          </div>
         )}
       </div>
 
-      {!activeData && (
+      {activeDatasets.length === 0 && (
         <p role="status" style={{ marginBottom: "0.5rem" }}>
-          Couche « {activeDatasetMeta?.label ?? currentLayer} » non disponible dans les données transmises.
+          Sélectionnez au moins une couche à afficher sur la carte.
         </p>
       )}
 
-      {activeData && featureCount === 0 && (
+      {unavailableDatasets.length > 0 && (
+        <p role="status" style={{ marginBottom: "0.5rem" }}>
+          Couche(s) non disponible(s) dans les données transmises :{" "}
+          {unavailableDatasets.map((item) => item.label).join(", ")}.
+        </p>
+      )}
+
+      {availableDatasets.length > 0 && totalVisibleFeatures === 0 && (
         <p role="status" style={{ marginBottom: "0.5rem" }}>
           Aucune entité correspondante pour ce filtre.
         </p>
@@ -460,65 +615,108 @@ export default function MapView({
           attribution="&copy; OpenStreetMap contributors"
         />
 
-        {currentLayer !== "zones_population" && showPopulationBackdrop && zonesData && (
-          <GeoJSON
-            key={`backdrop-${currentYear}`}
-            data={zonesData}
-            style={populationStyle}
-            onEachFeature={(feature, layer) =>
-              bindFeaturePopup("zones_population", feature, layer, currentYear)
-            }
-          />
-        )}
+        {LAYER_PANES.map(({ id, pane, zIndex }) => {
+          if (!currentLayerSet.has(id)) return null;
+          const data = filteredLayers[id];
+          if (!data) return null;
+          const layerKey =
+            id === "zones_population"
+              ? `${id}-${currentYear}-${hasOverlayOnPopulation ? "underlay" : "solo"}`
+              : id === "reseau_bus"
+                ? id
+                : `${id}-${effectiveHorizonFilter}`;
 
-        {activeData && (
-          <GeoJSON
-            key={`${currentLayer}-${currentYear}-${horizonFilter}`}
-            data={activeData}
-            style={activeStyle}
-            pointToLayer={pointToLayer}
-            onEachFeature={(feature, layer) =>
-              bindFeaturePopup(currentLayer, feature, layer, currentYear)
-            }
-          />
-        )}
+          return (
+            <Pane key={pane} name={pane} style={{ zIndex }}>
+              <GeoJSON
+                key={layerKey}
+                data={data}
+                style={styleForLayer(id)}
+                pointToLayer={pointToLayerFor(id)}
+                onEachFeature={(feature, layer) =>
+                  bindFeaturePopup(id, feature, layer, currentYear)
+                }
+              />
+            </Pane>
+          );
+        })}
       </MapContainer>
 
-      <ul
-        aria-label={legend.ariaLabel}
-        className="map-legend"
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "0.75rem",
-          padding: 0,
-          marginTop: "0.75rem",
-          listStyle: "none",
-        }}
-      >
-        {legend.items.map((item) => (
-          <li
-            key={item.label}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.35rem",
-            }}
-          >
-            <span
-              style={{
-                display: "inline-block",
-                width: "1rem",
-                height: "1rem",
-                backgroundColor: item.color,
-                border: "1px solid #555555",
-                borderRadius: item.shape === "circle" ? "9999px" : "2px",
-              }}
-            />
-            {item.label}
-          </li>
-        ))}
-      </ul>
+      {activeDatasets.length > 0 && (
+        <div
+          className="map-legends"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.5rem",
+            marginTop: "0.75rem",
+          }}
+        >
+          {activeDatasets.map((dataset) => {
+            const legend = legendForLayer(dataset.id, currentYear, busLineLegend);
+            const title =
+              dataset.id === "zones_population"
+                ? `${dataset.label} (${currentYear})`
+                : dataset.label;
+
+            return (
+              <div
+                key={dataset.id}
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: "0.5rem 0.75rem",
+                }}
+              >
+                <strong style={{ fontSize: "0.9rem", color: "#111827" }}>
+                  {title} :
+                </strong>
+                <ul
+                  aria-label={legend.ariaLabel}
+                  className="map-legend"
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "0.75rem",
+                    padding: 0,
+                    margin: 0,
+                    listStyle: "none",
+                  }}
+                >
+                  {legend.items.map((item) => (
+                    <li
+                      key={item.label}
+                      title={item.title}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.35rem",
+                        fontSize: "0.9rem",
+                      }}
+                    >
+                      <span
+                        style={{
+                          display: "inline-block",
+                          width: "1rem",
+                          height: "1rem",
+                          backgroundColor: item.color,
+                          border:
+                            dataset.id === "gares"
+                              ? "2px solid #9ca3af"
+                              : "1px solid #555555",
+                          borderRadius: item.shape === "circle" ? "9999px" : "2px",
+                        }}
+                      />
+                      {item.label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
