@@ -52,10 +52,42 @@ const FAQ_ITEMS = [
   },
 ];
 
+const COUCHES_GEO = [
+  { id: "zones_population", label: "Population par quartier (105 zones)" },
+  { id: "reseau_bus", label: "Réseau de bus" },
+  { id: "projets_voirie", label: "Projets de voirie" },
+  { id: "projets_tp", label: "Projets de transport public" },
+  { id: "gares", label: "Gares" },
+  { id: "carrefours", label: "Carrefours" },
+];
+
+const boutonExport = {
+  display: "inline-flex",
+  flexDirection: "column",
+  padding: "0.75rem 1rem",
+  border: "1px solid #d1d5db",
+  borderRadius: "8px",
+  color: "#111827",
+  textDecoration: "none",
+  background: "#ffffff",
+};
+
+const boutonTelecharger = {
+  display: "inline-block",
+  padding: "0.4rem 0.9rem",
+  borderRadius: "6px",
+  background: "#111827",
+  color: "#ffffff",
+  textDecoration: "none",
+  fontSize: "0.9rem",
+  fontWeight: 600,
+};
+
 export default function Methodologie() {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState("sources");
   const [openFaq, setOpenFaq] = useState([1]); // Première question ouverte par défaut
+  const [coucheExport, setCoucheExport] = useState(COUCHES_GEO[0].id);
 
   // Synchronisation avec l'ancre d'URL (#sources, #faq, #mentions, #licences)
   useEffect(() => {
@@ -504,6 +536,52 @@ export default function Methodologie() {
             <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "0.25rem" }}>
               Licences des données & Conditions de réutilisation
             </h2>
+
+            <div id="telechargements" style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
+              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
+                Télécharger les données
+              </h3>
+              <p style={{ color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "1rem" }}>
+                Certaines données de l'Observatoire peuvent être téléchargées. Les valeurs sont fournies telles qu'elles sont affichées,
+                sans recalcul, avec leur scénario, leur statut et leur origine. Les réponses individuelles du baromètre ne sont jamais publiées.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "stretch" }}>
+                <div style={{ ...boutonExport, gap: "0.5rem", flex: "1 1 14rem", maxWidth: "100%" }}>
+                  <strong style={{ fontSize: "0.95rem" }}>Indicateurs</strong>
+                  <div>
+                    <a href="/api/export/indicateurs.csv" download style={boutonTelecharger}>
+                      Télécharger
+                    </a>
+                  </div>
+                  <span style={{ fontSize: "0.8rem", color: "#6b7280" }}>Format CSV · 88 indicateurs, tous scénarios</span>
+                </div>
+                <div style={{ ...boutonExport, gap: "0.5rem", flex: "1 1 18rem", maxWidth: "100%" }}>
+                  <label htmlFor="couche-export" style={{ fontSize: "0.95rem", fontWeight: 700 }}>
+                    Données géographiques
+                  </label>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                    <select
+                      id="couche-export"
+                      value={coucheExport}
+                      onChange={(e) => setCoucheExport(e.target.value)}
+                      style={{ flex: "1 1 12rem", minWidth: 0, padding: "0.4rem 0.5rem", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "0.9rem" }}
+                    >
+                      {COUCHES_GEO.map((c) => (
+                        <option key={c.id} value={c.id}>{c.label}</option>
+                      ))}
+                    </select>
+                    <a
+                      href={`/api/export/geojson/${coucheExport}.geojson`}
+                      download
+                      style={boutonTelecharger}
+                    >
+                      Télécharger
+                    </a>
+                  </div>
+                  <span style={{ fontSize: "0.8rem", color: "#6b7280" }}>Format GeoJSON</span>
+                </div>
+              </div>
+            </div>
 
             <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
               <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>

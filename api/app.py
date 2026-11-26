@@ -8,10 +8,12 @@ try:
     from .routes.indicateurs import indicateurs_bp
     from .routes.zones import zones_bp
     from .routes.barometre import barometre_bp
+    from .routes.export import export_bp
 except ImportError:
     from routes.indicateurs import indicateurs_bp
     from routes.zones import zones_bp
     from routes.barometre import barometre_bp
+    from routes.export import export_bp
 
 
 def create_app() -> Flask:
@@ -27,6 +29,7 @@ def create_app() -> Flask:
     app.register_blueprint(indicateurs_bp)
     app.register_blueprint(zones_bp)
     app.register_blueprint(barometre_bp)
+    app.register_blueprint(export_bp)
 
     @app.get("/", defaults={"path": ""})
     @app.get("/<path:path>")
