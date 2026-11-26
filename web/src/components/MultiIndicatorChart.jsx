@@ -1,9 +1,9 @@
 import ChartCard from "./ChartCard";
-import { CATEGORY_COLORS, ORIGINE_LABELS, formatNombre, estEstime } from "./palette";
+import { CATEGORY_COLORS, NOTE_POINTILLES, ORIGINE_LABELS, formatNombre, estEstime } from "./palette";
 
-// Plusieurs indicateurs (ex. voitures et moto-taxis) sur un même axe, une courbe par indicateur.
+// Plusieurs indicateurs (ex. voitures et motos-taxis) sur un même axe, une courbe par indicateur.
 // Années sans donnée = trou visible (null), jamais zéro. Trait plein = source, pointillé = interpolé/extrapolé.
-export default function MultiIndicatorChart({ indicators, titre, unite, source }) {
+export default function MultiIndicatorChart({ indicators, titre, unite, source, couleurs = CATEGORY_COLORS }) {
   const toutes = indicators.flatMap((i) => i.series.map((p) => p.annee));
   const min = Math.min(...toutes);
   const max = Math.max(...toutes);
@@ -12,41 +12,46 @@ export default function MultiIndicatorChart({ indicators, titre, unite, source }
     const parAnnee = new Map(ind.series.map((p) => [p.annee, p]));
     return years.map((y) => parAnnee.get(y) ?? null);
   });
+  const aDesEstimations = aligned.some((serie) => serie.some(estEstime));
 
   const data = {
     labels: years,
     datasets: indicators.map((ind, i) => ({
       label: ind.libelle,
       data: aligned[i].map((p) => p?.valeur ?? null),
-      borderColor: CATEGORY_COLORS[i % CATEGORY_COLORS.length],
-      backgroundColor: CATEGORY_COLORS[i % CATEGORY_COLORS.length],
+      borderColor: couleurs[i % couleurs.length],
+      backgroundColor: couleurs[i % couleurs.length],
       spanGaps: false,
-      tension: 0,
-      pointRadius: (ctx) => (aligned[i][ctx.dataIndex]?.origine === "fichier" ? 4 : 1.5),
+      pointRadius: (ctx) => (aligned[i][ctx.dataIndex]?.origine === "fichier" ? 3 : 0),
       segment: {
-        borderDash: (ctx) =>
-          estEstime(aligned[i][ctx.p0DataIndex]) || estEstime(aligned[i][ctx.p1DataIndex]) ? [6, 4] : undefined,
+        borderDash: (ctx) => (estEstime(aligned[i][ctx.p1DataIndex]) ? [5, 4] : undefined),
       },
     })),
   };
 
   const options = {
-    responsive: true,
-    maintainAspectRatio: false,
     plugins: {
-      legend: { position: "bottom" },
       tooltip: {
         callbacks: {
           label(ctx) {
             const p = aligned[ctx.datasetIndex][ctx.dataIndex];
-            if (!p) return `${ctx.dataset.label} : non disponible`;
-            return `${ctx.dataset.label} : ${formatNombre(p.valeur)} ${unite} · ${ORIGINE_LABELS[p.origine] ?? p.origine}`;
+            if (!p) return ` ${ctx.dataset.label} : non disponible`;
+            return ` ${ctx.dataset.label} : ${formatNombre(p.valeur, 0)} ${unite} (${ORIGINE_LABELS[p.origine] ?? p.origine})`;
           },
         },
       },
     },
-    scales: { y: { title: { display: true, text: unite } } },
   };
 
-  return <ChartCard type="line" data={data} options={options} titre={titre} unite={unite} source={source} />;
+  return (
+    <ChartCard
+      type="line"
+      data={data}
+      options={options}
+      titre={titre}
+      unite={unite}
+      source={source}
+      note={aDesEstimations ? NOTE_POINTILLES : undefined}
+    />
+  );
 }

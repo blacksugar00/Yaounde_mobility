@@ -1,4 +1,5 @@
 import ChartCard, { SCENARIO_COLORS } from "./ChartCard";
+import { NOTE_POINTILLES, ORIGINE_LABELS, formatNombre } from "./palette";
 
 const SCENARIO_LABELS = {
   historique: "Historique",
@@ -12,15 +13,14 @@ export default function IndicatorChart({
   titre,
   showBadges = true,
   scenarioLabels = SCENARIO_LABELS,
+  grand = false,
 }) {
-  // 1. Extraire toutes les années uniques et les trier
-  const years = [...new Set(indicator.series.map((point) => point.annee))]
-    .sort((left, right) => left - right);
-    
-  // 2. Extraire tous les scénarios uniques
-  const scenarios = [...new Set(indicator.series.map((point) => point.scenario))];
-  
-  // 3. Aligner les données par année pour chaque scénario
+  const years = [...new Set(indicator.series.map((point) => point.annee))].sort((a, b) => a - b);
+  const ORDRE = Object.keys(SCENARIO_LABELS);
+  const rang = (s) => (ORDRE.includes(s) ? ORDRE.indexOf(s) : ORDRE.length);
+  const scenarios = [...new Set(indicator.series.map((point) => point.scenario))].sort((a, b) => rang(a) - rang(b));
+
+  // Aligner les points par année pour chaque scénario (année absente = trou, jamais zéro)
   const aligned = scenarios.map((scenario) => {
     const byYear = new Map(
       indicator.series
@@ -30,62 +30,52 @@ export default function IndicatorChart({
     return years.map((year) => byYear.get(year) ?? null);
   });
 
-  // 4. Préparer les données pour Chart.js
+  const aDesEstimations = indicator.series.some((p) => ["interpole", "extrapole"].includes(p.origine));
+
   const data = {
     labels: years,
-    datasets: scenarios.map((scenario, datasetIndex) => ({
-      label: scenarioLabels[scenario] ?? scenario,
-      data: aligned[datasetIndex].map((point) => point?.valeur ?? null),
-      borderColor: SCENARIO_COLORS[scenario] ?? "#555555",
-      backgroundColor: SCENARIO_COLORS[scenario] ?? "#555555",
-      spanGaps: false, // Ne relie pas les points s'il y a un trou
-      tension: 0, // Courbes non lissées (comme demandé dans le guide)
-      segment: {
-        borderDash: (context) => {
-          const point = aligned[datasetIndex][context.p0DataIndex];
-          return ["interpole", "extrapole"].includes(point?.origine)
-            ? [6, 4] // Trait pointillé
-            : undefined; // Trait plein
+    datasets: scenarios.map((scenario, i) => {
+      const couleur = SCENARIO_COLORS[scenario] ?? "#5f6b66";
+      return {
+        label: scenarioLabels[scenario] ?? scenario,
+        data: aligned[i].map((point) => point?.valeur ?? null),
+        borderColor: couleur,
+        backgroundColor: couleur,
+        spanGaps: false,
+        // Points visibles uniquement sur les valeurs issues du fichier source
+        pointRadius: (ctx) => (aligned[i][ctx.dataIndex]?.origine === "fichier" && years.length <= 12 ? 3 : 0),
+        segment: {
+          borderDash: (ctx) => {
+            const point = aligned[i][ctx.p1DataIndex];
+            return ["interpole", "extrapole"].includes(point?.origine) ? [5, 4] : undefined;
+          },
         },
-      },
-    })),
+      };
+    }),
   };
 
-  // 5. Options du graphique (infobulles, axes)
   const options = {
-    responsive: true,
-    maintainAspectRatio: false,
     plugins: {
-      legend: { position: 'bottom' },
       tooltip: {
         callbacks: {
-          label(context) {
-            const point = aligned[context.datasetIndex][context.dataIndex];
-            if (!point) return "";
-            if (!showBadges) {
-              return `${context.dataset.label} : ${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(point.valeur)} ${indicator.unite}`;
-            }
-            const status = point.statut ? ` • ${point.statut}` : "";
-            return `${context.dataset.label}: ${point.valeur} ${indicator.unite} • ${point.origine}${status}`;
+          label(ctx) {
+            const point = aligned[ctx.datasetIndex][ctx.dataIndex];
+            if (!point) return null;
+            const valeur = `${formatNombre(point.valeur)} ${indicator.unite}`;
+            if (!showBadges) return ` ${ctx.dataset.label} : ${valeur}`;
+            const origine = ORIGINE_LABELS[point.origine] ?? point.origine;
+            return ` ${ctx.dataset.label} : ${valeur} (${origine})`;
           },
         },
       },
     },
-    scales: {
-      y: {
-        title: { display: true, text: indicator.unite },
-      },
-    },
   };
 
-  // 6. Vérifier s'il faut afficher le badge "hypothèse"
   const hasRupture =
     showBadges &&
-    indicator.series.some(
-      (point) => point.scenario === "rupture" && point.origine === "construit",
-    );
+    indicator.series.some((point) => point.scenario === "rupture" && point.origine === "construit");
 
-  const card = (
+  return (
     <ChartCard
       type="line"
       data={data}
@@ -93,21 +83,9 @@ export default function IndicatorChart({
       titre={titre || indicator.libelle}
       unite={indicator.unite}
       source={indicator.source}
+      badgeHypothese={hasRupture}
+      note={aDesEstimations ? NOTE_POINTILLES : undefined}
+      grand={grand}
     />
-  );
-
-  if (!showBadges) {
-    return card;
-  }
-
-  return (
-    <section style={{ marginBottom: '2rem' }}>
-      {hasRupture && (
-        <p style={{ display: 'inline-block', background: '#fef3c7', color: '#92400e', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem', fontWeight: '600', marginBottom: '1rem' }}>
-          ⚠️ Rupture : hypothèse
-        </p>
-      )}
-      {card}
-    </section>
   );
 }

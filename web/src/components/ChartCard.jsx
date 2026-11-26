@@ -3,6 +3,7 @@ import {
   BarElement,
   CategoryScale,
   Chart as ChartJS,
+  Filler,
   Legend,
   LineElement,
   LinearScale,
@@ -11,7 +12,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { Bar, Line, Pie } from "react-chartjs-2";
-import { SCENARIO_COLORS } from "./palette";
+import { CHART_THEME, SCENARIO_COLORS, formatAxe } from "./palette";
 
 export { SCENARIO_COLORS };
 
@@ -19,6 +20,7 @@ ChartJS.register(
   ArcElement,
   BarElement,
   CategoryScale,
+  Filler,
   Legend,
   LineElement,
   LinearScale,
@@ -27,11 +29,25 @@ ChartJS.register(
   Tooltip,
 );
 
+ChartJS.defaults.font.family = CHART_THEME.font;
+ChartJS.defaults.color = CHART_THEME.text;
+
 const STATUT_CONFIG = {
-  mesure: { label: "Donnée mesurée", bg: "#ecfdf5", text: "#065f46", border: "#a7f3d0" },
-  estime: { label: "Estimation / Modèle", bg: "#fef3c7", text: "#92400e", border: "#fde68a" },
-  projete: { label: "Projection", bg: "#eff6ff", text: "#1e40af", border: "#bfdbfe" },
+  mesure: { label: "Donnée mesurée", className: "badge badge--green" },
+  estime: { label: "Estimation", className: "badge badge--warn" },
+  projete: { label: "Projection", className: "badge" },
 };
+
+function fusionnerAxe(defaut, perso = {}) {
+  return {
+    ...defaut,
+    ...perso,
+    grid: { ...defaut.grid, ...(perso.grid || {}) },
+    ticks: { ...defaut.ticks, ...(perso.ticks || {}) },
+    title: { ...defaut.title, ...(perso.title || {}) },
+    border: { ...defaut.border, ...(perso.border || {}) },
+  };
+}
 
 export default function ChartCard({
   type = "line",
@@ -42,79 +58,74 @@ export default function ChartCard({
   source,
   statut,
   badgeHypothese = false,
+  note,
+  grand = false,
+  hauteur,
 }) {
   const Chart = type === "bar" ? Bar : type === "pie" ? Pie : Line;
+  const horizontal = options.indexAxis === "y";
+  const axeValeurs = horizontal ? "x" : "y";
+  const axeCategories = horizontal ? "y" : "x";
 
-  // Options d'affichage haute précision inspirées des standards entreprise
+  const axeValeursDefaut = {
+    grid: { color: CHART_THEME.grid, drawTicks: false },
+    border: { display: false },
+    ticks: { color: CHART_THEME.text, padding: 8, font: { size: 11 }, callback: formatAxe },
+    title: { display: false, color: CHART_THEME.text, font: { size: 11, weight: 500 } },
+  };
+  const axeCategoriesDefaut = {
+    grid: { display: false },
+    border: { color: CHART_THEME.axis },
+    ticks: { color: CHART_THEME.text, font: { size: 11 }, maxRotation: 0, autoSkipPadding: 12 },
+    title: { display: false },
+  };
+
   const defaultOptions = {
     responsive: true,
     maintainAspectRatio: false,
-    layout: {
-      padding: { top: 8, bottom: 4, left: 4, right: 4 },
+    interaction: type === "pie" ? undefined : { mode: "index", intersect: false },
+    layout: { padding: { top: 4, right: 8 } },
+    elements: {
+      line: { borderWidth: 2, tension: 0 },
+      point: { radius: 0, hoverRadius: 4, hitRadius: 8 },
+      bar: { borderRadius: 2 },
     },
     plugins: {
       legend: {
         position: "bottom",
+        align: "start",
         labels: {
-          color: "#475569",
-          font: { family: "'Inter', sans-serif", size: 12, weight: 500 },
-          padding: 16,
+          color: CHART_THEME.ink,
+          font: { size: 12 },
+          padding: 14,
           usePointStyle: true,
-          pointStyleWidth: 10,
-          boxWidth: 8,
+          pointStyle: type === "line" ? "line" : "rectRounded",
+          boxWidth: 18,
           boxHeight: 8,
         },
       },
       tooltip: {
-        backgroundColor: "#0f172a",
-        titleColor: "#f8fafc",
-        titleFont: { family: "'Inter', sans-serif", size: 12, weight: 700 },
-        bodyColor: "#cbd5e1",
-        bodyFont: { family: "'Inter', sans-serif", size: 12 },
-        padding: 12,
-        cornerRadius: 8,
-        displayColors: true,
-        boxPadding: 6,
-        borderColor: "rgba(255, 255, 255, 0.1)",
-        borderWidth: 1,
+        backgroundColor: CHART_THEME.tooltip,
+        titleColor: "#ffffff",
+        titleFont: { size: 12, weight: 600 },
+        bodyColor: "#e7ece9",
+        bodyFont: { size: 12 },
+        padding: 10,
+        cornerRadius: 4,
+        boxPadding: 4,
+        usePointStyle: true,
       },
     },
-    scales:
-      type === "pie"
-        ? {}
-        : {
-            x: {
-              grid: { display: false },
-              ticks: {
-                color: "#64748b",
-                font: { family: "'Inter', sans-serif", size: 11, weight: 500 },
-                maxRotation: 0,
-              },
-              border: { color: "#e2e8f0" },
-            },
-            y: {
-              grid: {
-                color: "rgba(226, 232, 240, 0.7)",
-                drawBorder: false,
-                borderDash: [4, 4],
-              },
-              ticks: {
-                color: "#64748b",
-                font: { family: "'Inter', sans-serif", size: 11 },
-                precision: 0,
-              },
-              border: { dash: [4, 4], display: false },
-            },
-          },
   };
 
-  // Fusion des options personnalisées avec les options entreprise
+  const persoScales = options.scales || {};
   const mergedOptions = {
     ...defaultOptions,
     ...options,
+    elements: { ...defaultOptions.elements, ...(options.elements || {}) },
     plugins: {
       ...defaultOptions.plugins,
-      ...options.plugins,
+      ...(options.plugins || {}),
       legend: {
         ...defaultOptions.plugins.legend,
         ...(options.plugins?.legend || {}),
@@ -132,164 +143,36 @@ export default function ChartCard({
       type === "pie"
         ? {}
         : {
-            ...defaultOptions.scales,
-            ...options.scales,
-            x: {
-              ...defaultOptions.scales.x,
-              ...(options.scales?.x || {}),
-            },
-            y: {
-              ...defaultOptions.scales.y,
-              ...(options.scales?.y || {}),
-            },
+            ...persoScales,
+            [axeCategories]: fusionnerAxe(axeCategoriesDefaut, persoScales[axeCategories]),
+            [axeValeurs]: fusionnerAxe(axeValeursDefaut, persoScales[axeValeurs]),
           },
   };
 
   const statutBadge = statut ? STATUT_CONFIG[statut] : null;
 
   return (
-    <figure
-      className="chart-card"
-      style={{
-        margin: 0,
-        minWidth: 0,
-        background: "#ffffff",
-        border: "1px solid rgba(226, 232, 240, 0.9)",
-        borderRadius: "16px",
-        boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04)",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        padding: "1.5rem",
-        transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-      }}
-    >
-      {/* En-tête de la carte */}
-      <figcaption style={{ marginBottom: "1.25rem" }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            gap: "0.75rem",
-            flexWrap: "wrap",
-            marginBottom: "0.5rem",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "1.1rem",
-              fontWeight: 700,
-              color: "#0f172a",
-              letterSpacing: "-0.02em",
-              lineHeight: 1.35,
-              margin: 0,
-            }}
-          >
-            {titre}
-          </h3>
-
-          {/* Badges de statut / hypothèse */}
-          <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
-            {badgeHypothese && (
-              <span
-                style={{
-                  fontSize: "0.7rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.06em",
-                  background: "#fef3c7",
-                  color: "#92400e",
-                  border: "1px solid #fde68a",
-                  padding: "0.2rem 0.5rem",
-                  borderRadius: "4px",
-                }}
-              >
-                Hypothèse
-              </span>
-            )}
-            {statutBadge && (
-              <span
-                style={{
-                  fontSize: "0.7rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.02em",
-                  background: statutBadge.bg,
-                  color: statutBadge.text,
-                  border: `1px solid ${statutBadge.border}`,
-                  padding: "0.2rem 0.5rem",
-                  borderRadius: "4px",
-                }}
-              >
-                {statutBadge.label}
-              </span>
-            )}
+    <figure className={`chart-card${grand ? " chart-card--tall" : ""}`}>
+      <figcaption className="chart-card-head">
+        <h3 className="chart-card-title">{titre}</h3>
+        {(badgeHypothese || statutBadge) && (
+          <div className="chart-card-badges">
+            {badgeHypothese && <span className="badge badge--warn">Hypothèse</span>}
+            {statutBadge && <span className={statutBadge.className}>{statutBadge.label}</span>}
           </div>
-        </div>
+        )}
       </figcaption>
 
-      {/* Zone du graphique */}
-      <div
-        style={{
-          position: "relative",
-          height: "clamp(260px, 45vw, 340px)",
-          width: "100%",
-          marginBottom: "1rem",
-        }}
-      >
+      <div className="chart-card-body" style={hauteur ? { height: hauteur } : undefined}>
         <Chart data={data} options={mergedOptions} />
       </div>
 
-      {/* Pied de carte avec unité et source */}
-      <footer
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: "0.75rem",
-          paddingTop: "0.85rem",
-          borderTop: "1px solid #f1f5f9",
-          fontSize: "0.8rem",
-          color: "#64748b",
-        }}
-      >
-        {unite && (
-          <span
-            style={{
-              background: "#f8fafc",
-              border: "1px solid #e2e8f0",
-              color: "#334155",
-              padding: "0.2rem 0.55rem",
-              borderRadius: "6px",
-              fontWeight: 500,
-              fontSize: "0.75rem",
-            }}
-          >
-            Unité : {unite}
-          </span>
-        )}
-
-        {source && (
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", marginLeft: "auto" }}>
-            <svg
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#94a3b8"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <ellipse cx="12" cy="5" rx="9" ry="3" />
-              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-            </svg>
-            <span>Source : {source}</span>
-          </div>
-        )}
-      </footer>
+      {(unite || note) && (
+        <footer className="chart-card-foot" data-source={source || undefined}>
+          {unite && <span>Unité : {unite}</span>}
+          {note && <span className="chart-card-note">{note}</span>}
+        </footer>
+      )}
     </figure>
   );
 }
