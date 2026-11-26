@@ -109,7 +109,7 @@ main { flex: 1; }
 /* --- GRILLE DE CARTES --- */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 3rem auto;
@@ -129,11 +129,14 @@ main { flex: 1; }
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s ease-out;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
 /* Délai pour les cartes (effet cascade) */
 .chart-card:nth-child(1) { transition-delay: 0.1s; }
@@ -151,20 +154,29 @@ main { flex: 1; }
 }
 
 /* ===== Responsive (P2) : tablette et téléphone ===== */
-@media (max-width: 900px) {
+img { max-width: 100%; }
+
+/* En-tête : trop large sous ~1100px (logo + titre + 6 liens + logo) */
+@media (max-width: 1100px) {
   header { flex-wrap: wrap !important; height: auto !important; padding: 0.75rem 1rem !important; gap: 0.75rem !important; }
-  .header-left { gap: 0.75rem !important; }
+  .header-left { gap: 0.75rem !important; flex: 1 1 0; min-width: 0; }
   .header-left img { height: 52px !important; }
   .header-text h1 { font-size: 1.05rem !important; }
   .header-text span { font-size: 0.75rem !important; }
   .header-right { margin: 0 0 0 auto !important; padding: 0 !important; border: 0 !important; }
-  .header-right img { height: 52px !important; }
-  header nav { width: 100%; display: flex !important; flex-wrap: nowrap !important; overflow-x: auto; gap: 0.25rem !important; padding-bottom: 0.25rem; }
+  .header-right { flex: none; }
+  .header-right img { height: 44px !important; }
+  header nav { order: 3; width: 100%; display: flex !important; flex-wrap: nowrap !important; overflow-x: auto; gap: 0.25rem !important; padding-bottom: 0.25rem; }
   header nav a { white-space: nowrap; flex: none; }
+}
+@media (max-width: 900px) {
+  .hero-dvdh { height: 70vh; min-height: 420px; }
+  .hero-content { padding: 0 1.25rem; }
   .hero-content h2 { font-size: clamp(1.6rem, 7vw, 2.6rem) !important; }
   .dashboard-grid { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 480px) {
   .hero-content p { font-size: 1rem !important; }
+  .bloc-methodo { padding: 1.5rem 1.25rem !important; }
   footer { padding: 2rem 1.25rem 1.5rem !important; }
 }

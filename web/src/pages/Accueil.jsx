@@ -53,7 +53,7 @@ export default function Accueil() {
         </div>
 
         {/* 3. NOUVELLE SECTION POUR FORCER LE SCROLL (Apparaît aussi) */}
-        <div className="reveal" style={{ marginTop: '6rem', padding: '3rem', background: 'white', borderRadius: '16px', border: '1px solid #e5e7eb', textAlign: 'center' }}>
+        <div className="reveal bloc-methodo" style={{ marginTop: '6rem', padding: '3rem', background: 'white', borderRadius: '16px', border: '1px solid #e5e7eb', textAlign: 'center' }}>
           <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: '#111827' }}>Une méthodologie transparente</h2>
           <p style={{ color: '#6b7280', maxWidth: '800px', margin: '0 auto 2rem auto', lineHeight: '1.6' }}>
             Toutes les données présentées sur cette plateforme sont issues de sources officielles (CUY, DVDH, SUMP 2019) 
