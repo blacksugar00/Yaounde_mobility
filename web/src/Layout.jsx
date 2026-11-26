@@ -5,6 +5,7 @@ import logoCuy from './assets/logo-cuy.jpg';
 import logoDvdh from './assets/logo-dvdh.jpg'; 
 import logoUe from './assets/logo-ue.jpg';     
 import logoEnspy from './assets/logo-enspy.jpg'; 
+import logoOslandia from './assets/logo-oslandia.png'; 
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -86,6 +87,7 @@ export default function Layout() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px', flexWrap: 'wrap' }}>
                 <img src={logoDvdh} alt="DVDH" style={{ height: '50px', objectFit: 'contain' }} />
                 <img src={logoUe} alt="Union Européenne" style={{ height: '50px', objectFit: 'contain' }} />
+                <img src={logoOslandia} alt="Oslandia" style={{ height: '40px', objectFit: 'contain' }} />
                 <img src={logoEnspy} alt="ENSPY" style={{ height: '50px', objectFit: 'contain' }} />
               </div>
             </div>
@@ -104,10 +106,10 @@ export default function Layout() {
           <div>
             <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Ressources</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              <li><Link to="/methodologie" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Méthodologie & Sources</Link></li>
-              <li><a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Foire Aux Questions (FAQ)</a></li>
-              <li><a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Mentions légales</a></li>
-              <li><a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Licences des données</a></li>
+              <li><Link to="/methodologie#sources" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Méthodologie & Sources</Link></li>
+              <li><Link to="/methodologie#faq" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Foire Aux Questions (FAQ)</Link></li>
+              <li><Link to="/methodologie#mentions" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Mentions légales</Link></li>
+              <li><Link to="/methodologie#licences" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Licences des données</Link></li>
             </ul>
           </div>
 
@@ -124,7 +126,7 @@ export default function Layout() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '2rem', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
           <p>© 2026 Observatoire de la Mobilité Urbaine de Yaoundé. Tous droits réservés.</p>
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <span>Initiative CUY • DVDH • UE • ENSPY</span>
+            <span>Réalisation : Étudiants de l'ENSPY • Initiative CUY • DVDH • UE • Oslandia</span>
           </div>
         </div>
       </footer>
