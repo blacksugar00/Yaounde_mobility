@@ -1,16 +1,56 @@
-# React + Vite
+# Interface web — React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Interface de l'Observatoire de la mobilité de Yaoundé. Elle consomme uniquement l'API
+Flask (`/api`) ; aucune donnée n'est embarquée dans le front.
 
-Currently, two official plugins are available:
+## Commandes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm ci            # installation depuis package-lock.json
+npm run dev       # serveur de développement (http://localhost:5173, proxy /api -> :5000)
+npm run lint      # oxlint
+npm run build     # compile dans ../api/static, servi par Flask
+```
 
-## React Compiler
+## Pile
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React 19, React Router 7, Axios, Chart.js 4 (`react-chartjs-2`), Leaflet
+(`react-leaflet`), icônes `lucide-react`.
 
-## Expanding the Oxlint configuration
+## Organisation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+| Dossier / fichier | Rôle |
+|---|---|
+| `src/App.jsx` | Routes ; `/participatif` et `/resultats` sont imbriquées dans la page `Barometre` |
+| `src/Layout.jsx` | En-tête (logo vers l'accueil, menu repliable sur mobile), pied de page, apparition au défilement |
+| `src/api/client.js` | Client Axios ; les erreurs API remontent avec leur message |
+| `src/pages/` | Accueil, Retrospectif, Prospectif, Carte, Barometre, Participatif, Resultats, Methodologie |
+| `src/components/ChartCard.jsx` | Carte de graphique commune ([Contrat D](CONTRAT_D.md)) |
+| `src/components/IndicatorChart.jsx` | Un indicateur, une courbe par scénario |
+| `src/components/StackedBarChart.jsx` | Barres empilées à 100 % (parts modales) |
+| `src/components/MultiIndicatorChart.jsx` | Plusieurs indicateurs sur le même axe |
+| `src/components/MapView.jsx` | Carte Leaflet : couches, année, horizon, légendes, popups et infobulles |
+| `src/components/palette.js` | Couleurs des scénarios, thème des graphiques, libellés d'origine, formats |
+| `src/index.css` | Charte et classes partagées |
+
+## Charte graphique
+
+- Couleurs institutionnelles (variables CSS dans `:root`) : vert `--green-700` (#135c41),
+  ocre `--gold-400` (#e3b23c), rouge `--red-700` (#a6201b), fond papier `--paper` (#f7f6f2).
+- Typographie : Source Serif 4 pour les titres, Inter pour le texte.
+- Classes partagées : `container`, `page`, `page-head`, `kicker`, `lead`, `card`, `btn`
+  (`--primary`, `--secondary`, `--sm`), `field`, `select`, `chip`, `notice`, `badge`,
+  `tabs`/`tab`, `grid-2/3/4`, `skeleton`, `reveal`.
+- Les couleurs des scénarios ne suivent pas la charte : elles sont fixées par le
+  Contrat D et ne doivent pas changer.
+- Responsive : vérifié de 390 px à 1366 px, sans défilement horizontal.
+
+## Règles de représentation des données
+
+- Une année sans valeur reste un trou dans la courbe, jamais un zéro.
+- Trait pointillé pour les valeurs interpolées ou extrapolées, avec une note sous le graphique.
+- Les infobulles donnent la valeur, l'unité et l'origine (valeur source, interpolée,
+  extrapolée, recalculée, hypothèse).
+- Les valeurs construites du scénario de rupture affichent le badge « Hypothèse ».
+- Les parts modales (stockées en fraction) sont converties en pourcentage d'après leur
+  unité, sans arrondi des données.

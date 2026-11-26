@@ -4,6 +4,12 @@
 Projet de hackathon, trois developpeurs, du 24 au 27 novembre 2026
 Livrable: premiere maquette retrospectif / prospectif / participatif
 
+> **État final — 26 novembre 2026.** Le projet est terminé : F1 à F12 sont livrés et
+> la version finale est dans la PR #11 (interface institutionnelle). Ce guide garde
+> la trace du déroulé du hackathon ; les étapes ci-dessous décrivent comment le
+> travail a été mené. L'état à jour est résumé dans la section « État final » en fin
+> de document et dans le [README](../README.md).
+
 > **Regle d'arbitrage :** `plan.pdf` est le cahier des charges de reference. Ce
 > guide l'explicite en taches, contrats et exemples de code; il ne remplace pas
 > ses choix de produit. Les ajustements proposes ci-dessous resolvent les
@@ -150,11 +156,9 @@ Routes minimales partagees :
 Les contrats JSON, GeoJSON, routes API et ChartCard sont suivis par les trois
 personnes. Le contrat commun du baromètre est défini dans
 [`contrat_barometre.md`](./contrat_barometre.md) et ses valeurs exécutables dans
-`api/services/barometre_schema.py`. Il propose 17 questions facultatives; il
-reste désactivé jusqu'aux validations humaines et à la liste officielle des
-quartiers fournie par P1. Ne recopiez pas une autre version du schéma dans les
-guides ou le frontend. En attendant, POST/GET restent en 503 et aucun CSV n'est
-créé. P3 suit les approbations; P1 fournit les quartiers.
+`api/services/barometre_schema.py`. Il comprend 17 questions facultatives,
+validées et actives depuis M2 avec la liste officielle des 105 quartiers fournie
+par P1. Ne recopiez pas une autre version du schéma dans les guides ou le frontend.
 
 ### Dependances entre livrables
 
@@ -177,17 +181,17 @@ Toutes les fonctionnalités initiales sont désormais intégrées au périmètre
 
 | Fonctionnalité | Rôle & Intégration | Propriétaire | Statut |
 |---|---|---|---|
-| **F1 — Accueil** | Contexte métropolitain, chiffres clés, avertissements modèles | P2 | Actif |
-| **F2 — Rétrospectif** | Séries historiques réelles : population, parc, motorisation, déplacements | P2 / P1 / P3 | Actif (données réelles) |
-| **F3 — Carte population** | Choroplèthe des 105 zones pour 2018, 2025 et 2035 | P1 / P2 / P3 | Actif (GeoJSON livré) |
-| **F4 — Carte infrastructures** | Couches géographiques de voirie structurante, corridors et équipements | P1 / P3 / P2 | Intégré à M3 |
-| **F5 — Comparateur prospectif** | Comparaison dynamique des scénarios (tendanciel, volontariste, rupture) | P2 / P3 | Actif |
-| **F6 — Parts modales prospectives** | Évolution des parts modales (marche, taxi, moto, bus, VP) issue de `parts_modales.json` | P2 / P3 | Intégré à M3 (données prêtes) |
-| **F7 — GES et Temps de transport** | Émissions de CO2 et temps de parcours issus de `ges.json` et `temps.json` | P2 / P3 | Intégré à M3 (données prêtes) |
-| **F8 — Baromètre participatif** | Questionnaire de 17 questions validé, consentement et persistance CSV | P3 | Réalisé (M2 validé) |
-| **F9 — Résultats baromètre** | Agrégats anonymisés avec protection des petites cellules ($k \ge 5$) et ChartCard | P3 | Réalisé (M2/M3 validé) |
-| **F10 — Méthodologie** | Transparence complète : sources, hypothèses, limites, ruptures de séries | P3 | En cours (M3) |
-| **F11/F12 — Export de données** | Téléchargement ouvert des jeux de données d'indicateurs et des GeoJSON | P3 / P2 | Intégré à M4 |
+| **F1 — Accueil** | Contexte métropolitain, chiffres clés, avertissements modèles | P2 | Livré |
+| **F2 — Rétrospectif** | Séries historiques réelles : population, parc, motorisation, déplacements | P2 / P1 / P3 | Livré (données réelles) |
+| **F3 — Carte population** | Choroplèthe des 105 zones pour 2018, 2025 et 2035 | P1 / P2 / P3 | Livré |
+| **F4 — Carte infrastructures** | Réseau de bus, projets de voirie et de transport public, gares, carrefours (5 couches) | P1 / P3 / P2 | Livré |
+| **F5 — Comparateur prospectif** | Comparaison dynamique des scénarios (tendanciel, volontariste, rupture) | P2 / P3 | Livré |
+| **F6 — Parts modales prospectives** | Évolution des parts modales (marche, taxi, moto, bus, VP) issue de `parts_modales.json` | P2 / P3 | Livré (Prospectif) |
+| **F7 — GES et Temps de transport** | Émissions de CO2 et temps de parcours issus de `ges.json` et `temps.json` | P2 / P3 | Livré (Prospectif) |
+| **F8 — Baromètre participatif** | Questionnaire de 17 questions validé, consentement et persistance CSV | P3 | Livré |
+| **F9 — Résultats baromètre** | Agrégats anonymisés avec protection des petites cellules ($k \ge 5$) et ChartCard | P3 | Livré |
+| **F10 — Méthodologie** | Transparence complète : sources, hypothèses, limites, ruptures de séries | P3 | Livré |
+| **F11/F12 — Export de données** | Téléchargement des indicateurs (CSV) et des couches géographiques (GeoJSON) | P3 / P2 | Livré |
 
 Le socle local, l'API, la provenance et le build Docker restent des conditions
 de fonctionnement de la demo, pas des fonctions numerotees a substituer aux
@@ -943,8 +947,7 @@ distincte de 0 et a son propre style.
 Le contrat commun est [`contrat_barometre.md`](./contrat_barometre.md), avec
 17 questions facultatives et des choix à sélection unique. Le schéma exécuté
 est défini dans `api/services/barometre_schema.py`; les guides et le frontend
-se conforment à ces deux sources. La proposition reste en attente d'approbation:
-ne pas activer les routes, le formulaire ni la collecte.
+se conforment à ces deux sources. Le questionnaire est validé et actif depuis M2.
 
 Les questions de sexe et d'âge, le questionnaire proposé, le texte de
 consentement, la durée de conservation et la politique de suppression des
@@ -958,12 +961,11 @@ chaque clé/valeur et écrit une ligne avec les 17 colonnes; les réponses omise
 sont des cellules CSV vides. Les agrégats excluent les cellules vides, donnent
 un nombre de réponses par question et ne renvoient jamais de lignes individuelles.
 La distribution d'une question est masquée si une catégorie est sous le seuil
-approuvé (seuil technique proposé: 5, en attente d'approbation).
+approuvé de 5 réponses.
 
-À M0, `QUESTIONNAIRE_APPROVED`, les validations connexes et la liste des
-quartiers restent en attente; POST et GET résultats retournent HTTP 503. Le CSV
-n'est créé qu'après activation complète et première soumission valide, jamais
-au démarrage.
+Historique : à M0, les drapeaux d'approbation étaient désactivés et les routes
+répondaient HTTP 503. Toutes les validations ont été obtenues à M2 ; le CSV est
+créé à la première soumission valide, jamais au démarrage.
 
 ## 7. Frontend React, graphiques et carte
 
@@ -1508,10 +1510,10 @@ au plus tard mardi 17 h 30, avant que P1/P2/P3 partent sur leurs branches.
 |---|---|---|
 | M0 — Socle technique | PASS — vérifié le 25 nov. 2026, puis fusionné dans `main` | Structure, routes d'état, sept chemins frontend, build React, Compose et routes baromètre désactivées vérifiés. M0 n'est plus à refaire. |
 | M1 — Donnees/API/graphique connectes | PASS — Mer. 25, 12 h 30 | Sept JSON + GeoJSON 105 zones livres par P1; routes de lecture disponibles par P3 (88 indicateurs); P2 affiche le premier indicateur depuis l'API; premier build Docker avec les assets réussi. |
-| M2 — Premier parcours bout en bout | EN COURS — Mer. 25, 17 h 30 | Boucle participative fonctionnelle (P3 : formulaire 17 questions, 105 quartiers, POST validé, persistance CSV, page Résultats avec protection $k \ge 5$, ChartCard entreprise); Carte Leaflet 2018 + couches infrastructures F4 en intégration par P1/P2. |
-| M3 — Noyau demonstrable complet | Jeu. 26, 12 h 30 | F1 à F10 entièrement connectés aux données réelles : F2 (déplacements, parc, motorisation), F3/F4 (carte multi-années + couches voirie/infrastructures), F5 (comparateur de scénarios), F6 (parts modales réelles), F7 (GES et temps réels), F8/F9 (baromètre citoyen complet), F10 (méthodologie et limites). |
-| M4 — Export Open Data, gel et image | Jeu. 26, 17 h 30 | Export de données F11/F12 (CSV/GeoJSON), `docker compose up --build` validé avec volume persistant `data/barometre`, gel du code sur `main`. |
-| M5 — Pret pour la demo | Ven. 27, 13 h | Cinq valeurs verifiees contre le CSV brut, test mobile/navigateurs, presentation et repetition de 10 min calées; URL active si disponible. |
+| M2 — Premier parcours bout en bout | PASS — Mer. 25, 17 h 30 | Boucle participative fonctionnelle (P3 : formulaire 17 questions, 105 quartiers, POST validé, persistance CSV, page Résultats avec protection $k \ge 5$, ChartCard entreprise); Carte Leaflet 2018 + couches infrastructures F4 en intégration par P1/P2. |
+| M3 — Noyau demonstrable complet | PASS — Jeu. 26, 12 h 30 | F1 à F10 entièrement connectés aux données réelles : F2 (déplacements, parc, motorisation), F3/F4 (carte multi-années + couches voirie/infrastructures), F5 (comparateur de scénarios), F6 (parts modales réelles), F7 (GES et temps réels), F8/F9 (baromètre citoyen complet), F10 (méthodologie et limites). |
+| M4 — Export, gel et image | Export livré — Jeu. 26, 17 h 30 ; Docker final à revalider | Export de données F11/F12 (CSV/GeoJSON), `docker compose up --build` validé avec volume persistant `data/barometre`, gel du code sur `main`. |
+| M5 — Pret pour la demo | Interface finalisée — Jeu. 26 soir | Cinq valeurs verifiees contre le CSV brut, test mobile/navigateurs, presentation et repetition de 10 min calées; URL active si disponible. |
 
 ### Mardi 24 novembre — M0 terminé
 
@@ -1821,7 +1823,29 @@ Blocages assignés:
 | Build Docker avec assets | PASS | `sudo -A docker compose build` terminé avec succès |
 | Build et lint frontend | PASS | `npm run build` réussi; `npm run lint` passe avec deux avertissements non bloquants |
 
-Ce jalon ne signifie pas que M2 est terminé : la page Carte reste en
-construction et le baromètre reste désactivé jusqu'aux validations prévues dans
-[`contrat_barometre.md`](./contrat_barometre.md). Les autres cartes de la page
-Rétrospective sont des exemples explicitement signalés comme données de test.
+À la date de M1, la page Carte était encore en construction, le baromètre était
+désactivé et les autres graphiques de la page Rétrospective utilisaient des données de
+test. Ces trois points ont été résolus aux jalons M2 et M3 (voir la section 14).
+
+## 14. État final — 26 novembre 2026
+
+Le projet est terminé. Toutes les fonctionnalités F1 à F12 sont livrées et
+connectées aux données réelles.
+
+| Domaine | Livré |
+|---|---|
+| Données (P1) | 7 JSON, 88 indicateurs ; GeoJSON 105 zones ; 5 couches d'infrastructures (bus, voirie, transport public, gares, carrefours) |
+| API (P3) | Indicateurs, zones, couches, baromètre, export CSV/GeoJSON ; 19 tests unittest |
+| Interface (P2, finalisée en équipe) | 7 pages, charte institutionnelle, responsive 390–1366 px, baromètre à onglets (Participatif, Résultats) avec questionnaire en 5 étapes |
+| Baromètre (P3) | 17 questions validées, consentement, CSV local, agrégats masqués si une catégorie < 5 |
+| Fidélité | 5 561 points exportés comparés au CSV brut : 0 écart |
+
+Branches et PR : #1 à #10 fusionnées ; la PR #11 (`p1-Data`) porte la version finale
+de l'interface et la documentation.
+
+Reste à faire hors code : valider `docker compose up --build` sur la version finale
+(taille d'image, port 5000, persistance de `data/barometre`), puis répéter la démo.
+
+Suites possibles après le hackathon (voir section 11) : stockage persistant et
+gouvernance des réponses, protocole d'enquête représentatif, script de régénération
+des couches d'infrastructures, résolution de l'incohérence 2036, déploiement durable.

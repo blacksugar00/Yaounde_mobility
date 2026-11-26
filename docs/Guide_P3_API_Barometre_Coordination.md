@@ -5,6 +5,12 @@
 **Branche de fonctionnalite :** `p3-back`
 **Document socle :** [Plan technique d'execution](./Guide_execution_observatoire_mobilite_Yaounde.md)
 
+> **État final — 26 novembre 2026.** Le projet est terminé : F1 à F12 sont livrés et
+> la version finale est dans la PR #11 (interface institutionnelle). Ce guide garde
+> la trace du déroulé du hackathon ; les étapes ci-dessous décrivent comment le
+> travail a été mené. L'état à jour est résumé dans la section « État final » en fin
+> de document et dans le [README](../README.md).
+
 Le plan technique est la source de verite des contrats de l'equipe. M0 est
 terminé et fusionné dans `main`; ce guide précise vos tâches jusqu'au gel de la
 démonstration. Vous etes proprietaire du backend et coordonnez les integrites;
@@ -544,9 +550,9 @@ liste des dependances et fonctions encore absentes.
 | M0 — terminé, PASS (25 nov. 2026) | Health route, factory, routes désactivées, proposition de 17 questions, tests ciblés et guides; ne pas refaire le bootstrap | Terminé |
 | M1 — mercredi 12 h 30 | Routes indicateurs/zones lisent les vrais fichiers P1; 88 indicateurs catalogués, 105 zones | Terminé |
 | M2 — mercredi 17 h 30 | Baromètre validé (105 quartiers, 17 questions), POST valide, CSV persistant, page `Participatif.jsx` livrée | Terminé |
-| M3 — jeudi 12 h 30 | F9 résultats agrégés avec ChartCard haute fidélité (livré), support multi-couches F4 (infrastructures), indicateurs réels F6 (parts modales) et F7 (GES/temps), page Methodologie F10 | En cours / Avancé |
-| M4 — jeudi 17 h 30 | Routes d'export de données F11/F12, README reproductible, validation Docker Compose avec P1, gel de livraison | Planifié |
-| M5 — vendredi 13 h | Contrôle croisé de 5 valeurs, répétition générale de la démo (10 min), déploiement | Planifié |
+| M3 — jeudi 12 h 30 | F9 résultats agrégés avec ChartCard haute fidélité (livré), support multi-couches F4 (infrastructures), indicateurs réels F6 (parts modales) et F7 (GES/temps), page Methodologie F10 | Terminé |
+| M4 — jeudi 17 h 30 | Routes d'export de données F11/F12, README reproductible, validation Docker Compose avec P1, gel de livraison | Export et README terminés ; Docker final à revalider |
+| M5 — vendredi 13 h | Contrôle croisé de 5 valeurs, répétition générale de la démo (10 min), déploiement | Contrôle fait (5 561 points, 0 écart) ; répétition à faire |
 
 Votre perimetre est fini quand :
 
@@ -588,17 +594,17 @@ les trois jours.
 
 ---
 
-## Etat courant pour P3
+## État final P3 — 26 novembre 2026
 
-- M0 technique est PASS et fusionné dans `main`; le bootstrap n'est plus à
-  réaliser. Synchronisez `main` avant de créer ou reprendre `p3-back`.
-- M1 expose les 88 indicateurs et les 105 zones GeoJSON via les routes de
-  lecture. Le GeoJSON peut contenir `id_zone`; l'API le valide et le conserve,
-  sans l'utiliser pour les calculs. Les tests de données/API passent.
-- Le contrat proposé de 17 questions est décrit dans
-  [`contrat_barometre.md`](./contrat_barometre.md). L'activation est gardée par
-  les approbations dans `api/services/barometre_schema.py`; POST/GET retournent
-  `503` tant qu'elles sont incomplètes, sans créer `reponses.csv`.
-- P3 obtient l'approbation du questionnaire, des choix de sexe/âge, du texte de
-  consentement, de la conservation et de la politique des petites cellules.
-  P1 fournit la liste officielle des quartiers et ses valeurs stables.
+- API : routes indicateurs, zones, couches GeoJSON, baromètre (questions, envoi,
+  résultats) et export (`/api/export/indicateurs.csv`, `/api/export/indicateurs/<code>.csv`,
+  `/api/export/geojson/<couche>.geojson`) ; 19 tests unittest passent.
+- Baromètre : 17 questions validées et actives, 105 quartiers, consentement, CSV local,
+  agrégats masqués si une catégorie compte moins de 5 réponses ; les réponses brutes
+  ne sont jamais exportées. Voir [`contrat_barometre.md`](./contrat_barometre.md).
+- Interface P3 : page Baromètre à onglets (Participatif, Résultats) ; questionnaire en
+  5 étapes avec progression et récapitulatif ; résultats en barres horizontales.
+- Méthodologie (F10) : sources, scénarios, statut des données, FAQ, mentions légales,
+  licences et téléchargements, équipe ENSPY.
+- Coordination : PR #2, #5, #9 et #10 fusionnées ; PR #11 finale ; README, SOURCES et
+  contrats mis à jour. Contrôle de fidélité : 5 561 points, 0 écart avec le CSV brut.

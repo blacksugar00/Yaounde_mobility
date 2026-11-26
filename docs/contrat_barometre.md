@@ -1,10 +1,9 @@
-# Contrat du baromètre — proposition en attente de validation
+# Contrat du baromètre — version validée et active
 
 Ce document est le contrat commun de collecte/API. La définition exécutable des
 questions et des valeurs est `api/services/barometre_schema.py`. Les deux
-sources doivent rester cohérentes. **Le questionnaire n'est pas approuvé et ne
-doit pas être activé** tant que les validations énumérées ci-dessous ne sont pas
-obtenues.
+sources doivent rester cohérentes. **Le questionnaire est validé et actif** depuis
+le jalon M2 (25 novembre 2026) : voir « Validation et activation » en fin de document.
 
 ## Règles communes
 
@@ -16,18 +15,14 @@ obtenues.
 - Le consentement n'est pas une question. L'envoi exige un consentement explicite
   (`consentement: true`) et au moins une réponse renseignée.
 - Aucun nom, téléphone, adresse, texte libre ou donnée directement identifiante.
-- `quartier_residence` est bloqué tant que P1 n'a pas fourni la liste officielle
-  des libellés et valeurs stables, validée avec l'organisation. Ne pas inventer
-  de quartier ni demander une adresse.
-- Les choix de sexe et d'âge restent à confirmer par l'organisation. La
-  proposition vise les adultes; l'inclusion de mineurs exige une validation
-  spécifique.
+- `quartier_residence` utilise la liste officielle des 105 quartiers issue du
+  GeoJSON fourni par P1, avec des valeurs stables. Aucune adresse n'est demandée.
+- Les choix de sexe et d'âge sont validés. Le questionnaire vise les adultes
+  (18 ans et plus); l'inclusion de mineurs exigerait une validation spécifique.
 - Le consentement, les règles de conservation et la suppression des petites
-  cellules doivent être approuvés avant activation. Le seuil technique proposé
-  est de masquer toute la distribution d'une question si une catégorie comporte
-  moins de 5 réponses; ce seuil est lui aussi à faire approuver.
-- Le CSV local n'est créé qu'après activation complète et première soumission
-  valide. Il contient les 17 colonnes; le consentement n'est pas une colonne.
+  cellules sont approuvés : la distribution d'une question est entièrement
+  masquée si une catégorie comporte moins de 5 réponses.
+- Le CSV local est créé à la première soumission valide. Il contient les 17 colonnes; le consentement n'est pas une colonne.
 - `total` correspond au nombre de formulaires envoyés. Les agrégats ignorent les
   cellules vides et comptent les réponses séparément pour chaque question.
   Aucun résultat ne renvoie de ligne individuelle.
@@ -38,7 +33,7 @@ obtenues.
 |---|---|---|---|
 | 1 | Quel est votre sexe ? | `sexe` | Femme → `femme`; Homme → `homme` |
 | 2 | Dans quelle tranche d’âge vous situez-vous ? | `tranche_age` | 18–24 ans → `18_24`; 25–34 ans → `25_34`; 35–44 ans → `35_44`; 45–54 ans → `45_54`; 55–64 ans → `55_64`; 65 ans ou plus → `65_plus` |
-| 3 | Dans quel quartier résidez-vous ? | `quartier_residence` | Valeurs fournies par P1 après validation; actuellement non configurées |
+| 3 | Dans quel quartier résidez-vous ? | `quartier_residence` | 105 quartiers officiels (`APPROVED_QUARTIERS` dans `barometre_schema.py`), ex. TSINGA 1 → `tsinga_1` |
 | 4 | Combien de personnes vivent dans votre foyer ? | `taille_foyer` | 1 → `1`; 2 → `2`; 3 → `3`; 4 → `4`; 5 → `5`; 6 → `6`; 7 → `7`; 8 ou plus → `8_plus` |
 | 5 | Combien de véhicules votre foyer possède-t-il ? | `vehicules_foyer` | 0 → `0`; 1 → `1`; 2 → `2`; 3 → `3`; 4 ou plus → `4_plus` |
 | 6 | Avez-vous un permis de conduire valide ? | `permis_conduire` | Oui → `oui`; Non → `non` |
@@ -83,12 +78,12 @@ obtenues.
 Le corps `reponses` contient uniquement les clés renseignées, parmi les 17
 autorisées. Le serveur refuse le consentement absent/refusé, un objet vide, les
 clés inconnues et les valeurs non autorisées. Succès : HTTP 201
-`{"ok": true}`. Tant que les validations ne sont pas complètes, POST et GET
-résultats répondent HTTP 503 et aucun CSV n'est créé.
+`{"ok": true}`. Si le schéma venait à être désactivé (drapeaux de
+`barometre_schema.py`), POST et GET résultats répondraient HTTP 503 sans créer de CSV.
 
 ### Résultats
 
-`GET /api/barometre/resultats` après activation retourne une structure de cette
+`GET /api/barometre/resultats` retourne une structure de cette
 forme :
 
 ```json
@@ -114,12 +109,21 @@ inférieure au seuil approuvé, la distribution entière de cette question est
 masquée pour éviter la déduction par différence; les lignes brutes ne sont
 jamais exposées.
 
-## Conditions préalables à l'activation
+## Validation et activation
 
-P3 consigne l'approbation organisationnelle du questionnaire et de ses options,
-la validation séparée des options de sexe/âge, le texte exact du consentement et
-les règles de conservation. P1 fournit et valide la liste des quartiers et ses
-valeurs stables. L'équipe approuve la politique de suppression des petites
-cellules. Tant qu'un de ces éléments manque, les drapeaux dans
-`api/services/barometre_schema.py` restent désactivés et le baromètre demeure
-en HTTP 503.
+Validations obtenues et consignées dans `api/services/barometre_schema.py`
+(`QUESTIONNAIRE_APPROVED`, `SEX_AND_AGE_OPTIONS_APPROVED`, `CONSENT_TEXT_APPROVED`,
+`RETENTION_POLICY_APPROVED`, `SMALL_CELL_POLICY_APPROVED`, `MIN_GROUP_SIZE = 5`) :
+
+- questionnaire de 17 questions et ses options, dont sexe et âge;
+- texte exact du consentement :
+  « Je consens à la collecte et au traitement anonyme de mes réponses dans le cadre
+  de l'Observatoire de la mobilité de Yaoundé à des fins d'analyse statistique. »;
+- liste des 105 quartiers et valeurs stables (P1);
+- conservation locale des réponses et masquage des petites cellules ($k \ge 5$).
+
+Côté interface, le questionnaire est présenté en cinq étapes (Profil et foyer,
+Pratiques de déplacement, Taxis et motos-taxis, Critères et priorités, Envoi) dans la
+page Baromètre, à côté de l'onglet Résultats. Les réponses collectées pendant le
+hackathon sont des données de test. Une collecte publique réelle exigerait un stockage
+persistant et une gouvernance des réponses validée par la CUY.
