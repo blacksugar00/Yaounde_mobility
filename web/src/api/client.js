@@ -27,6 +27,9 @@ export const getIndicateur = (code, scenario) =>
 export const getZones = (annee) =>
   request(api.get("/zones", { params: { annee } }));
 
+export const getGeoJsonLayer = (layer) =>
+  request(api.get(`/geojson/${encodeURIComponent(layer)}`));
+
 export const getResultats = () =>
   request(api.get("/barometre/resultats"));
 

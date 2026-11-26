@@ -7,7 +7,16 @@ from typing import Any
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
 INDICATORS_DIR = ROOT_DIR / "data" / "indicateurs"
-ZONES_FILE = ROOT_DIR / "data" / "geojson" / "zones_population.geojson"
+GEOJSON_DIR = ROOT_DIR / "data" / "geojson"
+ZONES_FILE = GEOJSON_DIR / "zones_population.geojson"
+GEOJSON_LAYER_FILES = {
+    "zones_population": "zones_population.geojson",
+    "reseau_bus": "reseau_bus.geojson",
+    "projets_voirie": "projets_voirie.geojson",
+    "projets_tp": "projets_tp.geojson",
+    "gares": "gares.geojson",
+    "carrefours": "carrefours.geojson",
+}
 ZONE_PROPERTIES = {"nom", "pop_2018", "pop_2025", "pop_2035"}
 OPTIONAL_ZONE_PROPERTIES = {"id_zone"}
 SERIES_FIELDS = {"scenario", "annee", "valeur", "origine"}
@@ -183,5 +192,30 @@ def load_zones(
             ):
                 raise DataAssetError(f"Invalid or duplicate zone id in {path.name}")
             seen_zone_ids.add(zone_id)
+
+    return content
+
+
+@lru_cache(maxsize=16)
+def load_geojson_layer(path: Path) -> dict[str, Any]:
+    """Load and validate a generic GeoJSON FeatureCollection asset."""
+    content = _read_json(path)
+    if not isinstance(content, dict) or content.get("type") != "FeatureCollection":
+        raise DataAssetError("The GeoJSON root must be a FeatureCollection")
+
+    features = content.get("features")
+    if not isinstance(features, list):
+        raise DataAssetError(f"Invalid GeoJSON features list in {path.name}")
+
+    for feature in features:
+        if not isinstance(feature, dict) or feature.get("type") != "Feature":
+            raise DataAssetError(f"Invalid GeoJSON feature in {path.name}")
+        geometry = feature.get("geometry")
+        if (
+            not isinstance(geometry, dict)
+            or not isinstance(geometry.get("type"), str)
+            or "coordinates" not in geometry
+        ):
+            raise DataAssetError(f"Invalid geometry in {path.name}")
 
     return content
