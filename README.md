@@ -61,7 +61,7 @@ cd web && npm run lint && npm run build
 | M2 — Parcours bout en bout | PASS : baromètre 17 questions et CSV, page Résultats ($k \ge 5$), carte Leaflet |
 | M3 — Noyau F1 à F10 | PASS : Rétrospectif et Prospectif sur données réelles (F2, F5, F6, F7), carte 2018/2025/2035 et 5 couches d'infrastructures (F3, F4), Méthodologie (F10) |
 | M4 — Export et image | EN COURS : export CSV/GeoJSON (F11/F12) livré dans l'API et la page Méthodologie ; `docker compose up --build` à revalider avec les nouvelles couches |
-| M5 — Prêt pour la démo | À faire le ven. 27 : test mobile/navigateurs, répétition |
+| M5 — Prêt pour la démo | Interface finalisée : palette institutionnelle, responsive, baromètre en parcours par étapes, pages vérifiées sur navigateur (bureau 1366 px et mobile 390 px). Reste à valider `docker compose up --build` |
 
 Contrôle de fidélité : les 5 561 points exportés (88 indicateurs) ont été comparés à
 `data/raw/donnees_longues.csv` par code, année et scénario, avec 0 écart.
