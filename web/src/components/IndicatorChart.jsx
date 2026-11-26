@@ -1,6 +1,18 @@
 import ChartCard, { SCENARIO_COLORS } from "./ChartCard";
 
-export default function IndicatorChart({ indicator }) {
+const SCENARIO_LABELS = {
+  historique: "Historique",
+  tendanciel: "Tendanciel",
+  volontariste: "Volontariste",
+  rupture: "Rupture",
+};
+
+export default function IndicatorChart({
+  indicator,
+  titre,
+  showBadges = true,
+  scenarioLabels = SCENARIO_LABELS,
+}) {
   // 1. Extraire toutes les années uniques et les trier
   const years = [...new Set(indicator.series.map((point) => point.annee))]
     .sort((left, right) => left - right);
@@ -22,7 +34,7 @@ export default function IndicatorChart({ indicator }) {
   const data = {
     labels: years,
     datasets: scenarios.map((scenario, datasetIndex) => ({
-      label: scenario,
+      label: scenarioLabels[scenario] ?? scenario,
       data: aligned[datasetIndex].map((point) => point?.valeur ?? null),
       borderColor: SCENARIO_COLORS[scenario] ?? "#555555",
       backgroundColor: SCENARIO_COLORS[scenario] ?? "#555555",
@@ -50,6 +62,9 @@ export default function IndicatorChart({ indicator }) {
           label(context) {
             const point = aligned[context.datasetIndex][context.dataIndex];
             if (!point) return "";
+            if (!showBadges) {
+              return `${context.dataset.label} : ${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(point.valeur)} ${indicator.unite}`;
+            }
             const status = point.statut ? ` • ${point.statut}` : "";
             return `${context.dataset.label}: ${point.valeur} ${indicator.unite} • ${point.origine}${status}`;
           },
@@ -64,9 +79,26 @@ export default function IndicatorChart({ indicator }) {
   };
 
   // 6. Vérifier s'il faut afficher le badge "hypothèse"
-  const hasRupture = indicator.series.some(
-    (point) => point.scenario === "rupture" && point.origine === "construit",
+  const hasRupture =
+    showBadges &&
+    indicator.series.some(
+      (point) => point.scenario === "rupture" && point.origine === "construit",
+    );
+
+  const card = (
+    <ChartCard
+      type="line"
+      data={data}
+      options={options}
+      titre={titre || indicator.libelle}
+      unite={indicator.unite}
+      source={indicator.source}
+    />
   );
+
+  if (!showBadges) {
+    return card;
+  }
 
   return (
     <section style={{ marginBottom: '2rem' }}>
@@ -75,14 +107,7 @@ export default function IndicatorChart({ indicator }) {
           ⚠️ Rupture : hypothèse
         </p>
       )}
-      <ChartCard
-        type="line"
-        data={data}
-        options={options}
-        titre={indicator.libelle}
-        unite={indicator.unite}
-        source={indicator.source}
-      />
+      {card}
     </section>
   );
 }
