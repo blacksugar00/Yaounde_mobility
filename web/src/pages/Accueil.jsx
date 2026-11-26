@@ -1,255 +1,145 @@
 import { Link } from "react-router-dom";
-import {
-  ArrowRight,
-  BookOpenCheck,
-  CalendarRange,
-  CheckCircle2,
-  ClipboardList,
-  Compass,
-  History,
-  Layers,
-  Map as MapIcon,
-  MapPin,
-  TrendingUp,
-  Users,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import yaoundeVille from "../assets/yaounde-ville.jpg";
-import carteYaounde from "../assets/carte-yaounde.jpg";
+import { SCENARIO_COLORS } from "../components/palette";
 
-const MODULES_PLATEFORME = [
-  {
-    to: "/retrospectif",
-    badge: "Passé & présent",
-    titre: "Tendances historiques",
-    description:
-      "Analysez l'évolution de la mobilité à Yaoundé de 2000 à 2025 : croissance démographique, répartition des déplacements par mode, essor des motos-taxis et motorisation.",
-    points: ["Population urbaine", "Parts modales", "Parc de véhicules"],
-    cta: "Explorer la rétrospective",
-    accent: "blue",
-    Icon: TrendingUp,
-  },
-  {
-    to: "/prospectif",
-    badge: "Horizon 2026–2036",
-    titre: "Projections 2036",
-    description:
-      "Simulez et comparez trois trajectoires d'avenir pour anticiper les besoins en transport, les temps de parcours et les émissions de gaz à effet de serre.",
-    scenarios: [
-      { nom: "Tendanciel", couleur: "#E67E22" },
-      { nom: "Volontariste", couleur: "#27AE60" },
-      { nom: "Rupture", couleur: "#2980B9" },
-    ],
-    cta: "Comparer les scénarios",
-    accent: "orange",
-    Icon: Compass,
-  },
-  {
-    to: "/carte",
-    badge: "Système d'information géographique",
-    titre: "Cartographie interactive",
-    description:
-      "Explorez la ville quartier par quartier : visualisez les 105 zones de population (2018, 2025, 2035), le réseau de bus, les gares, carrefours et projets de voirie.",
-    points: ["105 zones de population", "Réseau bus & projets", "Gares & carrefours"],
-    image: carteYaounde,
-    cta: "Ouvrir la carte",
-    accent: "emerald",
-    Icon: MapIcon,
-  },
-  {
-    to: "/participatif",
-    badge: "Enquête citoyenne",
-    titre: "Baromètre participatif",
-    description:
-      "Partagez vos habitudes de déplacement, vos contraintes quotidiennes et vos priorités d'amélioration. Vos réponses anonymes nourrissent les statistiques de la ville.",
-    points: ["17 questions rapides", "105 quartiers couverts", "100 % anonyme"],
-    cta: "Répondre au baromètre",
-    accent: "violet",
-    Icon: ClipboardList,
-  },
+const SCENARIOS = [
+  ["tendanciel", "Tendanciel"],
+  ["volontariste", "Volontariste"],
+  ["rupture", "Rupture"],
 ];
 
-const REPERES = [
-  {
-    Icon: History,
-    valeur: "2000 – 2025",
-    label: "Données rétrospectives observées",
-  },
-  {
-    Icon: Layers,
-    valeur: "3 scénarios",
-    label: "Trajectoires prospectives 2036",
-  },
-  {
-    Icon: MapPin,
-    valeur: "105 zones",
-    label: "Quartiers & couches SIG cartographiés",
-  },
-  {
-    Icon: Users,
-    valeur: "17 questions",
-    label: "Baromètre citoyen anonyme",
-  },
-];
+function Fleche() {
+  return <ArrowRight size={16} aria-hidden="true" />;
+}
 
 export default function Accueil() {
   return (
-    <div className="accueil-page">
-      {/* 1. BANDEAU HERO */}
-      <section
-        className="hero-dvdh"
-        style={{ backgroundImage: `url(${yaoundeVille})` }}
-      >
-        <div className="hero-overlay" />
-        <div className="hero-content">
-          <div className="hero-pill">
-            <MapPin size={15} aria-hidden="true" />
-            <span>Plateforme territoriale • Yaoundé</span>
-          </div>
-          <h2>Observatoire de la Mobilité de Yaoundé</h2>
+    <>
+      <section className="hero" style={{ backgroundImage: `url(${yaoundeVille})` }}>
+        <div className="container hero-inner">
+          <span className="kicker">Communauté Urbaine de Yaoundé</span>
+          <h1>Observatoire de la mobilité urbaine</h1>
           <p>
-            Comprendre les dynamiques passées, simuler les scénarios 2026–2036,
-            cartographier les infrastructures et recueillir la parole citoyenne.
+            Comprendre l'évolution des déplacements depuis 2000, comparer les scénarios
+            à l'horizon 2036, lire le territoire quartier par quartier et recueillir
+            la parole des habitants.
           </p>
           <div className="hero-actions">
-            <Link to="/prospectif" className="btn-dvdh btn-dvdh--primary">
-              <Compass size={18} aria-hidden="true" />
-              <span>Explorer les scénarios</span>
-              <ArrowRight size={17} aria-hidden="true" />
+            <Link to="/prospectif" className="btn btn--light">
+              Comparer les scénarios <Fleche />
             </Link>
-            <Link to="/participatif" className="btn-dvdh btn-dvdh--ghost">
-              <ClipboardList size={18} aria-hidden="true" />
-              <span>Participer au baromètre</span>
+            <Link to="/participatif" className="btn btn--outline-light">
+              Répondre au baromètre
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. BANDEAU REPÈRES CLÉS */}
-      <div className="accueil-container">
-        <div className="kpi-strip reveal" aria-label="Repères de la plateforme">
-          {REPERES.map(({ Icon, valeur, label }) => (
-            <div key={label} className="kpi-strip-item">
-              <div className="kpi-strip-icon">
-                <Icon size={20} aria-hidden="true" />
-              </div>
-              <div>
-                <strong>{valeur}</strong>
-                <span>{label}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="container page" style={{ paddingTop: "clamp(2.5rem, 6vw, 3.5rem)" }}>
+        <section>
+          <h2 className="section-title reveal">Explorer l'observatoire</h2>
+          <p className="section-intro reveal reveal-delay-1">
+            Quatre entrées complémentaires, toutes alimentées par les séries de la CUY et
+            les études du PMUS.
+          </p>
 
-        {/* 3. DÉCOUVRIR LA PLATEFORME — 4 CARTES INTERACTIVES */}
-        <section className="accueil-section">
-          <div className="accueil-section-header reveal">
-            <div className="page-eyebrow">
-              <CalendarRange size={15} aria-hidden="true" />
-              <span>Navigation guidée</span>
+          <div className="modules">
+            <Link to="/retrospectif" className="module reveal">
+              <span className="module-meta">2000 – 2025</span>
+              <h3>Tendances historiques</h3>
+              <p>
+                Croissance démographique, répartition des déplacements par mode, essor des
+                motos-taxis et évolution du parc de véhicules.
+              </p>
+              <ul className="module-list">
+                <li>Population urbaine</li>
+                <li>Parts modales</li>
+                <li>Parc et motorisation</li>
+              </ul>
+              <div className="module-foot">
+                <span className="link-arrow">Voir la rétrospective <Fleche /></span>
+              </div>
+            </Link>
+
+            <Link to="/prospectif" className="module module--gold reveal reveal-delay-1">
+              <span className="module-meta">Horizon 2026 – 2036</span>
+              <h3>Projections</h3>
+              <p>
+                Trois trajectoires de modèle pour anticiper la demande de déplacement, les
+                temps de parcours et les émissions de gaz à effet de serre.
+              </p>
+              <div className="scenario-legend">
+                {SCENARIOS.map(([cle, nom]) => (
+                  <span key={cle}>
+                    <span className="dot" style={{ background: SCENARIO_COLORS[cle] }} />
+                    {nom}
+                  </span>
+                ))}
+              </div>
+              <div className="module-foot">
+                <span className="link-arrow">Comparer les scénarios <Fleche /></span>
+              </div>
+            </Link>
+
+            <Link to="/carte" className="module module--ink reveal reveal-delay-2">
+              <span className="module-meta">Système d'information géographique</span>
+              <h3>Cartographie</h3>
+              <p>
+                Les 105 quartiers et leur population en 2018, 2025 et 2035, avec le réseau de
+                bus, les gares, les carrefours et les projets de voirie.
+              </p>
+              <ul className="module-list">
+                <li>105 zones</li>
+                <li>Réseau de bus</li>
+                <li>Projets d'infrastructure</li>
+              </ul>
+              <div className="module-foot">
+                <span className="link-arrow">Ouvrir la carte <Fleche /></span>
+              </div>
+            </Link>
+
+            <div className="module module--red reveal reveal-delay-3">
+              <span className="module-meta">Enquête citoyenne</span>
+              <h3>Baromètre</h3>
+              <p>
+                Dix-sept questions facultatives sur vos déplacements et vos priorités. Les
+                réponses sont anonymes et publiées uniquement sous forme agrégée.
+              </p>
+              <ul className="module-list">
+                <li>17 questions</li>
+                <li>105 quartiers</li>
+                <li>Anonyme</li>
+              </ul>
+              <div className="module-foot">
+                <Link to="/participatif" className="link-arrow">Répondre au questionnaire <Fleche /></Link>
+                <Link to="/resultats" className="link-arrow">Voir les résultats <Fleche /></Link>
+              </div>
             </div>
-            <h2>Découvrir la plateforme</h2>
+          </div>
+        </section>
+
+        <section className="section band reveal">
+          <div>
+            <h2 className="section-title">Une méthodologie transparente</h2>
             <p>
-              Quatre volets complémentaires pour explorer les chiffres clés,
-              projeter l’avenir urbain, lire le territoire et contribuer à
-              l’observatoire.
+              Les données proviennent de la Communauté Urbaine de Yaoundé et des études DVDH.
+              Chaque graphique distingue les valeurs observées, les estimations et les
+              projections de modèle.
             </p>
           </div>
-
-          <div className="platform-grid">
-            {MODULES_PLATEFORME.map((mod) => {
-              const IconComponent = mod.Icon;
-              return (
-                <Link
-                  key={mod.to}
-                  to={mod.to}
-                  className={`platform-card platform-card--${mod.accent} reveal`}
-                >
-                  <div className="platform-card-top">
-                    <div className="platform-card-head">
-                      <span className={`platform-icon platform-icon--${mod.accent}`}>
-                        <IconComponent size={24} aria-hidden="true" />
-                      </span>
-                      <span className="platform-badge">{mod.badge}</span>
-                    </div>
-
-                    <h3>{mod.titre}</h3>
-                    <p className="platform-desc">{mod.description}</p>
-
-                    {mod.image && (
-                      <div className="platform-map-preview">
-                        <img
-                          src={mod.image}
-                          alt="Aperçu de la carte de Yaoundé"
-                        />
-                        <span className="platform-map-caption">
-                          <MapPin size={13} aria-hidden="true" />
-                          <span>Carte interactive de l’aire métropolitaine</span>
-                        </span>
-                      </div>
-                    )}
-
-                    {mod.scenarios && (
-                      <div className="platform-tags">
-                        {mod.scenarios.map((sc) => (
-                          <span key={sc.nom} className="platform-scenario-pill">
-                            <span
-                              className="platform-scenario-dot"
-                              style={{ backgroundColor: sc.couleur }}
-                            />
-                            {sc.nom}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    {mod.points && (
-                      <ul className="platform-points">
-                        {mod.points.map((pt) => (
-                          <li key={pt}>
-                            <CheckCircle2 size={14} aria-hidden="true" />
-                            <span>{pt}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-
-                  <div className="platform-card-footer">
-                    <span>{mod.cta}</span>
-                    <ArrowRight
-                      size={18}
-                      className="platform-arrow"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </Link>
-              );
-            })}
+          <div className="band-side">
+            <div className="status-list">
+              <span className="badge badge--green">Mesuré</span>
+              <span className="badge badge--warn">Estimé</span>
+              <span className="badge">Projeté</span>
+            </div>
+            <Link to="/methodologie" className="btn btn--secondary">
+              Lire la méthodologie <Fleche />
+            </Link>
           </div>
-        </section>
-
-        {/* 4. SECTION MÉTHODOLOGIE */}
-        <section className="reveal bloc-methodo">
-          <div className="methodo-icon-wrap">
-            <BookOpenCheck size={28} aria-hidden="true" />
-          </div>
-          <h2>Une méthodologie transparente</h2>
-          <p>
-            Toutes les données présentées sur cette plateforme proviennent de
-            sources officielles (CUY, DVDH, SUMP 2019, WUP ONU) et distinguent
-            clairement les observations historiques des trajectoires simulées.
-          </p>
-          <div className="methodo-statuses" aria-label="Niveaux de donnée">
-            <span className="status-pill status-pill--mesure">Mesuré</span>
-            <span className="status-pill status-pill--estime">Estimé</span>
-            <span className="status-pill status-pill--projete">Projeté</span>
-          </div>
-          <Link to="/methodologie" className="btn-dvdh btn-dvdh--primary">
-            <span>Lire la méthodologie</span>
-            <ArrowRight size={17} aria-hidden="true" />
-          </Link>
         </section>
       </div>
-    </div>
+    </>
   );
 }

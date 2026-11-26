@@ -53,6 +53,30 @@ const HORIZON_OPTIONS_BY_LAYER = {
 
 const ALL_HORIZON_OPTIONS = ["Tous", "Coup parti", "MT", "LT", "Non renseigné"];
 
+// Libellés complets affichés à l'écran (les valeurs abrégées restent celles des données)
+const HORIZON_LABELS = {
+  Tous: "Tous les horizons",
+  "Coup parti": "Coup parti (déjà engagé)",
+  MT: "Moyen terme",
+  LT: "Long terme",
+  "Non renseigné": "Non renseigné",
+};
+const horizonLabel = (value) => HORIZON_LABELS[value] ?? textValue(value);
+
+const POPULATION_CATEGORIES = [
+  "Moins de 10 000 habitants",
+  "10 000 à 24 999 habitants",
+  "25 000 à 49 999 habitants",
+  "50 000 à 99 999 habitants",
+  "100 000 habitants et plus",
+];
+
+function categoryForPopulation(value) {
+  if (value == null || !Number.isFinite(Number(value))) return "Population non disponible";
+  const index = POPULATION_BREAKS.findIndex((limit) => Number(value) < limit);
+  return POPULATION_CATEGORIES[index < 0 ? POPULATION_CATEGORIES.length - 1 : index];
+}
+
 // Ordre d'empilement visuel : polygones en bas, lignes au milieu, points au-dessus.
 const LAYER_PANES = [
   { id: "zones_population", pane: "pane-zones-population", zIndex: 410 },
@@ -78,9 +102,9 @@ function horizonForFeature(layerId, properties) {
 
 function formatNumber(value, unit = "") {
   if (value == null || !Number.isFinite(Number(value))) return "non disponible";
-  const formatted = Number(value).toLocaleString("fr-FR", {
-    maximumFractionDigits: 0,
-  });
+  const formatted = Number(value)
+    .toLocaleString("fr-FR", { maximumFractionDigits: 0 })
+    .replace(/\u202f/g, "\u00a0");
   return unit ? `${formatted} ${unit}` : formatted;
 }
 
@@ -108,7 +132,10 @@ function buildPopupRows(layerId, properties, year) {
     const value = properties[field];
     return {
       title: properties.nom ?? properties.NOM_ZONE ?? "Zone sans nom",
-      rows: [[`Population ${year}`, formatNumber(value)]],
+      rows: [
+        [`Population ${year}`, formatNumber(value, "habitants")],
+        ["Catégorie", categoryForPopulation(value)],
+      ],
     };
   }
 
@@ -135,7 +162,7 @@ function buildPopupRows(layerId, properties, year) {
       rows: [
         ["Identifiant", textValue(properties.ID_new)],
         ["Type", textValue(properties.Type)],
-        ["Horizon", textValue(properties.Horizon)],
+        ["Horizon", horizonLabel(properties.Horizon)],
         ["Longueur", formatNumber(properties.Longueur, "m")],
         ["Coût", formatNumber(properties.Cout)],
         ["Porteur", textValue(properties.Porteur)],
@@ -149,7 +176,7 @@ function buildPopupRows(layerId, properties, year) {
       title: properties.Nom ?? "Projet de transport public",
       rows: [
         ["Type", textValue(properties.Type)],
-        ["Horizon", textValue(properties.Horizon)],
+        ["Horizon", horizonLabel(properties.Horizon)],
         ["Longueur", formatNumber(properties.longueur, "m")],
         ["Étude", textValue(properties.Etude)],
       ],
@@ -161,7 +188,7 @@ function buildPopupRows(layerId, properties, year) {
       title: properties.Nom ?? "Gare",
       rows: [
         ["Caractéristique", textValue(properties.Carac)],
-        ["Horizon", textValue(properties.Horizon)],
+        ["Horizon", horizonLabel(properties.Horizon)],
         ["Coût", formatNumber(properties.Cout)],
       ],
     };
@@ -170,7 +197,7 @@ function buildPopupRows(layerId, properties, year) {
   return {
     title: properties.Nom ?? "Carrefour",
     rows: [
-      ["Horizon", textValue(properties["Détails"])],
+      ["Horizon", horizonLabel(properties["Détails"])],
       ["Type", textValue(properties.Type)],
       ["Porteur", textValue(properties.Porteur)],
       ["Coût", formatNumber(properties.Cout)],
@@ -182,6 +209,21 @@ function bindFeaturePopup(layerId, feature, layer, year) {
   const properties = feature.properties ?? {};
   const { title, rows } = buildPopupRows(layerId, properties, year);
   layer.bindPopup(createPopupElement(title, rows));
+
+  if (layerId === "zones_population") {
+    const value = properties[POPULATION_FIELD[year]];
+    const name = properties.nom ?? properties.NOM_ZONE ?? "Zone";
+    layer.bindTooltip(
+      `<strong>${escapeHtml(name)}</strong><br>${categoryForPopulation(value)}<br><span>${formatNumber(value, "habitants")} en ${year}</span>`,
+      { sticky: true, direction: "top", offset: [0, -8], className: "zone-tooltip" },
+    );
+    layer.on("mouseover", () => layer.setStyle({ weight: 2.5, color: "#0b3326" }));
+    layer.on("mouseout", () => layer.setStyle({ weight: 1, color: "#333333" }));
+  }
+}
+
+function escapeHtml(text) {
+  return String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 }
 
 function buildBusLineLegend(reseauBusData) {
@@ -248,9 +290,9 @@ function legendForLayer(layerId, year, busLineLegend = []) {
     return {
       ariaLabel: "Légende projets de voirie",
       items: [
-        { color: HORIZON_COLORS["Coup parti"], label: "Coup parti" },
-        { color: HORIZON_COLORS.MT, label: "Moyen terme (MT)" },
-        { color: HORIZON_COLORS.LT, label: "Long terme (LT)" },
+        { color: HORIZON_COLORS["Coup parti"], label: "Coup parti (déjà engagé)" },
+        { color: HORIZON_COLORS.MT, label: "Moyen terme" },
+        { color: HORIZON_COLORS.LT, label: "Long terme" },
       ],
     };
   }
@@ -259,8 +301,8 @@ function legendForLayer(layerId, year, busLineLegend = []) {
     return {
       ariaLabel: "Légende projets de transport public",
       items: [
-        { color: HORIZON_COLORS.MT, label: "Moyen terme (MT)" },
-        { color: HORIZON_COLORS.LT, label: "Long terme (LT)" },
+        { color: HORIZON_COLORS.MT, label: "Moyen terme" },
+        { color: HORIZON_COLORS.LT, label: "Long terme" },
       ],
     };
   }
@@ -269,8 +311,8 @@ function legendForLayer(layerId, year, busLineLegend = []) {
     return {
       ariaLabel: "Légende gares",
       items: [
-        { color: HORIZON_COLORS.MT, label: "Moyen terme (MT)", shape: "circle" },
-        { color: HORIZON_COLORS.LT, label: "Long terme (LT)", shape: "circle" },
+        { color: HORIZON_COLORS.MT, label: "Moyen terme", shape: "circle" },
+        { color: HORIZON_COLORS.LT, label: "Long terme", shape: "circle" },
         { color: MISSING_COLOR, label: "Horizon non renseigné", shape: "circle" },
       ],
     };
@@ -279,8 +321,8 @@ function legendForLayer(layerId, year, busLineLegend = []) {
   return {
     ariaLabel: "Légende carrefours",
     items: [
-      { color: HORIZON_COLORS.MT, label: "Moyen terme (MT)", shape: "circle" },
-      { color: HORIZON_COLORS.LT, label: "Long terme (LT)", shape: "circle" },
+      { color: HORIZON_COLORS.MT, label: "Moyen terme", shape: "circle" },
+      { color: HORIZON_COLORS.LT, label: "Long terme", shape: "circle" },
     ],
   };
 }
@@ -459,50 +501,13 @@ export default function MapView({
 
   return (
     <div className="map-view">
-      <div
-        className="map-controls"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.75rem",
-          marginBottom: "0.75rem",
-        }}
-      >
-        <div
-          role="group"
-          aria-label="Couches affichées sur la carte"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
+      <div className="map-toolbar">
+        <div role="group" aria-label="Couches affichées sur la carte" className="map-layers">
           {DATASETS.map((dataset) => {
             const checked = currentLayerSet.has(dataset.id);
             return (
-              <label
-                key={dataset.id}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.4rem",
-                  padding: "0.35rem 0.65rem",
-                  borderRadius: "9999px",
-                  border: checked ? "1px solid #047857" : "1px solid #d1d5db",
-                  backgroundColor: checked ? "#ecfdf5" : "#f9fafb",
-                  color: checked ? "#065f46" : "#374151",
-                  fontSize: "0.9rem",
-                  fontWeight: checked ? 600 : 500,
-                  cursor: "pointer",
-                  userSelect: "none",
-                }}
-              >
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={() => toggleLayer(dataset.id)}
-                />
+              <label key={dataset.id} className={`chip${checked ? " is-on" : ""}`}>
+                <input type="checkbox" checked={checked} onChange={() => toggleLayer(dataset.id)} />
                 <span>{dataset.label}</span>
               </label>
             );
@@ -510,74 +515,46 @@ export default function MapView({
 
           <button
             type="button"
+            className="btn btn--secondary btn--sm"
             onClick={() => updateLayers(DATASETS.map((item) => item.id))}
             disabled={currentLayers.length === DATASETS.length}
-            style={{
-              padding: "0.35rem 0.65rem",
-              borderRadius: "8px",
-              border: "1px solid #d1d5db",
-              backgroundColor: "#ffffff",
-              fontSize: "0.85rem",
-              cursor: currentLayers.length === DATASETS.length ? "default" : "pointer",
-            }}
           >
             Tout afficher
           </button>
           <button
             type="button"
+            className="btn btn--secondary btn--sm"
             onClick={() => updateLayers([])}
             disabled={currentLayers.length === 0}
-            style={{
-              padding: "0.35rem 0.65rem",
-              borderRadius: "8px",
-              border: "1px solid #d1d5db",
-              backgroundColor: "#ffffff",
-              fontSize: "0.85rem",
-              cursor: currentLayers.length === 0 ? "default" : "pointer",
-            }}
           >
             Tout masquer
           </button>
         </div>
 
         {(currentLayerSet.has("zones_population") || horizonOptions) && (
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              gap: "0.75rem 1.25rem",
-            }}
-          >
+          <div className="map-filters">
             {currentLayerSet.has("zones_population") && (
-              <label style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-                <span>Année (population)</span>
-                <select
-                  aria-label="Année de population"
-                  value={currentYear}
-                  onChange={handleYearChange}
-                >
+              <label className="field">
+                <span className="field-label">Année (population)</span>
+                <select className="select" aria-label="Année de population" value={currentYear} onChange={handleYearChange}>
                   {POPULATION_YEARS.map((value) => (
-                    <option key={value} value={value}>
-                      {value}
-                    </option>
+                    <option key={value} value={value}>{value}</option>
                   ))}
                 </select>
               </label>
             )}
 
             {horizonOptions && (
-              <label style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-                <span>Horizon</span>
+              <label className="field">
+                <span className="field-label">Horizon des projets</span>
                 <select
+                  className="select"
                   aria-label="Filtre par horizon"
                   value={effectiveHorizonFilter}
                   onChange={(event) => setHorizonFilter(event.target.value)}
                 >
                   {horizonOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
+                    <option key={option} value={option}>{horizonLabel(option)}</option>
                   ))}
                 </select>
               </label>
@@ -587,24 +564,21 @@ export default function MapView({
       </div>
 
       {activeDatasets.length === 0 && (
-        <p role="status" style={{ marginBottom: "0.5rem" }}>
-          Sélectionnez au moins une couche à afficher sur la carte.
-        </p>
+        <p role="status" className="map-status">Sélectionnez au moins une couche à afficher sur la carte.</p>
       )}
 
       {unavailableDatasets.length > 0 && (
-        <p role="status" style={{ marginBottom: "0.5rem" }}>
+        <p role="status" className="map-status">
           Couche(s) non disponible(s) dans les données transmises :{" "}
           {unavailableDatasets.map((item) => item.label).join(", ")}.
         </p>
       )}
 
       {availableDatasets.length > 0 && totalVisibleFeatures === 0 && (
-        <p role="status" style={{ marginBottom: "0.5rem" }}>
-          Aucune entité correspondante pour ce filtre.
-        </p>
+        <p role="status" className="map-status">Aucune entité correspondante pour ce filtre.</p>
       )}
 
+      <div className="map-frame">
       <MapContainer
         center={DEFAULT_CENTER}
         zoom={DEFAULT_ZOOM}
@@ -641,17 +615,10 @@ export default function MapView({
           );
         })}
       </MapContainer>
+      </div>
 
       {activeDatasets.length > 0 && (
-        <div
-          className="map-legends"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.5rem",
-            marginTop: "0.75rem",
-          }}
-        >
+        <div className="map-legends">
           {activeDatasets.map((dataset) => {
             const legend = legendForLayer(dataset.id, currentYear, busLineLegend);
             const title =
@@ -660,53 +627,14 @@ export default function MapView({
                 : dataset.label;
 
             return (
-              <div
-                key={dataset.id}
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  gap: "0.5rem 0.75rem",
-                }}
-              >
-                <strong style={{ fontSize: "0.9rem", color: "#111827" }}>
-                  {title} :
-                </strong>
-                <ul
-                  aria-label={legend.ariaLabel}
-                  className="map-legend"
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "0.75rem",
-                    padding: 0,
-                    margin: 0,
-                    listStyle: "none",
-                  }}
-                >
+              <div key={dataset.id} className="map-legend-row">
+                <strong>{title}</strong>
+                <ul aria-label={legend.ariaLabel} className="map-legend">
                   {legend.items.map((item) => (
-                    <li
-                      key={item.label}
-                      title={item.title}
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.35rem",
-                        fontSize: "0.9rem",
-                      }}
-                    >
+                    <li key={item.label} title={item.title}>
                       <span
-                        style={{
-                          display: "inline-block",
-                          width: "1rem",
-                          height: "1rem",
-                          backgroundColor: item.color,
-                          border:
-                            dataset.id === "gares"
-                              ? "2px solid #9ca3af"
-                              : "1px solid #555555",
-                          borderRadius: item.shape === "circle" ? "9999px" : "2px",
-                        }}
+                        className={`swatch${item.shape === "circle" ? " swatch--circle" : ""}`}
+                        style={{ backgroundColor: item.color }}
                       />
                       {item.label}
                     </li>
