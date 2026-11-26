@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
+import { SCENARIO_COLORS } from "../components/palette";
 import logoCuy from "../assets/logo-cuy.jpg";
 import logoDvdh from "../assets/logo-dvdh.jpg";
 import logoUe from "../assets/logo-ue.jpg";
@@ -61,27 +63,23 @@ const COUCHES_GEO = [
   { id: "carrefours", label: "Carrefours" },
 ];
 
-const boutonExport = {
-  display: "inline-flex",
-  flexDirection: "column",
-  padding: "0.75rem 1rem",
-  border: "1px solid #d1d5db",
-  borderRadius: "8px",
-  color: "#111827",
-  textDecoration: "none",
-  background: "#ffffff",
-};
-
-const boutonTelecharger = {
-  display: "inline-block",
-  padding: "0.4rem 0.9rem",
-  borderRadius: "6px",
-  background: "#111827",
-  color: "#ffffff",
-  textDecoration: "none",
-  fontSize: "0.9rem",
-  fontWeight: 600,
-};
+const SCENARIOS_DESC = [
+  {
+    cle: "tendanciel",
+    nom: "Scénario tendanciel",
+    texte: "Poursuite des tendances passées sans inflexion majeure : croissance forte des deux-roues et de l'automobile, saturation continue de la voirie et augmentation des émissions.",
+  },
+  {
+    cle: "volontariste",
+    nom: "Scénario volontariste",
+    texte: "Mise en œuvre prioritaire du PMUS : couloirs réservés aux bus, réaménagement des carrefours critiques, encadrement du stationnement et stabilisation des temps de trajet.",
+  },
+  {
+    cle: "rupture",
+    nom: "Scénario de rupture",
+    texte: "Transformation profonde : lignes de transport en site propre (BRT, train urbain), requalification piétonne du centre et baisse substantielle de l'empreinte carbone. Valeurs construites : hypothèse.",
+  },
+];
 
 export default function Methodologie() {
   const location = useLocation();
@@ -109,514 +107,283 @@ export default function Methodologie() {
   };
 
   return (
-    <div style={{ paddingBottom: "4rem" }}>
-      {/* EN-TÊTE DE PAGE */}
-      <section
-        style={{
-          background: "#ffffff",
-          borderBottom: "1px solid var(--border)",
-          padding: "3rem 2rem 2.5rem 2rem",
-        }}
-      >
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <h1
-            style={{
-              fontSize: "2.4rem",
-              fontWeight: 800,
-              color: "#111827",
-              letterSpacing: "-0.5px",
-              marginBottom: "0.75rem",
-            }}
-          >
-            Cadre méthodologique & Informations
-          </h1>
-          <p
-            style={{
-              fontSize: "1.1rem",
-              color: "#4b5563",
-              maxWidth: "850px",
-              lineHeight: 1.6,
-              marginBottom: "2rem",
-            }}
-          >
-            Documentation officielle de l'Observatoire de la Mobilité Urbaine de Yaoundé : origines des données, scénarios de prospective, réponses aux questions fréquentes et cadre légal.
-          </p>
+    <div className="container page">
+      <header className="page-head">
+        <span className="kicker">Documentation</span>
+        <h1>Méthodologie et informations</h1>
+        <p className="lead">
+          Origine des données, scénarios de prospective, questions fréquentes et cadre légal de
+          l'Observatoire de la mobilité urbaine de Yaoundé.
+        </p>
+      </header>
 
-          {/* BARRE D'ONGLETS */}
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "0.5rem",
-              borderBottom: "2px solid #e5e7eb",
-              paddingBottom: "0",
-            }}
+      <div className="tabs" role="tablist" aria-label="Rubriques">
+        {ONGLETS.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            role="tab"
+            className="tab"
+            aria-selected={activeTab === tab.id}
+            onClick={() => changerOnglet(tab.id)}
           >
-            {ONGLETS.map((tab) => {
-              const estActif = activeTab === tab.id;
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {activeTab === "sources" && (
+        <div className="stack-lg">
+          <section>
+            <h2 className="section-title">Contexte et réalisation</h2>
+            <p className="section-intro">
+              L'Observatoire est développé dans le cadre du <strong>Hackathon de la Semaine de la Mobilité
+              Durable à Yaoundé (SMDY)</strong> par les <strong>étudiants-ingénieurs de l'École Nationale
+              Supérieure Polytechnique de Yaoundé (ENSPY)</strong>, avec l'accompagnement des partenaires
+              institutionnels du programme.
+            </p>
+
+            <div className="card card--rule maker" style={{ marginBottom: "1.75rem" }}>
+              <img src={logoEnspy} alt="ENSPY" />
+              <div>
+                <h3>Réalisation : étudiants de l'ENSPY</h3>
+                <p>Développement, ingénierie logicielle et intégration des données réalisés par :</p>
+                <ul className="team">
+                  <li>NJOME David</li>
+                  <li>EYEBE EYEBE Miguel</li>
+                  <li>KIKI Daniel Bryan</li>
+                  <li>KOUCHE NGAMENI Arron</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style={{ marginBottom: "0.9rem" }}>Partenaires du programme</h3>
+            <div className="grid grid-4">
+              <div className="card partner">
+                <img src={logoCuy} alt="CUY" />
+                <strong>CUY</strong>
+                <span>Communauté Urbaine de Yaoundé · maîtrise d'ouvrage</span>
+              </div>
+              <div className="card partner">
+                <img src={logoDvdh} alt="DVDH" />
+                <strong>DVDH</strong>
+                <span>Des Villes et Des Hommes · conseil et ingénierie urbaine</span>
+              </div>
+              <div className="card partner">
+                <img src={logoUe} alt="Union européenne" />
+                <strong>Union européenne</strong>
+                <span>Financement du programme d'appui à la mobilité</span>
+              </div>
+              <div className="card partner">
+                <img src={logoOslandia} alt="Oslandia" />
+                <strong>Oslandia</strong>
+                <span>Expertise SIG et logiciels libres</span>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="section-title">Origine des données</h2>
+            <p className="section-intro">
+              <strong>Toutes les données</strong> (séries rétrospectives, modélisations prospectives et couches
+              géographiques) proviennent de la <strong>Communauté Urbaine de Yaoundé (CUY)</strong>, autorité
+              organisatrice des mobilités, et ont été structurées avec le cabinet <strong>DVDH</strong>.
+            </p>
+            <div className="grid grid-3">
+              <div className="card">
+                <h3>Le PMUS de la CUY (2018 et 2025)</h3>
+                <p>
+                  Le <strong>Plan de Mobilité Urbaine Soutenable</strong> constitue le référentiel : enquêtes
+                  ménages déplacements, comptages aux carrefours et années de référence 2000, 2005, 2010,
+                  2018 et 2025.
+                </p>
+              </div>
+              <div className="card">
+                <h3>Séries et projections (CUY / DVDH)</h3>
+                <p>
+                  88 indicateurs retenus : démographie, parc de véhicules, parts modales, temps de
+                  déplacement et émissions de gaz à effet de serre (GES recalculés sans double compte).
+                </p>
+              </div>
+              <div className="card">
+                <h3>Référentiel cartographique (CUY)</h3>
+                <p>
+                  Couches en EPSG:4326 (WGS84) : découpage en <strong>105 quartiers</strong> avec leur
+                  population, lignes de bus, voiries, carrefours, gares et projets de transport collectif.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="section-title">Les trois scénarios prospectifs (2026 – 2036)</h2>
+            <p className="section-intro">
+              Pour tester l'impact des choix d'aménagement, les modèles comparent trois trajectoires
+              cohérentes. Les couleurs sont celles utilisées dans tous les graphiques.
+            </p>
+            <div className="stack" style={{ gap: "0.75rem" }}>
+              {SCENARIOS_DESC.map((sc) => (
+                <div key={sc.cle} className="card scenario-block" style={{ borderLeftColor: SCENARIO_COLORS[sc.cle] }}>
+                  <h3>{sc.nom}</h3>
+                  <p>{sc.texte}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 className="section-title">Statut des données</h2>
+            <div className="grid grid-3" style={{ marginBottom: "1.25rem" }}>
+              <div className="card">
+                <span className="badge badge--green" style={{ marginBottom: "0.6rem" }}>Mesurée</span>
+                <p>Constat direct issu d'enquêtes ou de recensements (années de référence historiques).</p>
+              </div>
+              <div className="card">
+                <span className="badge badge--warn" style={{ marginBottom: "0.6rem" }}>Estimée</span>
+                <p>Valeur interpolée pour assurer la continuité des séries entre deux années de référence (trait pointillé).</p>
+              </div>
+              <div className="card">
+                <span className="badge" style={{ marginBottom: "0.6rem" }}>Projetée</span>
+                <p>Résultat de simulation sous hypothèses explicites ; l'année 2036 est extrapolée.</p>
+              </div>
+            </div>
+
+            <div className="notice notice--info">
+              <strong>Protection statistique du baromètre (k ≥ 5).</strong> Le baromètre recueille les avis via
+              17 questions à choix fermés. <strong>Aucune donnée brute n'est publiée</strong> : si une catégorie
+              compte moins de 5 personnes, la distribution est masquée sur la page des résultats.
+            </div>
+          </section>
+        </div>
+      )}
+
+      {activeTab === "faq" && (
+        <section>
+          <h2 className="section-title">Questions fréquentes</h2>
+          <p className="section-intro">Sélectionnez une question pour afficher la réponse.</p>
+          <div className="faq">
+            {FAQ_ITEMS.map((item) => {
+              const estOuvert = openFaq.includes(item.id);
               return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => changerOnglet(tab.id)}
-                  style={{
-                    padding: "0.75rem 1.4rem",
-                    fontSize: "0.95rem",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    border: "none",
-                    borderBottom: estActif ? "3px solid #2c5282" : "3px solid transparent",
-                    background: estActif ? "#f8fafc" : "transparent",
-                    color: estActif ? "#2c5282" : "#64748b",
-                    marginBottom: "-2px",
-                    transition: "all 0.15s ease",
-                  }}
-                >
-                  {tab.label}
-                </button>
+                <div key={item.id} className="faq-item">
+                  <button
+                    type="button"
+                    className="faq-q"
+                    aria-expanded={estOuvert}
+                    aria-controls={`faq-${item.id}`}
+                    onClick={() => toggleFaq(item.id)}
+                  >
+                    <span>{item.question}</span>
+                    <ChevronDown size={18} aria-hidden="true" />
+                  </button>
+                  {estOuvert && (
+                    <p id={`faq-${item.id}`} className="faq-a">{item.reponse}</p>
+                  )}
+                </div>
               );
             })}
           </div>
+        </section>
+      )}
+
+      {activeTab === "mentions" && (
+        <div className="stack">
+          <h2 className="section-title">Mentions légales et gouvernance</h2>
+
+          <div className="card card--rule">
+            <h3>Réalisation de la plateforme</h3>
+            <p>
+              La plateforme a été conçue, développée et intégrée par les <strong>étudiants-ingénieurs de
+              l'École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</strong> dans le cadre du
+              Hackathon de la Semaine de la Mobilité Durable à Yaoundé (SMDY 2026).
+            </p>
+          </div>
+
+          <div className="card">
+            <h3>Partenaires du programme et cadre institutionnel</h3>
+            <ul>
+              <li><strong>Communauté Urbaine de Yaoundé (CUY) :</strong> maîtrise d'ouvrage, autorité publique organisatrice des mobilités et propriétaire des données de transport.</li>
+              <li><strong>DVDH (Des Villes et Des Hommes) :</strong> cabinet d'études ayant réalisé les études de mobilité, les projections et l'ingénierie du PMUS pour la CUY.</li>
+              <li><strong>Union européenne :</strong> bailleur finançant le programme d'appui à la mobilité soutenable de Yaoundé.</li>
+              <li><strong>Oslandia :</strong> partenaire technique, expertise en systèmes d'information géographique libres.</li>
+            </ul>
+          </div>
+
+          <div className="card">
+            <h3>Protection des données à caractère personnel</h3>
+            <p>
+              La plateforme ne dépose aucun cookie publicitaire. La participation au baromètre est libre,
+              volontaire et anonyme. Les réponses sont stockées localement et ne font l'objet d'aucune
+              cession commerciale.
+            </p>
+          </div>
         </div>
-      </section>
+      )}
 
-      {/* CONTENU PRINCIPAL */}
-      <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "2.5rem 2rem" }}>
+      {activeTab === "licences" && (
+        <div className="stack">
+          <h2 className="section-title">Licences et conditions de réutilisation</h2>
 
-        {/* ========================================================================= */}
-        {/* ONGLET 1 : METHODOLOGIE & SOURCES                                         */}
-        {/* ========================================================================= */}
-        {activeTab === "sources" && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
-
-            {/* 1. CONTEXTE HACKATHON & REALISATION */}
-            <section>
-              <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "0.75rem" }}>
-                Contexte du projet & Réalisation
-              </h2>
-              <p style={{ color: "#4b5563", lineHeight: 1.6, fontSize: "1rem", marginBottom: "1.5rem" }}>
-                L'Observatoire est développé dans le cadre du <strong>Hackathon de la Semaine de la Mobilité Durable à Yaoundé (SMDY)</strong>.
-                La plateforme est réalisée par les <strong>étudiants-ingénieurs de l'École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</strong> participants au hackathon, sous l'impulsion et l'accompagnement des partenaires institutionnels du programme.
-              </p>
-
-              {/* CARTE PARTICIPANTS / REALISATION */}
-              <div
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid #e5e7eb",
-                  borderLeft: "5px solid #111827",
-                  padding: "1.25rem 1.5rem",
-                  marginBottom: "2rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1.5rem",
-                  flexWrap: "wrap",
-                }}
-              >
-                <img src={logoEnspy} alt="ENSPY" style={{ height: "55px", objectFit: "contain" }} />
-                <div>
-                  <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "#111827" }}>
-                    Réalisation : Étudiants de l'ENSPY
-                  </div>
-                  <div style={{ fontSize: "0.9rem", color: "#64748b", marginTop: "2px" }}>
-                    Développement, ingénierie logicielle et intégration des données réalisés par les équipes étudiantes participantes au Hackathon SMDY.
-                  </div>
+          <div id="telechargements" className="card">
+            <h3>Télécharger les données</h3>
+            <p>
+              Certaines données de l'Observatoire peuvent être téléchargées. Les valeurs sont fournies telles
+              qu'elles sont affichées, sans recalcul, avec leur scénario, leur statut et leur origine. Les
+              réponses individuelles du baromètre ne sont jamais publiées.
+            </p>
+            <div className="download-row">
+              <div className="download">
+                <strong>Indicateurs</strong>
+                <div className="download-controls">
+                  <a href="/api/export/indicateurs.csv" download className="btn btn--primary btn--sm">Télécharger</a>
                 </div>
+                <small>Format CSV · 88 indicateurs, tous scénarios</small>
               </div>
-
-              {/* LES PARTENAIRES DU PROGRAMME */}
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#111827", marginBottom: "1rem" }}>
-                Partenaires du programme
-              </h3>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-                  gap: "1.25rem",
-                  marginBottom: "1.5rem",
-                }}
-              >
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.25rem", textAlign: "center" }}>
-                  <img src={logoCuy} alt="CUY" style={{ height: "55px", objectFit: "contain", marginBottom: "0.75rem" }} />
-                  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827" }}>CUY</div>
-                  <div style={{ fontSize: "0.82rem", color: "#6b7280" }}>Communauté Urbaine de Yaoundé • Maîtrise d'ouvrage</div>
-                </div>
-
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.25rem", textAlign: "center" }}>
-                  <img src={logoDvdh} alt="DVDH" style={{ height: "55px", objectFit: "contain", marginBottom: "0.75rem" }} />
-                  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827" }}>DVDH</div>
-                  <div style={{ fontSize: "0.82rem", color: "#6b7280" }}>Des Villes et Des Hommes • Conseil & Ingénierie urbaine</div>
-                </div>
-
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.25rem", textAlign: "center" }}>
-                  <img src={logoUe} alt="Union Européenne" style={{ height: "55px", objectFit: "contain", marginBottom: "0.75rem" }} />
-                  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827" }}>Union Européenne</div>
-                  <div style={{ fontSize: "0.82rem", color: "#6b7280" }}>Financement du programme d'appui à la mobilité</div>
-                </div>
-
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.25rem", textAlign: "center" }}>
-                  <img src={logoOslandia} alt="Oslandia" style={{ height: "55px", objectFit: "contain", marginBottom: "0.75rem" }} />
-                  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827" }}>Oslandia</div>
-                  <div style={{ fontSize: "0.82rem", color: "#6b7280" }}>Expertise en SIG & technologies Open Source</div>
-                </div>
-              </div>
-            </section>
-
-            {/* 2. PROVENANCE DES DONNEES */}
-            <section>
-              <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                Origine des données : La Communauté Urbaine de Yaoundé (CUY)
-              </h2>
-              <p style={{ color: "#4b5563", lineHeight: 1.6, fontSize: "1rem", marginBottom: "1.25rem" }}>
-                <strong>Toutes les données</strong> présentées dans l'Observatoire (statistiques rétrospectives, modélisations prospectives et couches géographiques) proviennent de la <strong>Communauté Urbaine de Yaoundé (CUY)</strong>, autorité publique organisatrice des mobilités métropolitaines. Elles ont été exploitées et structurées avec l'appui du cabinet d'études <strong>DVDH (Des Villes et Des Hommes)</strong>.
-              </p>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-                  gap: "1.5rem",
-                }}
-              >
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
-                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                    Le PMUS CUY (2018 & 2025)
-                  </h3>
-                  <p style={{ color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.6 }}>
-                    Le <strong>Plan de Mobilité Urbaine Soutenable (PMUS)</strong> de la CUY constitue le référentiel socle. Il capitalise les résultats des grandes Enquêtes Ménages Déplacements (EMD), les comptages directionnels aux carrefours et les points de référence officiels (2000, 2005, 2010, 2018 et 2025).
-                  </p>
-                </div>
-
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
-                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                    Les Séries et Projections (CUY / DVDH)
-                  </h3>
-                  <p style={{ color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.6 }}>
-                    Les séries officielles de la CUY (88 indicateurs retenus) structurées avec DVDH (Des Villes et Des Hommes) couvrent les dynamiques démographiques, les parcs de véhicules, les parts modales précises, les temps de déplacement et les émissions de gaz à effet de serre (GES recalculés sans double compte).
-                  </p>
-                </div>
-
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
-                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                    Le Référentiel Cartographique SIG (CUY)
-                  </h3>
-                  <p style={{ color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.6 }}>
-                    Les couches spatiales fournies par la CUY sont au standard EPSG:4326 (WGS84). Elles incluent le découpage en <strong>105 quartiers de Yaoundé</strong> (avec densités de population) et les infrastructures : lignes de bus, voiries majeures, carrefours, gares et projets de transport collectif.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* 3. LES 3 SCÉNARIOS PROSPECTIFS */}
-            <section>
-              <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "0.75rem" }}>
-                Les 3 scénarios prospectifs (2026 — 2036)
-              </h2>
-              <p style={{ color: "#4b5563", lineHeight: 1.6, fontSize: "0.95rem", marginBottom: "1.25rem" }}>
-                Pour tester l'impact des choix d'aménagement, les modèles comparent trois trajectoires cohérentes :
-              </p>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", borderLeft: "5px solid #2980b9", padding: "1.25rem 1.5rem" }}>
-                  <div style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", marginBottom: "0.25rem" }}>
-                    Scénario Tendanciel
-                  </div>
-                  <p style={{ color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.5, margin: 0 }}>
-                    Poursuite des tendances passées sans inflexion majeure : croissance forte des deux-roues et de l'automobile, saturation continue de la voirie et augmentation des émissions.
-                  </p>
-                </div>
-
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", borderLeft: "5px solid #27ae60", padding: "1.25rem 1.5rem" }}>
-                  <div style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", marginBottom: "0.25rem" }}>
-                    Scénario Volontariste
-                  </div>
-                  <p style={{ color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.5, margin: 0 }}>
-                    Mise en œuvre prioritaire du PMUS : couloirs réservés aux bus, réaménagement des carrefours critiques, encadrement du stationnement et stabilisation des temps de trajet.
-                  </p>
-                </div>
-
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", borderLeft: "5px solid #d35400", padding: "1.25rem 1.5rem" }}>
-                  <div style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", marginBottom: "0.25rem" }}>
-                    Scénario de Rupture
-                  </div>
-                  <p style={{ color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.5, margin: 0 }}>
-                    Transformation profonde : création de lignes de transport en site propre (BRT / train urbain), requalification piétonne du centre et baisse substantielle de l'empreinte carbone.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* 4. CLASSIFICATION DES STATUTS & BAROMETRE */}
-            <section>
-              <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "0.75rem" }}>
-                Statut des données & Baromètre citoyen
-              </h2>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                  gap: "1.25rem",
-                  marginBottom: "1.5rem",
-                }}
-              >
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.25rem" }}>
-                  <strong style={{ color: "#2e7d32", display: "block", marginBottom: "0.35rem" }}>Donnée Mesurée</strong>
-                  <p style={{ color: "#4b5563", fontSize: "0.88rem", lineHeight: 1.5, margin: 0 }}>
-                    Constat direct issu d'enquêtes certifiées ou de recensements physiques (points d'ancrage historiques).
-                  </p>
-                </div>
-
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.25rem" }}>
-                  <strong style={{ color: "#1565c0", display: "block", marginBottom: "0.35rem" }}>Donnée Estimée</strong>
-                  <p style={{ color: "#4b5563", fontSize: "0.88rem", lineHeight: 1.5, margin: 0 }}>
-                    Valeur calculée par interpolation statistique pour assurer la continuité des séries intermédiaires.
-                  </p>
-                </div>
-
-                <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.25rem" }}>
-                  <strong style={{ color: "#e65100", display: "block", marginBottom: "0.35rem" }}>Donnée Projetée</strong>
-                  <p style={{ color: "#4b5563", fontSize: "0.88rem", lineHeight: 1.5, margin: 0 }}>
-                    Résultat de simulation prospective sous hypothèses explicites (l'année 2036 étant extrapolée).
-                  </p>
-                </div>
-              </div>
-
-              <div style={{ background: "#f8fafc", border: "1px solid #e5e7eb", padding: "1.5rem" }}>
-                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                  Protection statistique du Baromètre Citoyen (Règle k &ge; 5)
-                </h3>
-                <p style={{ color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.6, margin: 0 }}>
-                  Le Baromètre recueille les avis via 17 questions à choix fermés. Pour garantir le secret statistique et l'anonymat complet des répondants, <strong>aucune donnée brute n'est publiée</strong>. Si une réponse ou un croisement compte moins de 5 personnes (seuil k &ge; 5), la distribution est automatiquement masquée sur la page des résultats.
-                </p>
-              </div>
-            </section>
-
-          </div>
-        )}
-
-        {/* ========================================================================= */}
-        {/* ONGLET 2 : FOIRE AUX QUESTIONS (FAQ EN DROPDOWN)                          */}
-        {/* ========================================================================= */}
-        {activeTab === "faq" && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <div>
-              <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                Foire Aux Questions (FAQ)
-              </h2>
-              <p style={{ color: "#4b5563", fontSize: "1rem", lineHeight: 1.6, margin: 0 }}>
-                Cliquez sur une question pour afficher ou masquer la réponse détaillée.
-              </p>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-              {FAQ_ITEMS.map((item) => {
-                const estOuvert = openFaq.includes(item.id);
-                return (
-                  <div
-                    key={item.id}
-                    style={{
-                      background: "#ffffff",
-                      border: "1px solid #e5e7eb",
-                      transition: "border-color 0.15s ease",
-                    }}
+              <div className="download">
+                <label htmlFor="couche-export"><strong>Données géographiques</strong></label>
+                <div className="download-controls">
+                  <select
+                    id="couche-export"
+                    className="select"
+                    value={coucheExport}
+                    onChange={(e) => setCoucheExport(e.target.value)}
                   >
-                    <button
-                      type="button"
-                      onClick={() => toggleFaq(item.id)}
-                      style={{
-                        width: "100%",
-                        padding: "1.25rem 1.5rem",
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        background: estOuvert ? "#f8fafc" : "#ffffff",
-                        border: "none",
-                        cursor: "pointer",
-                        textAlign: "left",
-                        gap: "1rem",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: "1.05rem",
-                          fontWeight: 700,
-                          color: estOuvert ? "#2c5282" : "#111827",
-                        }}
-                      >
-                        {item.question}
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "0.9rem",
-                          color: "#6b7280",
-                          transform: estOuvert ? "rotate(180deg)" : "rotate(0deg)",
-                          transition: "transform 0.2s ease",
-                          flexShrink: 0,
-                        }}
-                      >
-                        ▼
-                      </span>
-                    </button>
-
-                    {estOuvert && (
-                      <div
-                        style={{
-                          padding: "1.25rem 1.5rem",
-                          borderTop: "1px solid #e5e7eb",
-                          background: "#ffffff",
-                        }}
-                      >
-                        <p
-                          style={{
-                            color: "#4b5563",
-                            fontSize: "0.95rem",
-                            lineHeight: 1.6,
-                            margin: 0,
-                          }}
-                        >
-                          {item.reponse}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* ========================================================================= */}
-        {/* ONGLET 3 : MENTIONS LÉGALES                                               */}
-        {/* ========================================================================= */}
-        {activeTab === "mentions" && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-            <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "0.25rem" }}>
-              Mentions légales & Gouvernance
-            </h2>
-
-            {/* REALISATION DE LA PLATEFORME */}
-            <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", borderLeft: "5px solid #2c5282", padding: "1.75rem" }}>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                Réalisation de la plateforme
-              </h3>
-              <p style={{ color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.6, margin: 0 }}>
-                La plateforme a été conçue, développée et intégrée par les <strong>étudiants-ingénieurs de l'École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</strong> dans le cadre du Hackathon de la Semaine de la Mobilité Durable à Yaoundé (SMDY 2026).
-              </p>
-            </div>
-
-            {/* PARTENAIRES DU PROGRAMME */}
-            <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "0.75rem" }}>
-                Partenaires du programme & Cadre institutionnel
-              </h3>
-              <ul style={{ paddingLeft: "1.25rem", color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.7, margin: 0 }}>
-                <li><strong>Communauté Urbaine de Yaoundé (CUY) :</strong> Maîtrise d'ouvrage, autorité publique organisatrice des mobilités, collectivité territoriale métropolitaine et propriétaire légitime des données de transport.</li>
-                <li><strong>DVDH (Des Villes et Des Hommes) :</strong> Cabinet d'études spécialisé ayant réalisé les études de mobilité, les projections et l'ingénierie du PMUS pour le compte de la CUY.</li>
-                <li><strong>Union Européenne (UE) :</strong> Bailleur de fonds institutionnel finançant le programme d'appui à la mobilité soutenable de Yaoundé.</li>
-                <li><strong>Oslandia :</strong> Partenaire technique apportant son expertise en Systèmes d'Information Géographique (SIG) Open Source et architecture de données spatiales.</li>
-              </ul>
-            </div>
-
-            {/* PROTECTION DES DONNEES */}
-            <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                Protection des données à caractère personnel
-              </h3>
-              <p style={{ color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.6, margin: 0 }}>
-                La plateforme ne dépose aucun cookie traceur à des fins publicitaires. La participation au baromètre citoyen est libre, volontaire et anonyme. Les réponses sont stockées localement de manière sécurisée et ne font l'objet d'aucune cession commerciale.
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* ========================================================================= */}
-        {/* ONGLET 4 : LICENCES DES DONNÉES                                           */}
-        {/* ========================================================================= */}
-        {activeTab === "licences" && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-            <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "0.25rem" }}>
-              Licences des données & Conditions de réutilisation
-            </h2>
-
-            <div id="telechargements" style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                Télécharger les données
-              </h3>
-              <p style={{ color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "1rem" }}>
-                Certaines données de l'Observatoire peuvent être téléchargées. Les valeurs sont fournies telles qu'elles sont affichées,
-                sans recalcul, avec leur scénario, leur statut et leur origine. Les réponses individuelles du baromètre ne sont jamais publiées.
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "stretch" }}>
-                <div style={{ ...boutonExport, gap: "0.5rem", flex: "1 1 14rem", maxWidth: "100%" }}>
-                  <strong style={{ fontSize: "0.95rem" }}>Indicateurs</strong>
-                  <div>
-                    <a href="/api/export/indicateurs.csv" download style={boutonTelecharger}>
-                      Télécharger
-                    </a>
-                  </div>
-                  <span style={{ fontSize: "0.8rem", color: "#6b7280" }}>Format CSV · 88 indicateurs, tous scénarios</span>
+                    {COUCHES_GEO.map((c) => (
+                      <option key={c.id} value={c.id}>{c.label}</option>
+                    ))}
+                  </select>
+                  <a href={`/api/export/geojson/${coucheExport}.geojson`} download className="btn btn--primary btn--sm">
+                    Télécharger
+                  </a>
                 </div>
-                <div style={{ ...boutonExport, gap: "0.5rem", flex: "1 1 18rem", maxWidth: "100%" }}>
-                  <label htmlFor="couche-export" style={{ fontSize: "0.95rem", fontWeight: 700 }}>
-                    Données géographiques
-                  </label>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                    <select
-                      id="couche-export"
-                      value={coucheExport}
-                      onChange={(e) => setCoucheExport(e.target.value)}
-                      style={{ flex: "1 1 12rem", minWidth: 0, padding: "0.4rem 0.5rem", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "0.9rem" }}
-                    >
-                      {COUCHES_GEO.map((c) => (
-                        <option key={c.id} value={c.id}>{c.label}</option>
-                      ))}
-                    </select>
-                    <a
-                      href={`/api/export/geojson/${coucheExport}.geojson`}
-                      download
-                      style={boutonTelecharger}
-                    >
-                      Télécharger
-                    </a>
-                  </div>
-                  <span style={{ fontSize: "0.8rem", color: "#6b7280" }}>Format GeoJSON</span>
-                </div>
+                <small>Format GeoJSON</small>
               </div>
             </div>
-
-            <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                Principe d'Open Data & Réutilisation publique
-              </h3>
-              <p style={{ color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "1rem" }}>
-                Les séries statistiques et les données cartographiques de l'Observatoire sont mises à disposition dans un objectif de transparence, de recherche scientifique et de valorisation citoyenne.
-              </p>
-              <p style={{ color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.6, margin: 0 }}>
-                Leur réutilisation est autorisée aux conditions suivantes :
-              </p>
-              <ul style={{ paddingLeft: "1.25rem", color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.6, marginTop: "0.5rem" }}>
-                <li><strong>Obligation de citation :</strong> mentionner explicitement la source : <em>« Observatoire de la Mobilité de Yaoundé (Données : Communauté Urbaine de Yaoundé - CUY / Études : DVDH - Des Villes et Des Hommes) »</em>.</li>
-                <li><strong>Respect de l'intégrité :</strong> ne pas altérer les statuts des données (ne pas présenter une valeur « projetée » ou « estimée » comme une observation terrain « mesurée »).</li>
-                <li><strong>Absence de finalité malveillante :</strong> ne pas tenter de désanonymiser les réponses issues du baromètre participatif.</li>
-              </ul>
-            </div>
-
-            <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", padding: "1.75rem" }}>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>
-                Technologies logicielles Open Source & Déploiement Docker
-              </h3>
-              <p style={{ color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "1rem" }}>
-                L'application est construite exclusivement avec des technologies libres, légères et pérennes :
-              </p>
-              <ul style={{ paddingLeft: "1.25rem", color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.6, margin: 0 }}>
-                <li><strong>Frontend :</strong> React 18, Vite, Chart.js et Leaflet pour une expérience cartographique et graphique fluide.</li>
-                <li><strong>Backend API :</strong> Python 3.11 et Flask avec validation stricte des contrats de données.</li>
-                <li><strong>Conteneurisation Docker :</strong> Déploiement autonome dans un conteneur unique unifié (&lt; 500 Mo) où Flask sert l'API et l'application compilée, avec un volume Docker persistant garantissant la pérennité du stockage local des réponses.</li>
-              </ul>
-            </div>
           </div>
-        )}
 
-      </main>
+          <div className="card">
+            <h3>Conditions de réutilisation</h3>
+            <p style={{ marginBottom: "0.6rem" }}>
+              Les séries et les données cartographiques présentées servent la transparence, la recherche et
+              l'information des citoyens. Leur réutilisation suppose de :
+            </p>
+            <ul>
+              <li><strong>Citer la source :</strong> <em>« Observatoire de la Mobilité de Yaoundé (Données : Communauté Urbaine de Yaoundé – CUY / Études : DVDH – Des Villes et Des Hommes) »</em>.</li>
+              <li><strong>Respecter l'intégrité :</strong> ne pas présenter une valeur projetée ou estimée comme une observation mesurée.</li>
+              <li><strong>Ne pas chercher à désanonymiser</strong> les réponses issues du baromètre participatif.</li>
+            </ul>
+          </div>
+
+          <div className="card">
+            <h3>Technologies et déploiement</h3>
+            <ul>
+              <li><strong>Interface :</strong> React, Vite, Chart.js et Leaflet.</li>
+              <li><strong>API :</strong> Python 3.11 et Flask, avec validation stricte des contrats de données.</li>
+              <li><strong>Déploiement :</strong> conteneur Docker unique où Flask sert l'API et l'interface, avec un volume persistant pour les réponses du baromètre.</li>
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,70 +1,145 @@
-import { Link } from 'react-router-dom';
-import yaoundeVille from '../assets/yaounde-ville.jpg';
-import carteYaounde from '../assets/carte-yaounde.jpg';
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import yaoundeVille from "../assets/yaounde-ville.jpg";
+import { SCENARIO_COLORS } from "../components/palette";
+
+const SCENARIOS = [
+  ["tendanciel", "Tendanciel"],
+  ["volontariste", "Volontariste"],
+  ["rupture", "Rupture"],
+];
+
+function Fleche() {
+  return <ArrowRight size={16} aria-hidden="true" />;
+}
 
 export default function Accueil() {
   return (
-    <div style={{ paddingBottom: '4rem' }}>
-      
-      {/* 1. BANDEAU (HERO) - L'image prend 60% de l'écran */}
-      <section 
-        className="hero-dvdh" 
-        style={{ backgroundImage: `url(${yaoundeVille})` }}
-      >
-        <div className="hero-overlay"></div>
-        <div className="hero-content">
-          <h2>Observatoire de la Mobilité de Yaoundé</h2>
-          <p>Comprendre le passé, simuler l'avenir (2026-2036) et cartographier le territoire.</p>
-          <Link to="/prospectif" className="btn-dvdh">
-            Explorer les scénarios
-          </Link>
+    <>
+      <section className="hero" style={{ backgroundImage: `url(${yaoundeVille})` }}>
+        <div className="container hero-inner">
+          <span className="kicker">Communauté Urbaine de Yaoundé</span>
+          <h1>Observatoire de la mobilité urbaine</h1>
+          <p>
+            Comprendre l'évolution des déplacements depuis 2000, comparer les scénarios
+            à l'horizon 2036, lire le territoire quartier par quartier et recueillir
+            la parole des habitants.
+          </p>
+          <div className="hero-actions">
+            <Link to="/prospectif" className="btn btn--light">
+              Comparer les scénarios <Fleche />
+            </Link>
+            <Link to="/participatif" className="btn btn--outline-light">
+              Répondre au baromètre
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* 2. SECTION DÉCOUVRIR (Apparaît au scroll) */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
-        
-        <div className="reveal" style={{ marginTop: '4rem', marginBottom: '2rem' }}>
-          <h2 style={{ fontSize: '2rem', color: '#111827' }}>Découvrir la plateforme</h2>
-          <p style={{ color: '#6b7280', fontSize: '1.1rem', marginTop: '0.5rem' }}>
-            Trois modules pour comprendre les enjeux de la mobilité urbaine à Yaoundé.
+      <div className="container page" style={{ paddingTop: "clamp(2.5rem, 6vw, 3.5rem)" }}>
+        <section>
+          <h2 className="section-title reveal">Explorer l'observatoire</h2>
+          <p className="section-intro reveal reveal-delay-1">
+            Quatre entrées complémentaires, toutes alimentées par les séries de la CUY et
+            les études du PMUS.
           </p>
-        </div>
-        
-        <div className="dashboard-grid" style={{ margin: 0 }}>
-          
-          <div className="chart-card reveal" style={{ padding: '2rem' }}>
-            <h3 style={{ marginBottom: '10px', fontSize: '1.2rem', fontWeight: '700' }}>📊 Tendances historiques</h3>
-            <p style={{ color: '#6b7280', fontSize: '0.95rem', lineHeight: '1.5' }}>Découvrez l'évolution de la population, des parts modales et des émissions jusqu'à aujourd'hui.</p>
-          </div>
 
-          <div className="chart-card reveal" style={{ padding: '2rem' }}>
-            <h3 style={{ marginBottom: '10px', fontSize: '1.2rem', fontWeight: '700' }}>🔮 Projections 2036</h3>
-            <p style={{ color: '#6b7280', fontSize: '0.95rem', lineHeight: '1.5' }}>Comparez les scénarios Tendanciel, Volontariste et Rupture pour anticiper les besoins.</p>
-          </div>
+          <div className="modules">
+            <Link to="/retrospectif" className="module reveal">
+              <span className="module-meta">2000 – 2025</span>
+              <h3>Tendances historiques</h3>
+              <p>
+                Croissance démographique, répartition des déplacements par mode, essor des
+                motos-taxis et évolution du parc de véhicules.
+              </p>
+              <ul className="module-list">
+                <li>Population urbaine</li>
+                <li>Parts modales</li>
+                <li>Parc et motorisation</li>
+              </ul>
+              <div className="module-foot">
+                <span className="link-arrow">Voir la rétrospective <Fleche /></span>
+              </div>
+            </Link>
 
-          <div className="chart-card reveal" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-            <img src={carteYaounde} alt="Carte Yaoundé" style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-            <div style={{ padding: '2rem' }}>
-              <h3 style={{ marginBottom: '10px', fontSize: '1.2rem', fontWeight: '700' }}>🗺️ Cartographie interactive</h3>
-              <p style={{ color: '#6b7280', fontSize: '0.95rem', lineHeight: '1.5' }}>Visualisez les arrondissements, le réseau routier et les équipements de la ville.</p>
+            <Link to="/prospectif" className="module module--gold reveal reveal-delay-1">
+              <span className="module-meta">Horizon 2026 – 2036</span>
+              <h3>Projections</h3>
+              <p>
+                Trois trajectoires de modèle pour anticiper la demande de déplacement, les
+                temps de parcours et les émissions de gaz à effet de serre.
+              </p>
+              <div className="scenario-legend">
+                {SCENARIOS.map(([cle, nom]) => (
+                  <span key={cle}>
+                    <span className="dot" style={{ background: SCENARIO_COLORS[cle] }} />
+                    {nom}
+                  </span>
+                ))}
+              </div>
+              <div className="module-foot">
+                <span className="link-arrow">Comparer les scénarios <Fleche /></span>
+              </div>
+            </Link>
+
+            <Link to="/carte" className="module module--ink reveal reveal-delay-2">
+              <span className="module-meta">Système d'information géographique</span>
+              <h3>Cartographie</h3>
+              <p>
+                Les 105 quartiers et leur population en 2018, 2025 et 2035, avec le réseau de
+                bus, les gares, les carrefours et les projets de voirie.
+              </p>
+              <ul className="module-list">
+                <li>105 zones</li>
+                <li>Réseau de bus</li>
+                <li>Projets d'infrastructure</li>
+              </ul>
+              <div className="module-foot">
+                <span className="link-arrow">Ouvrir la carte <Fleche /></span>
+              </div>
+            </Link>
+
+            <div className="module module--red reveal reveal-delay-3">
+              <span className="module-meta">Enquête citoyenne</span>
+              <h3>Baromètre</h3>
+              <p>
+                Dix-sept questions facultatives sur vos déplacements et vos priorités. Les
+                réponses sont anonymes et publiées uniquement sous forme agrégée.
+              </p>
+              <ul className="module-list">
+                <li>17 questions</li>
+                <li>105 quartiers</li>
+                <li>Anonyme</li>
+              </ul>
+              <div className="module-foot">
+                <Link to="/participatif" className="link-arrow">Répondre au questionnaire <Fleche /></Link>
+                <Link to="/resultats" className="link-arrow">Voir les résultats <Fleche /></Link>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* 3. NOUVELLE SECTION POUR FORCER LE SCROLL (Apparaît aussi) */}
-        <div className="reveal bloc-methodo" style={{ marginTop: '6rem', padding: '3rem', background: 'white', borderRadius: '16px', border: '1px solid #e5e7eb', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: '#111827' }}>Une méthodologie transparente</h2>
-          <p style={{ color: '#6b7280', maxWidth: '800px', margin: '0 auto 2rem auto', lineHeight: '1.6' }}>
-            Toutes les données présentées sur cette plateforme sont issues de sources officielles (CUY, DVDH, SUMP 2019) 
-            et sont rigoureusement classées par statut : <strong>mesuré</strong>, <strong>estimé</strong> ou <strong>projeté</strong>.
-          </p>
-          <Link to="/methodologie" className="btn-dvdh">
-            Lire la méthodologie
-          </Link>
-        </div>
-
+        <section className="section band reveal">
+          <div>
+            <h2 className="section-title">Une méthodologie transparente</h2>
+            <p>
+              Les données proviennent de la Communauté Urbaine de Yaoundé et des études DVDH.
+              Chaque graphique distingue les valeurs observées, les estimations et les
+              projections de modèle.
+            </p>
+          </div>
+          <div className="band-side">
+            <div className="status-list">
+              <span className="badge badge--green">Mesuré</span>
+              <span className="badge badge--warn">Estimé</span>
+              <span className="badge">Projeté</span>
+            </div>
+            <Link to="/methodologie" className="btn btn--secondary">
+              Lire la méthodologie <Fleche />
+            </Link>
+          </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getIndicateurs, getIndicateur } from "../api/client";
 import IndicatorChart from "../components/IndicatorChart";
+import { SCENARIO_COLORS } from "../components/palette";
 
 const SCENARIOS = [["tendanciel", "Tendanciel"], ["volontariste", "Volontariste"], ["rupture", "Rupture"]];
 
@@ -44,7 +46,6 @@ function themeDe({ code, unite = "" }) {
 // Indicateur ouvert par défaut : ses trois scénarios ont des trajectoires différentes, donc comparables
 const CODE_PAR_DEFAUT = "1.2__voiture_particuliere";
 
-const champ = { padding: "0.6rem 1rem", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "1rem", marginTop: "0.35rem", maxWidth: "100%", display: "block" };
 
 export default function Prospectif() {
   const [list, setList] = useState([]);
@@ -92,9 +93,13 @@ export default function Prospectif() {
   }, [code]);
 
   if (!list.length) {
-    return error
-      ? <p style={{ padding: "4rem", textAlign: "center", color: "red" }}>Erreur : {error}</p>
-      : <p style={{ padding: "4rem", textAlign: "center" }}>Chargement des données depuis l'API...</p>;
+    return (
+      <div className="container page">
+        {error
+          ? <div className="state state--box" role="alert"><h2>Données indisponibles</h2><p>{error}</p></div>
+          : <div className="skeleton" style={{ height: 480 }} aria-busy="true" />}
+      </div>
+    );
   }
 
   // Un libellé présent dans plusieurs thèmes (ex. « Taxis » : déplacements, GES, parc) est suffixé par son thème
@@ -151,83 +156,84 @@ export default function Prospectif() {
   };
 
   return (
-    <section style={{ padding: "clamp(1.25rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem)", maxWidth: "1200px", margin: "0 auto" }}>
-
-      <div className="fade-in">
-        <h1 style={{ fontSize: "clamp(1.75rem, 6vw, 2.5rem)", fontWeight: 800, color: "#111827", letterSpacing: "-1px", marginBottom: "1rem" }}>
-          Prospective 2026-2036
-        </h1>
-        <p style={{ fontSize: "1.1rem", color: "#4b5563", maxWidth: "800px", lineHeight: 1.6, marginBottom: "1.5rem" }}>
-          Trois scénarios sont comparés. Ce sont des trajectoires de modèle, pas des observations : le détail de leurs
-          hypothèses est présenté dans la page Méthodologie.
+    <div className="container page">
+      <header className="page-head">
+        <span className="kicker">Horizon 2026 – 2036</span>
+        <h1>Prospective</h1>
+        <p className="lead">
+          Trois scénarios de modèle sont comparés. Ce sont des trajectoires simulées, pas des
+          observations : leurs hypothèses sont détaillées dans la{" "}
+          <Link to="/methodologie#sources">méthodologie</Link>.
         </p>
-      </div>
+      </header>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem", alignItems: "flex-start", marginBottom: "1.5rem" }}>
-        <label style={{ fontWeight: 600, maxWidth: "100%" }}>
-          Thème
-          <select value={theme} onChange={(e) => changerTheme(e.target.value)} style={champ}>
+      <div className="card toolbar">
+        <label className="field">
+          <span className="field-label">Thème</span>
+          <select className="select" value={theme} onChange={(e) => changerTheme(e.target.value)}>
             {themesDispos.map(([t, nom]) => <option key={t} value={t}>{nom}</option>)}
           </select>
         </label>
 
-        <label style={{ fontWeight: 600, maxWidth: "100%" }}>
-          Indicateur
-          <select value={code} onChange={(e) => setCode(e.target.value)} style={champ}>
+        <label className="field">
+          <span className="field-label">Indicateur</span>
+          <select className="select" value={code} onChange={(e) => setCode(e.target.value)}>
             {indicateursDuTheme.map((i) => <option key={i.code} value={i.code}>{etiquette(i)} ({i.unite})</option>)}
           </select>
         </label>
 
-        <fieldset style={{ border: 0, padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <legend style={{ fontWeight: 600, marginBottom: "0.5rem", padding: 0 }}>Courbes affichées</legend>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            {SCENARIOS.map(([s, nom]) => (
-              <label key={s} style={{ opacity: presents.has(s) ? 1 : 0.5 }}>
-                <input type="checkbox" checked={choisis.includes(s)} disabled={!presents.has(s)} onChange={() => basculer(s)} /> {nom}
-              </label>
-            ))}
-          </div>
-          <label style={{ opacity: aHistorique ? 1 : 0.5 }}>
-            <input type="checkbox" checked={avecHistorique} disabled={!aHistorique} onChange={(e) => setAvecHistorique(e.target.checked)} /> Historique
-          </label>
-        </fieldset>
+        <div className="toolbar-row" role="group" aria-labelledby="courbes-label">
+          <span id="courbes-label" className="field-label">Courbes</span>
+          {SCENARIOS.map(([s, nom]) => {
+            const dispo = presents.has(s);
+            const actif = dispo && choisis.includes(s);
+            return (
+              <button
+                key={s}
+                type="button"
+                className="scenario-toggle"
+                aria-pressed={actif}
+                disabled={!dispo}
+                title={dispo ? undefined : "Non disponible pour cet indicateur"}
+                style={actif ? { background: SCENARIO_COLORS[s], borderColor: SCENARIO_COLORS[s] } : { borderColor: SCENARIO_COLORS[s] }}
+                onClick={() => basculer(s)}
+              >
+                {nom}
+              </button>
+            );
+          })}
+          {aHistorique && Number.isFinite(debutScenarios) && (
+            <button
+              type="button"
+              className="btn btn--secondary btn--sm"
+              onClick={() => setAvecHistorique((v) => !v)}
+              aria-pressed={!avecHistorique}
+              style={{ marginLeft: "auto" }}
+            >
+              {avecHistorique ? `Zoomer sur ${debutScenarios}–2036` : "Réafficher l'historique"}
+            </button>
+          )}
+        </div>
       </div>
 
-      {absents.length > 0 && indicateur && (
-        <p role="note" style={{ color: "#4b5563", marginBottom: "1rem" }}>
-          Non disponible pour cet indicateur : scénario {absents.join(", ").toLowerCase()}.
-        </p>
-      )}
-
-      {superposes.length > 0 && !loading && (
-        <p role="note" style={{ color: "#92400e", background: "#fef3c7", border: "1px solid #fde68a", borderRadius: "8px", padding: "0.5rem 0.75rem", fontSize: "0.9rem", marginBottom: "1rem" }}>
-          {superposes.join(" ; ")} : même trajectoire dans le modèle pour cet indicateur, les courbes se superposent. Ce n’est pas un problème d’échelle, le zoom ne les séparera pas.
-        </p>
-      )}
-
-      {error && <p role="alert" style={{ color: "red", marginBottom: "1rem" }}>Erreur : {error}</p>}
-
-      {aHistorique && Number.isFinite(debutScenarios) && (
-        <button
-          type="button"
-          onClick={() => setAvecHistorique((v) => !v)}
-          aria-pressed={!avecHistorique}
-          style={{
-            display: "inline-flex", alignItems: "center", gap: "0.5rem", minHeight: "44px",
-            padding: "0.55rem 1.1rem", marginBottom: "0.75rem", borderRadius: "999px", cursor: "pointer",
-            fontSize: "0.95rem", fontWeight: 600, border: "1px solid #2563eb",
-            background: avecHistorique ? "#fff" : "#2563eb", color: avecHistorique ? "#2563eb" : "#fff",
-          }}
-        >
-          {avecHistorique ? `🔍 Zoom sur les scénarios (${debutScenarios}-2036)` : "↩ Réafficher l'historique"}
-        </button>
-      )}
-
-      <div style={{ background: "#fff", borderRadius: "16px", padding: "1rem", boxShadow: "0 4px 6px rgba(0,0,0,0.05)" }}>
-        {loading || !filtre
-          ? <p style={{ padding: "3rem", textAlign: "center" }}>Chargement des données depuis l'API...</p>
-          : <IndicatorChart indicator={filtre} titre={`${indicateur.libelle} — ${NOM_THEME[themeDe(indicateur)]} (${indicateur.unite})`} />}
+      <div className="stack" style={{ gap: "0.75rem", marginBottom: "1rem" }}>
+        {absents.length > 0 && indicateur && (
+          <p role="note" className="notice">
+            Non disponible pour cet indicateur : scénario {absents.join(", ").toLowerCase()}.
+          </p>
+        )}
+        {superposes.length > 0 && !loading && (
+          <p role="note" className="notice notice--warn">
+            {superposes.join(" ; ")} : même trajectoire dans le modèle pour cet indicateur, les courbes se
+            superposent. Le zoom ne les séparera pas.
+          </p>
+        )}
+        {error && <p role="alert" className="notice notice--error">Erreur : {error}</p>}
       </div>
-    </section>
+
+      {loading || !filtre
+        ? <div className="skeleton" style={{ height: 480 }} aria-busy="true" />
+        : <IndicatorChart indicator={filtre} titre={`${indicateur.libelle} — ${NOM_THEME[themeDe(indicateur)]}`} grand />}
+    </div>
   );
 }

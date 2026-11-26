@@ -5,6 +5,12 @@
 **Branche de fonctionnalite :** `p1-data`
 **Document socle :** [Plan technique d'execution](./Guide_execution_observatoire_mobilite_Yaounde.md)
 
+> **État final — 26 novembre 2026.** Le projet est terminé : F1 à F12 sont livrés et
+> la version finale est dans la PR #11 (interface institutionnelle). Ce guide garde
+> la trace du déroulé du hackathon ; les étapes ci-dessous décrivent comment le
+> travail a été mené. L'état à jour est résumé dans la section « État final » en fin
+> de document et dans le [README](../README.md).
+
 Ce guide est a lire apres le cadrage commun et avant de coder sur la branche
 personnelle. Le plan technique reste l'autorite pour les decisions communes;
 ce guide explique votre parcours concret, ses livrables et les moments ou vous
@@ -617,9 +623,9 @@ conteneur fonctionne au jalon de gel.
 | M0 terminé — PASS (25 nov. 2026) | Structure, ignore rules et Docker/Compose vérifiés; aucun bootstrap à refaire |
 | Mercredi 9 h 15 | Blocage source/CRS et resultat attendu pour 12 h 30 |
 | Mercredi 12 h 30, M1 — TERMINÉ (PASS) | 7 JSON d'indicateurs + GeoJSON 105 zones livrés et conformes, premier build Docker validé (~213 Mo) |
-| Mercredi 17 h 30, M2 — EN COURS | Composant `MapView.jsx` (Leaflet, choroplèthe pop 2018), et préparation des couches géographiques d'infrastructures/voirie (F4) |
-| Jeudi 12 h 30, M3 | `MapView` multi-années (2018/2025/2035) + calques d'infrastructures F4 (voirie structurante, corridors) superposables, validation des données réelles F6/F7 |
-| Jeudi 17 h 30, M4 | Packaging Docker final (`docker compose up --build`), validation volume bind-mount `data/barometre`, formats d'export Open Data F11/F12 |
+| Mercredi 17 h 30, M2 — TERMINÉ | Composant `MapView.jsx` (Leaflet, choroplèthe pop 2018), et préparation des couches géographiques d'infrastructures/voirie (F4) |
+| Jeudi 12 h 30, M3 — TERMINÉ | `MapView` multi-années (2018/2025/2035) + calques d'infrastructures F4 (voirie structurante, corridors) superposables, validation des données réelles F6/F7 |
+| Jeudi 17 h 30, M4 — export livré | Packaging Docker final (`docker compose up --build`, à revalider sur la version finale), validation volume bind-mount `data/barometre`, formats d'export F11/F12 |
 | Vendredi 13 h, M5 | URL si prête, sinon conteneur Docker local validé, vérification de 5 valeurs avec P3 et répétition de la démo |
 
 Si une source manque, un droit de diffusion n'est pas clair, un champ ou le CRS
@@ -657,3 +663,19 @@ Ne commencez pas un second chantier dans cette branche sans nouvelle decision
 d'equipe. Les suites possibles sont un controle SIG metier, les couches
 d'infrastructure, la validation detaillee des projections et le stockage
 persistant pour collecte reelle. Elles ne font pas partie des trois jours.
+
+---
+
+## État final P1 — 26 novembre 2026
+
+- Données : `preparer_donnees.py` produit les 7 JSON (88 indicateurs) et
+  `preparer_zones.py` le GeoJSON des 105 zones ; les valeurs exposées sont
+  identiques au CSV brut (5 561 points, 0 écart).
+- Carte : 5 couches d'infrastructures livrées (`reseau_bus`, `projets_voirie`,
+  `projets_tp`, `gares`, `carrefours`), exportées directement en GeoJSON sans
+  script de régénération versionné.
+- `MapView.jsx` : couches activables, année de population (2018, 2025, 2035), filtre
+  d'horizon des projets avec libellés en toutes lettres (Coup parti, Moyen terme, Long
+  terme), légendes, popups et infobulle de tranche de population au survol.
+- Docker : premier build validé à M1 (~213 Mo) ; la version finale reste à reconstruire
+  avec `docker compose up --build` et à vérifier (port 5000, taille, persistance).

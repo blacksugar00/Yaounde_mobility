@@ -5,6 +5,12 @@
 **Branche de fonctionnalite :** `p2-front`
 **Document socle :** [Plan technique d'execution](./Guide_execution_observatoire_mobilite_Yaounde.md)
 
+> **État final — 26 novembre 2026.** Le projet est terminé : F1 à F12 sont livrés et
+> la version finale est dans la PR #11 (interface institutionnelle). Ce guide garde
+> la trace du déroulé du hackathon ; les étapes ci-dessous décrivent comment le
+> travail a été mené. L'état à jour est résumé dans la section « État final » en fin
+> de document et dans le [README](../README.md).
+
 Le plan technique est la source de verite sur les decisions produit. Ce guide
 detaille votre travail et les interfaces avec P1 (donnees, carte, Docker) et P3
 (Flask, questionnaire, resultats, methodologie).
@@ -101,9 +107,9 @@ git var GIT_AUTHOR_IDENT
 
 Le socle React 18, Axios `/api`, Vite, Router et les sept routes M0 sont déjà
 présents. Ne recommencez pas le bootstrap. Travaillez sur les pages, le layout,
-les visualisations et le responsive selon le périmètre P2. Le contrat proposé
-du baromètre est [`contrat_barometre.md`](./contrat_barometre.md); le formulaire
-reste désactivé tant que les validations ne sont pas obtenues.
+les visualisations et le responsive selon le périmètre P2. Le contrat du
+baromètre est [`contrat_barometre.md`](./contrat_barometre.md); le formulaire est
+validé et actif depuis M2.
 
 ---
 
@@ -846,9 +852,9 @@ npm run build
 |---|---|
 | M0 terminé — PASS (25 nov. 2026) | Sept routes, React build, proxy et sortie vérifiés; aucun travail M0 restant |
 | M1 — TERMINÉ (PASS) | Client Axios, ChartCard initial et premier graphique population connecté à l'API réelle |
-| M2 — EN COURS | Intégration de `MapView.jsx` dans `Carte.jsx`; adoption de `ChartCard.jsx` entreprise (modernisé par P3) |
-| M3 — jeudi 12 h 30 | Remplacement des fixtures par les indicateurs réels : F2 (déplacements, parc, motorisation), F5 (comparateur de scénarios), F6 (parts modales réelles via `parts_modales.json`), F7 (GES et temps réels via `ges.json` et `temps.json`); sélecteur d'année et calques F4 (infrastructures) dans `Carte.jsx` |
-| M4 — jeudi 17 h 30 | Intégration du bouton d'export de données F11/F12 (Open Data), finitions UI/UX, responsive et build Vite validés |
+| M2 — TERMINÉ | Intégration de `MapView.jsx` dans `Carte.jsx`; adoption de `ChartCard.jsx` entreprise (modernisé par P3) |
+| M3 — TERMINÉ | Remplacement des fixtures par les indicateurs réels : F2 (déplacements, parc, motorisation), F5 (comparateur de scénarios), F6 (parts modales réelles via `parts_modales.json`), F7 (GES et temps réels via `ges.json` et `temps.json`); sélecteur d'année et calques F4 (infrastructures) dans `Carte.jsx` |
+| M4 — TERMINÉ | Bouton d'export de données F11/F12, finitions UI/UX, responsive et build Vite validés |
 | M5 — vendredi 13 h | Tests multi-navigateurs, contrôle croisé de 5 valeurs avec P3, répétition générale de la démo de 10 min |
 
 Rituels :
@@ -886,13 +892,22 @@ de correlation ou export doivent etre validees comme un prochain lot.
 
 ---
 
-## Etat courant pour P2
+## État final P2 — 26 novembre 2026
 
-- M0 technique est PASS et fusionné dans `main`; le bootstrap n'est plus à
-  réaliser. Synchronisez `main` avant de créer ou reprendre `p2-front`.
-- M1 est PASS et validé sur `main` : il fournit les données P1, les routes de lecture P3 et le graphique de
-  population alimenté par l'API réelle.
-- Le composant `ChartCard.jsx` a été repris et modernisé par P3 : support de `pie`/`line`/`bar`, badges de statut (mesuré/estimé/projeté), badge hypothèse, infobulles sombres entreprise et suppression des alertes lint. P2 réutilise ce composant standardisé.
-- M2 est en cours : brancher le composant Leaflet `MapView` de P1 dans la page `Carte.jsx` avec chargement et gestion d'erreurs.
-- F4 (couches voirie/infrastructures), F6 (parts modales) et F7 (GES/temps) sont confirmées et intégrées dans M3; les fichiers JSON correspondants sont déjà disponibles dans l'API Flask.
-- P3 a validé et livré le baromètre participatif F8 (`Participatif.jsx`) et la page F9 (`Resultats.jsx`) avec respect strict de l'anonymat ($k \ge 5$).
+- Les 7 pages sont alimentées par l'API réelle ; plus aucune donnée de test
+  n'est affichée (`TestBanner.jsx`, `mocks/`, `EtatIndicateur.jsx` et
+  `useIndicateur.js` ne sont plus utilisés).
+- Charte institutionnelle (vert, ocre, rouge ; Source Serif 4 et Inter) définie dans
+  `src/index.css` avec des classes partagées ; détails dans [web/README.md](../web/README.md).
+- En-tête : le logo ramène à l'accueil ; menu Rétrospectif, Prospectif, Carte,
+  Participatif ; menu repliable sur mobile.
+- Accueil : quatre cartes d'accès (Rétrospectif, Prospectif, Carte, Baromètre avec
+  Participatif et Résultats), apparition au défilement.
+- Rétrospectif : population, parts modales (années de référence, en % d'après l'unité
+  « fraction », sans arrondi), parc de véhicules, motorisation.
+- Prospectif : thème, indicateur, boutons de scénario à fond coloré, zoom 2018–2036.
+- Graphiques (`ChartCard`, [Contrat D](../web/CONTRAT_D.md)) : axes en français,
+  infobulle par année, pointillés expliqués, badge « Hypothèse » ; la source n'est plus
+  affichée sous chaque graphique (décision du 26 novembre).
+- Vérification : 7 pages contrôlées dans Chromium à 1366 px et 390 px, sans débordement
+  horizontal ni erreur console ; `npm run build` et `npm run lint` sans erreur.

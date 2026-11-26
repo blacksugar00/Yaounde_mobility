@@ -1,11 +1,18 @@
 import { NavLink, Outlet, Link, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import armoiries from './assets/armoiries.jpg';
-import logoCuy from './assets/logo-cuy.jpg';   
-import logoDvdh from './assets/logo-dvdh.jpg'; 
-import logoUe from './assets/logo-ue.jpg';     
-import logoEnspy from './assets/logo-enspy.jpg'; 
-import logoOslandia from './assets/logo-oslandia.png'; 
+import logoCuy from './assets/logo-cuy.jpg';
+import logoDvdh from './assets/logo-dvdh.jpg';
+import logoUe from './assets/logo-ue.jpg';
+import logoEnspy from './assets/logo-enspy.jpg';
+import logoOslandia from './assets/logo-oslandia.png';
+
+const NAV = [
+  { to: '/retrospectif', label: 'Rétrospectif' },
+  { to: '/prospectif', label: 'Prospectif' },
+  { to: '/carte', label: 'Carte' },
+  { to: '/participatif', label: 'Participatif', inclut: ['/resultats'] },
+];
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -16,6 +23,16 @@ function ScrollToTop() {
 }
 
 export default function Layout() {
+  const { pathname } = useLocation();
+  const [menuOuvert, setMenuOuvert] = useState(false);
+  const [routeMenu, setRouteMenu] = useState(pathname);
+
+  // Le menu mobile se referme à chaque changement de page
+  if (routeMenu !== pathname) {
+    setRouteMenu(pathname);
+    setMenuOuvert(false);
+  }
+
   useEffect(() => {
     // Chaque élément .reveal apparaît une seule fois, à sa première entrée à l'écran
     const observer = new IntersectionObserver((entries, obs) => {
@@ -25,7 +42,7 @@ export default function Layout() {
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 }); // Se déclenche quand 15% de l'élément est visible
+    }, { threshold: 0.1 });
 
     const surveiller = (racine) => {
       if (racine.nodeType !== 1) return;
@@ -50,83 +67,98 @@ export default function Layout() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <ScrollToTop />
-      
-      <header>
-        <div className="header-left">
-          <img src={armoiries} alt="Armoiries" style={{ height: '80px', objectFit: 'contain' }} />
-          <div className="header-text">
-            <h1>Observatoire de la Mobilité</h1>
-            <span>République du Cameroun • Yaoundé</span>
+
+      <header className="site-header">
+        <div className="flag-rule" aria-hidden="true" />
+        <div className="site-header-inner">
+          <Link to="/" className="brand" aria-label="Observatoire de la Mobilité — retour à l'accueil">
+            <img src={armoiries} alt="" />
+            <span className="brand-text">
+              <span className="brand-title">Observatoire de la Mobilité</span>
+              <span className="brand-sub">République du Cameroun · Yaoundé</span>
+            </span>
+          </Link>
+
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-expanded={menuOuvert}
+            aria-controls="site-nav"
+            onClick={() => setMenuOuvert((v) => !v)}
+          >
+            {menuOuvert ? 'Fermer' : 'Menu'}
+          </button>
+
+          <nav id="site-nav" className={`site-nav${menuOuvert ? ' is-open' : ''}`} aria-label="Navigation principale">
+            {NAV.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) => (isActive || item.inclut?.includes(pathname) ? 'active' : '')}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <div className="header-partner">
+            <img src={logoCuy} alt="Communauté Urbaine de Yaoundé" />
           </div>
         </div>
-        
-        <nav>
-          <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Accueil</NavLink>
-          <NavLink to="/retrospectif" className={({ isActive }) => isActive ? "active" : ""}>Rétrospectif</NavLink>
-          <NavLink to="/prospectif" className={({ isActive }) => isActive ? "active" : ""}>Prospectif</NavLink>
-          <NavLink to="/carte" className={({ isActive }) => isActive ? "active" : ""}>Carte</NavLink>
-          <NavLink to="/participatif" className={({ isActive }) => isActive ? "active" : ""}>Participatif</NavLink>
-          <NavLink to="/resultats" className={({ isActive }) => isActive ? "active" : ""}>Résultats</NavLink>
-        </nav>
-
-        <div className="header-right" style={{ marginLeft: '2rem', paddingLeft: '2rem', borderLeft: '1px solid var(--border)' }}>
-          <img src={logoCuy} alt="Logo CUY" style={{ height: '120px', objectFit: 'contain' }} />
-        </div>
       </header>
-      
+
       <main style={{ flex: 1 }}>
         <Outlet />
       </main>
 
-      <footer style={{ background: 'white', borderTop: '1px solid var(--border)', padding: '4rem 3rem 2rem 3rem', marginTop: 'auto' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
-          
-          <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Partenaires</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', flexWrap: 'wrap' }}>
-                <img src={logoDvdh} alt="DVDH" style={{ height: '50px', objectFit: 'contain' }} />
-                <img src={logoUe} alt="Union Européenne" style={{ height: '50px', objectFit: 'contain' }} />
-                <img src={logoOslandia} alt="Oslandia" style={{ height: '40px', objectFit: 'contain' }} />
-                <img src={logoEnspy} alt="ENSPY" style={{ height: '50px', objectFit: 'contain' }} />
+      <footer className="site-footer">
+        <div className="container">
+          <div className="footer-grid">
+            <div>
+              <h2 className="footer-title">Partenaires</h2>
+              <div className="footer-logos">
+                <img src={logoCuy} alt="Communauté Urbaine de Yaoundé" />
+                <img src={logoDvdh} alt="DVDH" />
+                <img src={logoUe} alt="Union européenne" />
+                <img src={logoOslandia} alt="Oslandia" style={{ height: 30 }} />
+                <img src={logoEnspy} alt="ENSPY" />
               </div>
+            </div>
+
+            <div>
+              <h2 className="footer-title">Explorer</h2>
+              <ul className="footer-links">
+                <li><Link to="/retrospectif">Données rétrospectives</Link></li>
+                <li><Link to="/prospectif">Scénarios 2026–2036</Link></li>
+                <li><Link to="/carte">Cartographie</Link></li>
+                <li><Link to="/participatif">Baromètre citoyen</Link></li>
+                <li><Link to="/resultats">Résultats du baromètre</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="footer-title">Ressources</h2>
+              <ul className="footer-links">
+                <li><Link to="/methodologie#sources">Méthodologie et sources</Link></li>
+                <li><Link to="/methodologie#faq">Questions fréquentes</Link></li>
+                <li><Link to="/methodologie#mentions">Mentions légales</Link></li>
+                <li><Link to="/methodologie#licences">Licences et téléchargements</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="footer-title">Contact</h2>
+              <p style={{ color: 'var(--ink-2)' }}>
+                <strong>Communauté Urbaine de Yaoundé</strong><br />
+                Hôtel de Ville, Yaoundé<br />
+                Cameroun
+              </p>
             </div>
           </div>
 
-          <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Explorer</h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              <li><Link to="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Accueil</Link></li>
-              <li><Link to="/retrospectif" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Données rétrospectives</Link></li>
-              <li><Link to="/prospectif" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Scénarios 2026-2036</Link></li>
-              <li><Link to="/carte" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Cartographie interactive</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Ressources</h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              <li><Link to="/methodologie#sources" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Méthodologie & Sources</Link></li>
-              <li><Link to="/methodologie#faq" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Foire Aux Questions (FAQ)</Link></li>
-              <li><Link to="/methodologie#mentions" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Mentions légales</Link></li>
-              <li><Link to="/methodologie#licences" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Licences des données</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Contact</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1rem' }}>
-              <strong>Communauté Urbaine de Yaoundé</strong><br />
-              Hôtel de Ville, Yaoundé<br />
-              Cameroun
-            </p>
-          </div>
-        </div>
-
-        <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '2rem', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-          <p>© 2026 Observatoire de la Mobilité Urbaine de Yaoundé. Tous droits réservés.</p>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <span>Réalisation : Étudiants de l'ENSPY • Initiative CUY • DVDH • UE • Oslandia</span>
+          <div className="footer-bottom">
+            <p>© 2026 Observatoire de la Mobilité Urbaine de Yaoundé</p>
+            <p>Réalisation : étudiants de l'ENSPY · CUY · DVDH · UE · Oslandia</p>
           </div>
         </div>
       </footer>

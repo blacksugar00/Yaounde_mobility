@@ -7,6 +7,7 @@ import Carte from './pages/Carte';
 import Participatif from './pages/Participatif';
 import Resultats from './pages/Resultats';
 import Methodologie from './pages/Methodologie';
+import Barometre from './pages/Barometre';
 
 export default function App() {
   return (
@@ -17,8 +18,10 @@ export default function App() {
           <Route path="retrospectif" element={<Retrospectif />} />
           <Route path="prospectif" element={<Prospectif />} />
           <Route path="carte" element={<Carte />} />
-          <Route path="participatif" element={<Participatif />} />
-          <Route path="resultats" element={<Resultats />} />
+          <Route element={<Barometre />}>
+            <Route path="participatif" element={<Participatif />} />
+            <Route path="resultats" element={<Resultats />} />
+          </Route>
           <Route path="methodologie" element={<Methodologie />} />
         </Route>
       </Routes>
